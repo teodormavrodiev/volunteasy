@@ -16,6 +16,6 @@ class Event < ApplicationRecord
   validates :address, presence: true
   validates :capacity, presence: true, numericality: true
   validates :description, presence: true
-  validates :tag, presence: true
+  validates :tags, presence: true
 end
 

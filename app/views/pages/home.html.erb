@@ -5,7 +5,7 @@
   <div class = "form-inline search-form form-group">
     <%= simple_form_for @event, url: search_path, method: :get do |f| %>
 
-    <%= f.input :location, placeholder:"Location...", label: false, input_html: {location: 'address', class: 'location'} %>
+    <%= f.input :address, placeholder:"Location...", label: false, input_html: {location: 'address', class: 'location'} %>
 
     <%= f.button :submit, value: "Go!" %>
 
@@ -13,5 +13,5 @@
   </div>
 </div>
 <div class="container text-center">
-  <%= link_to "Or create your own !", boats_path(category: 'Catamaran') %>
+  <%= link_to "Or create your own !", new_event_path %>
 </div>

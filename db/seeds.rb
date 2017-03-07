@@ -27,7 +27,7 @@ jackie = User.new({
   password_confirmation: "rosebud",
   first_name: "Jackie",
   last_name: "Kennedy",
-  phone: "0908076532",
+  phone: "0908076532"
   #photo_url: "https://i.ytimg.com/vi/Hv5Q1EL-4pQ/maxresdefault.jpg"
   })
 
@@ -37,7 +37,7 @@ jeanjacques = User.new({
   password_confirmation: "rosebud",
   first_name: "Jean-Jacques",
   last_name: "Rousseau",
-  phone: "09080787632",
+  phone: "09080787632"
   #photo_url: "http://www.sarahbeaucheminwriter.com/wp-content/uploads/2014/11/rousseau.jpg"
   })
 
@@ -90,7 +90,8 @@ puppy_feeding = Event.new({
   address: "The Shelter, 3 calle Princesa 08001 Barcelona",
   capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!",
-  #photo_url: "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
+  tags: ["animals"]
+  # photo_url: "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
   })
 
 teaching_refugees_english = Event.new({
@@ -101,7 +102,8 @@ teaching_refugees_english = Event.new({
   address: "The Shelter, 3 calle Princesa 08001 Barcelona",
   capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile",
-  #photo_url: "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+  tags: ["teaching"]
+  # photo_url: "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
   })
 
 beach_cleaning = Event.new({
@@ -112,7 +114,8 @@ beach_cleaning = Event.new({
   address: "Playa de Barceloneta, 08001 Barcelona",
   capacity: 15,
   description: "Let's work together for a nicer beach :)",
-  #photo_url: "http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
+  tags: ["animals", "environment"]
+  # photo_url: "http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
   })
 
 nursing_home = Event.new({
@@ -123,7 +126,8 @@ nursing_home = Event.new({
   address: "Paradise Nursing Home, calle Sardenya, 08765 Manresa",
   capacity: 5,
   description: "Come for a chat and share a meal with our residents",
-  #photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  tags: ["animals", "environment"]
+  # photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   })
 
 puppy_feeding.save
