@@ -1,6 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Events</h1>
+<!-- <h1>Events</h1> -->
+
+<!-- Search by category / Search by location  -->
+
+<%= simple_form_for @event, :url => XXXXX, :method => :get, class: 'form-inline'  do |f| %>
+  <div class="row">
+    <div class="event-search-box">
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :location, label_html: { class: 'sr-only' }, placeholder: 'location' %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.input :price, label_html: { class: 'sr-only' }, placeholder: 'price max'  %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= f.submit  "Search!", class: 'gold-button-search' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+
+
 
 <table>
   <thead>

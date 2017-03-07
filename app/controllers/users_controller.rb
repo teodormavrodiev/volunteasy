@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:view_profile]
-  def user_params
-    params.require(:user).permit(:name, :email, :first_name, :last_name, :phone, :dob, :organization :address, :photo)
+
+
+  def index
+    # list of the event of a user (organizer or participant)
   end
 
   def show
-
+    # Display the public profile of a specific user
   end
 end
