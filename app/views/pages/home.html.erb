@@ -1,2 +1,9 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class = "form-inline search-form form-group">
+  <%= simple_form_for @event, url: events_path, method: :get do |f| %>
+
+  <%= f.input :location, placeholder:"Location...", label: false, input_html: {location: 'address', class: 'location'} %>
+
+  <%= f.button :submit, value: "Go!" %>
+
+  <% end %>
+</div>
