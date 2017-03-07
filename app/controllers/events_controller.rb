@@ -7,9 +7,25 @@ class EventsController < ApplicationController
 
   def index
     @events = policy_scope(Event)
+
+    if params[:tag].present?
+      tag_list = params[:tag]
+      @events = @events.where("tag @> ?", "{#{tag_list.join(",")}}")
+    else
+      @events = @events.all
+    end
+
+    if params[:address].present?
+      @events = @events.where("address ILIKE ?", params[:address]) # ILIKE ne prend pas en compte la casse
+    end
+
+    @events = @events.order(start_time: :desc)
   end
 
   def show
+    @attending = @event.participants.all
+    tag_list = @event.tag
+    @similar_events = Event.where("tag @> ?", "{#{tag_list.join(",")}}")
   end
 
   def new
