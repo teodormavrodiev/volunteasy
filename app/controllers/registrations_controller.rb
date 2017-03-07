@@ -1,54 +1,33 @@
 class RegistrationsController < ApplicationController
-  before_action :set_registration, only: [:show, :edit, :update, :destroy]
-
-  def index
-    @registrations = policy_scope(Registration).where(participant_id: current_user.id)
-  end
-
-  def show
-  end
 
   def new
     @registration = Registration.new
-    authorize @registration
-  end
+    @event = Event.find(params[:event_id])
 
-  def edit
+    authorize @registration
   end
 
   def create
     @registration = Registration.new(registration_params)
     @registration.participant_id = current_user.id
-    @registration.event_id = params[:event_id]
+    @event = Event.find(params[:event_id])
+    @registration.event_id = @event.id
     authorize @registration
-
     if @registration.save
-      redirect_to @registration, notice: 'Registration was successfully created.'
+      redirect_to @event, notice: 'You are going to #{registration.name}.'
     else
       render :new
     end
   end
 
-  def update
-    if @registration.update(registration_params)
-      redirect_to @registration, notice: 'Registration was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
   def destroy
+    @registration = Registration.find(params[:id])
+    authorize @registration
     @registration.destroy
     redirect_to registrations_url, notice: 'Registration was successfully destroyed.'
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_registration
-      @registration = Registration.find(params[:id])
-      authorize @registration
-    end
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def registration_params
       params.require(:registration).permit(:participant_id, :event_id, :status)
