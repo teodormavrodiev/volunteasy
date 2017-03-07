@@ -7,9 +7,11 @@ Rails.application.routes.draw do
 
   devise_for :users, path_prefix: 'd'
 
-  get '/users/:id', to: 'users#show'
-  get '/users/:user_id/events', to: 'users#index'
+  resources :users, only: [:show] do
+    resources :events, only: [:index]
+  end
 
+  resources :events, except: [:index, :show]
 
   resources :events, only: [:show] do
     resources :registrations, only: [:create, :destroy, :new]
