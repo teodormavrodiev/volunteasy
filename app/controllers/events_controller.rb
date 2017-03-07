@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
   skip_after_action :verify_authorized, only: [:index, :show]
-  after_action :verify_policy_scoped, only: [:index, :show], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
@@ -21,6 +21,10 @@ class EventsController < ApplicationController
     end
 
     @events = @events.order(start_time: :desc)
+  end
+
+  def search
+
   end
 
   def show
