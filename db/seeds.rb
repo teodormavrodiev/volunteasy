@@ -12,11 +12,11 @@ Event.destroy_all
 User.destroy_all
 
 ruben = User.new({
-  email: "jamsbec@gmail.com",
+  email: "ruben@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "ruben",
-  last_name: "waekfyg"
+  last_name: "rubenson"
   })
 
 ruben.save
@@ -25,11 +25,11 @@ puts ruben.attributes
 
 # participant
 joe = User.new({
-  email: "asdfghjkl@gmail.com",
+  email: "joe@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "joe",
-  last_name: "awelfku"
+  last_name: "joeson"
   })
 
 joe.save
@@ -38,7 +38,12 @@ puts joe.attributes
 
 eve = Event.new({
   name: "puppy feeding",
-  organizer_id: ruben.id
+  organizer_id: ruben.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: '13 West Drive',
+  capacity: 22,
+  description: 'Awesome'
   })
 
 eve.save
