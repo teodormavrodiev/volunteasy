@@ -16,7 +16,7 @@ ruben = User.new({
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "Ruben",
-  last_name: "Frommanresa"
+  last_name: "Frommanresa",
   phone: "0909090909"
   })
 
@@ -25,7 +25,7 @@ jackie = User.new({
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "Jackie",
-  last_name: "Kennedy"
+  last_name: "Kennedy",
   phone: "0908076532"
   })
 
@@ -34,7 +34,7 @@ jeanjacques = User.new({
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "Jean-Jacques",
-  last_name: "Rousseau"
+  last_name: "Rousseau",
   phone: "09080787632"
   })
 
@@ -81,41 +81,41 @@ puts jimmy.attributes
 
 puppy_feeding = Event.new({
   name: "Puppy feeding",
-  organizer_id: ruben.id
-  start_time: "14:00, 10/03/17"
-  end_time: "16:00, 10/03/17"
-  address: "The Shelter, 3 calle Princesa 08001 Barcelona"
-  capacity: "8"
+  organizer_id: ruben.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "The Shelter, 3 calle Princesa 08001 Barcelona",
+  capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!"
   })
 
 teaching_refugees_english = Event.new({
   name: "Teach refugees english",
-  organizer_id: jackie.id
-  start_time: "11:00, 15/05/17"
-  end_time: "14:00, 15/05/17"
-  address: "The Shelter, 3 calle Princesa 08001 Barcelona"
-  capacity: "8"
+  organizer_id: jackie.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "The Shelter, 3 calle Princesa 08001 Barcelona",
+  capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile"
   })
 
 beach_cleaning = Event.new({
   name: "let's clean the beach!",
-  organizer_id: jeanjacques.id
-  start_time: "11:00, 10/03/17"
-  end_time: "14:00, 10/03/17"
-  address: "Playa de Barceloneta, 08001 Barcelona"
-  capacity: "15"
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Playa de Barceloneta, 08001 Barcelona",
+  capacity: 15,
   description: "Let's work together for a nicer beach :)"
   })
 
 nursing_home = Event.new({
   name: "",
-  organizer_id: jeanjacques.id
-  start_time: "13:00, 10/03/17"
-  end_time: "15:00, 10/03/17"
-  address: "Paradise Nursing Home, calle Sardenya, 08765 Manresa"
-  capacity: "5"
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Paradise Nursing Home, calle Sardenya, 08765 Manresa",
+  capacity: 5,
   description: "Come for a chat and share a meal with our residents"
   })
 
