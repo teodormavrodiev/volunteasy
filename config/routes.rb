@@ -10,9 +10,9 @@ Rails.application.routes.draw do
   get '/users/:id', to: 'users#show'
   get '/users/:user_id/events', to: 'users#index'
 
-<<<<<<< HEAD
-  resources :events do
-    resources :registration, only: [:create, :destroy, :new]
+
+  resources :events, only: [:show] do
+    resources :registrations, only: [:create, :destroy, :new]
   end
 
   get '/events/', to: 'events#search', as: 'search'

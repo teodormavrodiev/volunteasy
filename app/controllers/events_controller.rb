@@ -27,6 +27,10 @@ class EventsController < ApplicationController
 
   end
 
+  def search
+
+  end
+
   def show
     @attending = @event.participants.all
     tag_list = @event.tag
