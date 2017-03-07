@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   after_validation :geocode, if: :address_changed?
   belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"
 
-  has_many :registrations
+  has_many :registrations, dependent: :destroy
   has_many :participants, through: :registrations
 
   # Photo implementation

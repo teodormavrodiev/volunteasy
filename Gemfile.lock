@@ -227,7 +227,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bootstrap-sass
-  geocoding
   cloudinary (= 1.1.7)
   coffee-rails
   devise
@@ -257,5 +256,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-geocoding
-   1.14.5
+   1.13.7

@@ -4,10 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :events, foreign_key: "organizer_id"
+  has_many :events, foreign_key: "organizer_id", dependent: :destroy
   has_many :events_as_participant, through: :registrations, source: :event
   # BOOM
-  has_many :registrations, foreign_key: "participant_id"
+  has_many :registrations, foreign_key: "participant_id", dependent: :destroy
 
   # Images
   has_attachment :photo
