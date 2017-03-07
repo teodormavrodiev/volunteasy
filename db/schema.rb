@@ -43,6 +43,8 @@ ActiveRecord::Schema.define(version: 20170307135352) do
     t.text     "tags",            default: [],              array: true
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["organizer_id"], name: "index_events_on_organizer_id", using: :btree
   end
 
