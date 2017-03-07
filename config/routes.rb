@@ -17,4 +17,6 @@ Rails.application.routes.draw do
 
   get '/events/', to: 'events#search', as: 'search'
 
+  resources :event, only [:new, :create]
+
 end
