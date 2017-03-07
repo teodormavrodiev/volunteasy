@@ -6,6 +6,7 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    session[:search_results] = params[:address]
     @events = policy_scope(Event)
 
     if params[:tag].present?

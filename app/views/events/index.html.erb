@@ -4,26 +4,39 @@
 
 <!-- Search by category / Search by location  -->
 
-<%= simple_form_for @event, :url => XXXXX, :method => :get, class: 'form-inline'  do |f| %>
+<!-- AJAXISER SI FORM MARCHE BIEN
+ -->
+<%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline'  do |f| %>
   <div class="row">
     <div class="event-search-box">
       <div class="col-xs-12 col-sm-4">
-        <%= f.input :location, label_html: { class: 'sr-only' }, placeholder: 'location' %>
+        <%= f.input :tag, label_html: { class: 'sr-only' }, 'Category') %>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= f.input :price, label_html: { class: 'sr-only' }, placeholder: 'price max'  %>
+        <%= f.input :address, label_html: { class: 'sr-only' }, placeholder: (session[:search_results] || 'Location') %>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= f.submit  "Search!", class: 'gold-button-search' %>
+        <%= f.submit  "Search!" %>
       </div>
     </div>
   </div>
 <% end %>
 
+<div class="container">
+  <div class="row">
+  <% @events.each do |event| %>
+  <tr>
+    <td><%= event.name %></td>
+    <td><%= event.address %> </td>
+    <td> <%= event.start_time %> </td>
+  </tr>
+  <% end  %>
+
+  </div>
+</div>
 
 
-
-<table>
+<!-- <table>
   <thead>
     <tr>
       <th>User</th>
@@ -53,7 +66,7 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
 
 <br>
 
