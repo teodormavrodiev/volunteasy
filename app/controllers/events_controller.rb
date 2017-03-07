@@ -9,6 +9,10 @@ class EventsController < ApplicationController
     @events = policy_scope(Event)
   end
 
+  def search
+
+  end
+
   def show
   end
 

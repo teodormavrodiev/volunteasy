@@ -17,6 +17,6 @@ Rails.application.routes.draw do
     resources :registrations, only: [:create, :destroy, :new]
   end
 
-  get '/events/', to: 'events#search'
+  get '/events/', to: 'events#search', as: 'search'
 
 end
