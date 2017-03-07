@@ -12,4 +12,10 @@ class User < ApplicationRecord
 
   # BOOM
   has_many :registrations, foreign_key: "participant_id"
+
+  validates :email, presence: true, format: { with: Devise::email_regexp }
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+  # validates :phone, presence: true
+  # validates :dob, presence: true
 end
