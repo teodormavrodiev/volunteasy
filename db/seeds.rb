@@ -15,51 +15,171 @@ ruben = User.new({
   email: "ruben@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
-  first_name: "ruben",
-  last_name: "rubenson"
+  first_name: "Ruben",
+  last_name: "Frommanresa",
+  phone: "0909090909"
+  })
+
+jackie = User.new({
+  email: "jackie-kennedy@kennedy.com",
+  password: "rosebud",
+  password_confirmation: "rosebud",
+  first_name: "Jackie",
+  last_name: "Kennedy",
+  phone: "0908076532"
+  })
+
+jeanjacques = User.new({
+  email: "jeanjakie@gmail.com",
+  password: "rosebud",
+  password_confirmation: "rosebud",
+  first_name: "Jean-Jacques",
+  last_name: "Rousseau",
+  phone: "09080787632"
   })
 
 ruben.save
+jackie.save
+jeanjacques.save
 
 puts ruben.attributes
+puts jeanjacques.attributes
+puts jackie.attributes
 
 # participant
 joe = User.new({
-  email: "joe@gmail.com",
+  email: "joel@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
-  first_name: "joe",
-  last_name: "joeson"
+  first_name: "Joe",
+  last_name: "Froogy"
+  })
+
+jimmy = User.new({
+  email: "jimmy@gmail.com",
+  password: "rosebud",
+  password_confirmation: "rosebud",
+  first_name: "Jimmy",
+  last_name: "Ballon"
+  })
+
+julia = User.new({
+  email: "julia@gmail.com",
+  password: "rosebud",
+  password_confirmation: "rosebud",
+  first_name: "Julia",
+  last_name: "Roberts"
   })
 
 joe.save
+julia.save
+jimmy.save
 
 puts joe.attributes
+puts julia.attributes
+puts jimmy.attributes
 
-eve = Event.new({
-  name: "puppy feeding",
+puppy_feeding = Event.new({
+  name: "Puppy feeding",
   organizer_id: ruben.id,
   start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
   end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
-  address: '13 West Drive',
-  capacity: 22,
-  description: 'Awesome'
+  address: "The Shelter, 3 calle Princesa 08001 Barcelona",
+  capacity: 8,
+  description: "Help us feeding puppies at Barcelona shelter!"
   })
 
-eve.save
+teaching_refugees_english = Event.new({
+  name: "Teach refugees english",
+  organizer_id: jackie.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "The Shelter, 3 calle Princesa 08001 Barcelona",
+  capacity: 8,
+  description: "No specific skills required, just a desire to help and a friendly smile"
+  })
 
-puts eve.attributes
+beach_cleaning = Event.new({
+  name: "let's clean the beach!",
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Playa de Barceloneta, 08001 Barcelona",
+  capacity: 15,
+  description: "Let's work together for a nicer beach :)"
+  })
 
-reg = Registration.new({
+nursing_home = Event.new({
+  name: "",
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Paradise Nursing Home, calle Sardenya, 08765 Manresa",
+  capacity: 5,
+  description: "Come for a chat and share a meal with our residents"
+  })
+
+puppy_feeding.save
+teaching_refugees_english.save
+beach_cleaning.save
+nursing_home.save
+
+
+
+
+registration_one = Registration.new({
   participant_id: joe.id,
-  event_id: eve.id
+  event_id: nursing_home.id
   })
 
-reg.save
+registration_two = Registration.new({
+  participant_id: joe.id,
+  event_id: beach_cleaning.id
+  })
 
-puts reg.attributes
+registration_three = Registration.new({
+  participant_id: julia.id,
+  event_id: nursing_home.id
+  })
+
+registration_for = Registration.new({
+  participant_id: julia.id,
+  event_id: puppy_feeding.id
+  })
+
+registration_five = Registration.new({
+  participant_id: jimmy.id,
+  event_id: puppy_feeding.id
+  })
+
+registration_six = Registration.new({
+  participant_id: jimmy.id,
+  event_id: teaching_refugees_english.id
+  })
+
+
+registration_seven = Registration.new({
+  participant_id: julia.id,
+  event_id: teaching_refugees_english.id
+  })
+
+registration_eight = Registration.new({
+  participant_id: jimmy.id,
+  event_id: beach_cleaning.id
+  })
+
+
+registration_one.save
+registration_two.save
+registration_three.save
+registration_for.save
+registration_five.save
+registration_six.save
+registration_seven.save
+registration_eight.save
+
 
 puts "///////////////////"
 
-puts ruben.events.first.id
+
 
