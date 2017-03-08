@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show, :search]
-  skip_after_action :verify_authorized, only: [:show, :search]
+  skip_after_action :verify_authorized, only: [:index, :show, :search]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -71,9 +71,28 @@ def my_events
 end
 
 def show
-  @attending = @event.participants.all
-  tags_list = @event.tags
-  @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+#     juliette's push
+#     @attending = @event.participants.all
+#     tags_list = @event.tags
+#     @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+    
+    @participants = @event.participants.all
+
+    # Spots Left
+    if (@event.capacity - @event.participants.size) <= 0
+      @spots_left = 0
+    else
+      @spots_left = @event.capacity - @event.participants.size
+    end
+
+
+    @organizer_name = @event.organizer.first_name << " " << @event.organizer.last_name
+
+    # @registration = Registration.where(participant_id: current_user.id).where(event_id: @event.id)
+
+    # Tagging
+    tags_list = @event.tags
+    @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
 end
 
 def new
