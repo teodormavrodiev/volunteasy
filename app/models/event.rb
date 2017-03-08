@@ -1,4 +1,6 @@
 class Event < ApplicationRecord
+
+  TAGS = ['Animals', 'Children & Youth', 'Community', 'Technology', 'Crisis Support', 'Education', 'Environment', 'Homeless', 'Health', 'Refugees', 'LGBT', 'People with disabilities', 'Seniors', 'Sports', 'Women']
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
   belongs_to :organizer, class_name: "User", foreign_key: "organizer_id"

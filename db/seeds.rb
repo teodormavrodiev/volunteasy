@@ -85,26 +85,27 @@ puts jimmy.attributes
 puppy_feeding = Event.new({
   name: "Puppy feeding",
   organizer_id: ruben.id,
-  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: DateTime.strptime("19:00 10/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 10/03/2017", "%H:%M %d/%m/%Y"),
   address: "The Shelter, 3 calle Princesa 08001 Barcelona",
   capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!",
-  tags: ["animals"],
+  tags: ["Animals"],
   photo_urls: [
     "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
   ]
   })
 
-teaching_refugees_english = Event.new({
-  name: "Teach refugees english",
+
+teaching_refugees_spanish = Event.new({
+  name: "Teach refugees spanish",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
-  address: "The Shelter, 3 calle Princesa 08001 Barcelona",
+  start_time: DateTime.strptime("19:00 01/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 01/03/2017", "%H:%M %d/%m/%Y"),
+  address: "The Bibi Bar, 3 calle Princesa 08001 Barcelona",
   capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile",
-  tags: ["teaching"],
+  tags: ["Education"],
   photo_urls: [
     "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
   ]
@@ -113,26 +114,38 @@ teaching_refugees_english = Event.new({
 beach_cleaning = Event.new({
   name: "let's clean the beach!",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: DateTime.strptime("19:00 08/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 08/03/2017", "%H:%M %d/%m/%Y"),
   address: "Playa de Barceloneta, 08001 Barcelona",
   capacity: 15,
   description: "Let's work together for a nicer beach :)",
-  tags: ["animals", "environment"],
+  tags: ["Animals", "Environment"],
   photo_urls: [
     "http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
   ]
   })
 
 nursing_home = Event.new({
-  name: "",
+  name: "Cup of tea at the Nursing Home",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("19:00 25/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 25/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: DateTime.strptime("19:00 16/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 16/03/2017", "%H:%M %d/%m/%Y"),
   address: "Paradise Nursing Home, calle Sardenya, 08765 Manresa",
   capacity: 5,
   description: "Come for a chat and share a meal with our residents",
-  tags: ["animals", "environment"],
+  tags: ["Seniors", "People with disabilities"],
+  # photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  })
+
+plant_trees = Event.new({
+  name: "Help save local forest",
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("19:00 08/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 08/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Selva de Montseny, 08766 Monseny",
+  capacity: 5,
+  description: "We'll plant trees and discuss about local initiatives",
+  tags: ["Environment"],
   photo_urls: [
     "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
@@ -140,8 +153,10 @@ nursing_home = Event.new({
 
 puppy_feeding.save
 teaching_refugees_english.save
+teaching_refugees_spanish.save
 beach_cleaning.save
 nursing_home.save
+plant_trees.save
 
 
 
@@ -185,6 +200,12 @@ registration_seven = Registration.new({
 registration_eight = Registration.new({
   participant_id: jimmy.id,
   event_id: beach_cleaning.id
+  })
+
+
+registration_nine = Registration.new({
+  participant_id: julia.id,
+  event_id: plant_trees.id
   })
 
 
