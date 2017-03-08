@@ -2,16 +2,16 @@
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name, placeholder: "Event name" %>
-    <%= f.input :organization, placeholder: "My organization" %>
-    <%= f.input :start_time %>
-    <%= f.input :end_time %>
-    <%= f.input :description, placeholder: "What kind of help do you need?" %>
-    <%= f.input :address, placeholder: "Street, City, ZIP" %>
-    <%= f.input :capacity %>
-    <%= f.input :tags %>
-    <%= f.input :photos, as: :attachinary %>
-    <%= f.input :source_event_id, as: :hidden %>
+    <%= f.input :name, placeholder: "Event Name", input_html: { value: params[:name] } %>
+    <%= f.input :organization, placeholder: "My organization", input_html: { value: params[:organization] }  %>
+    <%= f.input :start_time, input_html: { value: params[:start_time] }  %>
+    <%= f.input :end_time, input_html: { value: params[:end_time] }  %>
+    <%= f.input :description, placeholder: "What kind of help do you need?", input_html: { value: params[:description] }  %>
+    <%= f.input :address, placeholder: "Street, City, ZIP", input_html: { value: params[:address] }  %>
+    <%= f.input :capacity, input_html: { value: params[:capacity] }  %>
+    <%= f.input :tags, input_html: { value: params[:tags] }  %>
+    <%= f.input :photos, as: :attachinary, input_html: { value: params[:photos] }  %>
+    <%= f.input :source_event_id, as: :hidden, input_html: { value: params[:source_event_id] }  %>
   </div>
 
   <div class="form-actions">
