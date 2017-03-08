@@ -1,11 +1,11 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
-  skip_after_action :verify_authorized, only: [:index, :show]
+  # skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_after_action :verify_authorized, only: [:show, :search]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
-  def index
+  def search
     @event = Event.new
     session[:search_results] = params[:address]
     @events = policy_scope(Event)
@@ -24,11 +24,7 @@ class EventsController < ApplicationController
     @events = @events.order(start_time: :desc)
   end
 
-  def search
-
-  end
-
-  def search
+  def my_events
 
   end
 
