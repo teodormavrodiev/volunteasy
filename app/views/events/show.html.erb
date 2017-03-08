@@ -5,6 +5,13 @@
   <h3> @event.organization </h3>
 </div>
 
+<h3>Spots left:</h3>
+<% if @spots_left == 0 %>
+  <h4>"This event is full!"</h4>
+<% else %>
+  <h4> @spots_left </h4>
+<% end %>
+
 <p>
   <strong>Location:</strong> <%= @event.address %>
 </p>
