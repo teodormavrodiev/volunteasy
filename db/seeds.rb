@@ -18,7 +18,7 @@ ruben = User.new({
   first_name: "Ruben",
   last_name: "Frommanresa",
   phone: "0909090909",
-  #photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAhQAAAAJDFlZjZmZmYwLWQ5ZTgtNDc1ZS1iNzM1LWJmZmQ3Mjc5OWE2Yw.jpg"
+  photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAhQAAAAJDFlZjZmZmYwLWQ5ZTgtNDc1ZS1iNzM1LWJmZmQ3Mjc5OWE2Yw.jpg"
   })
 
 jackie = User.new({
@@ -27,8 +27,8 @@ jackie = User.new({
   password_confirmation: "rosebud",
   first_name: "Jackie",
   last_name: "Kennedy",
-  phone: "0908076532"
-  #photo_url: "https://i.ytimg.com/vi/Hv5Q1EL-4pQ/maxresdefault.jpg"
+  phone: "0908076532",
+  photo_url: "https://i.ytimg.com/vi/Hv5Q1EL-4pQ/maxresdefault.jpg"
   })
 
 jeanjacques = User.new({
@@ -37,8 +37,8 @@ jeanjacques = User.new({
   password_confirmation: "rosebud",
   first_name: "Jean-Jacques",
   last_name: "Rousseau",
-  phone: "09080787632"
-  #photo_url: "http://www.sarahbeaucheminwriter.com/wp-content/uploads/2014/11/rousseau.jpg"
+  phone: "09080787632",
+  photo_url: "http://www.sarahbeaucheminwriter.com/wp-content/uploads/2014/11/rousseau.jpg"
   })
 
 ruben.save
@@ -90,21 +90,12 @@ puppy_feeding = Event.new({
   address: "The Shelter, 3 calle Princesa 08001 Barcelona",
   capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!",
-  tags: ["Animals"]
-  # photo_url: "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
+  tags: ["Animals"],
+  photo_urls: [
+    "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
+  ]
   })
 
-teaching_refugees_english = Event.new({
-  name: "Teach refugees english",
-  organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 15/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 15/03/2017", "%H:%M %d/%m/%Y"),
-  address: "The Shelter, 3 calle Princesa 08001 Barcelona",
-  capacity: 8,
-  description: "No specific skills required, just a desire to help and a friendly smile",
-  tags: ["Education"]
-  # photo_url: "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
-  })
 
 teaching_refugees_spanish = Event.new({
   name: "Teach refugees spanish",
@@ -114,8 +105,10 @@ teaching_refugees_spanish = Event.new({
   address: "The Bibi Bar, 3 calle Princesa 08001 Barcelona",
   capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile",
-  tags: ["Education"]
-  # photo_url: "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+  tags: ["Education"],
+  photo_urls: [
+    "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+  ]
   })
 
 beach_cleaning = Event.new({
@@ -126,8 +119,10 @@ beach_cleaning = Event.new({
   address: "Playa de Barceloneta, 08001 Barcelona",
   capacity: 15,
   description: "Let's work together for a nicer beach :)",
-  tags: ["Animals", "Environment"]
-  # photo_url: "http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
+  tags: ["Animals", "Environment"],
+  photo_urls: [
+    "http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
+  ]
   })
 
 nursing_home = Event.new({
@@ -138,7 +133,7 @@ nursing_home = Event.new({
   address: "Paradise Nursing Home, calle Sardenya, 08765 Manresa",
   capacity: 5,
   description: "Come for a chat and share a meal with our residents",
-  tags: ["Seniors", "People with disabilities"]
+  tags: ["Seniors", "People with disabilities"],
   # photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   })
 
@@ -150,8 +145,10 @@ plant_trees = Event.new({
   address: "Selva de Montseny, 08766 Monseny",
   capacity: 5,
   description: "We'll plant trees and discuss about local initiatives",
-  tags: ["Environment"]
-  # photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  tags: ["Environment"],
+  photo_urls: [
+    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  ]
   })
 
 puppy_feeding.save

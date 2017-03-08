@@ -9,7 +9,7 @@ class Event < ApplicationRecord
   has_many :participants, through: :registrations
 
   # Photo implementation
-  has_attachments :photos, maximum: 2
+  has_attachments :photos, maximum: 6
 
   validates :organizer_id, presence: true, numericality: true
   validates :name, presence: true
