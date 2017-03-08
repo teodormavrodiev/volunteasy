@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  devise_for :users, path_prefix: 'd', :controllers => { :registrations => :devise_registrations }
+  devise_for :users, path_prefix: 'd', :controllers => { :registrations => :devise_registrations, omniauth_callbacks: 'users/omniauth_callbacks' }
 
   resources :users, only: [:show] do
     get '/my_events/', to: 'events#my_events', as: 'events'
@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   end
 
   get '/events/', to: 'events#search', as: 'search'
+  get '/save_data/', to: 'events#search'
 
 
 
 end
+
+
