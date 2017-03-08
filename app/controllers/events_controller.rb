@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show ]
   skip_after_action :verify_authorized, only: [:index, :show]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
@@ -34,8 +34,10 @@ class EventsController < ApplicationController
 
   def show
     @attending = @event.participants.all
+    @organizer_name = @event.organizer.first_name << " " << @event.organizer.last_name
     tags_list = @event.tags
     @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+    @registration = Registration.where(participant_id: current_user.id).where(event_id: @event.id)
   end
 
   def new

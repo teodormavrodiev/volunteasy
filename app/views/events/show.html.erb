@@ -1,38 +1,46 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <h2> @event.name | Going?: @registration.status </h2>
+  <h3> @event.organization </h3>
+</div>
+
 <p>
-  <strong>User:</strong>
-  <%= @event.organizer_id %>
+  <strong>Location:</strong> <%= @event.address %>
 </p>
 
 <p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <strong>Organized By:</strong>
+  <%= link_to, @organizer_name, @organizer %>
 </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
-
-<p>
-  <strong>Capacity:</strong>
-  <%= @event.capacity %>
-</p>
+<p> Last updated: <%= @event.last_updated.to_s %> </p>
 
 <p>
   <strong>Tags:</strong>
-  <%= @event.tags %>
+  <% @event.tags.each do |tag| %>
+    <%= tag %> |
+  <% end %>
 </p>
+
 <p>
-  <strong>Source event:</strong>
-  <%= @event.source_event_id %>
+  <strong>Begins:</strong> <%= @event.start_time %>
 </p>
+
+<p>
+  <strong>Ends:</strong> <%= @event.end_time %>
+</p>
+
+
+
+<p>
+  <strong>Group limit:</strong> <%= @event.capacity %>
+</p>
+
+<p>
+  <strong>Description:</strong> <%= @event.description %>
+</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
