@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  before_action :authenticate_user! unless Rails.env.development?
+  before_action :authenticate_user!
 
   include Pundit
 
