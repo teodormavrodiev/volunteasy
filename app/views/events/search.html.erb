@@ -81,12 +81,13 @@
 
 
     <% if @events_later.any? %>
-      <h2>Next week</h2>
+      <h2>Later</h2>
 
       <% @events_later.each do |event| %>
         <%= render event %>
       <% end %>
     <% end %>
+
 
     <% end %>
 

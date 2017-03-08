@@ -151,12 +151,41 @@ plant_trees = Event.new({
   ]
   })
 
+sewing = Event.new({
+  name: "Activity volunteer - sewing",
+  organizer_id: jackie.id,
+  start_time: DateTime.strptime("19:00 10/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 10/03/2017", "%H:%M %d/%m/%Y"),
+  address: "3 calle de la Flor, 08766 Madrid",
+  capacity: 14,
+  description: "We partner with individuals ages 60+ to foster community connections and improve quality of life.",
+  tags: ["Community"],
+  photo_urls: [
+    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  ]
+  })
+
+sewing = Event.new({
+  name: "Share your knowledge with a small business owner",
+  organizer_id: jackie.id,
+  start_time: DateTime.strptime("19:00 15/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 15/03/2017", "%H:%M %d/%m/%Y"),
+  address: "3 calle de Catalunya, 08766 Madrid",
+  capacity: 14,
+  description: "Volunteer as a mentor on MicroMentor.org and make a meaningful connection with a business owner. ",
+  tags: ["Community"],
+  photo_urls: [
+    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  ]
+  })
+
 puppy_feeding.save
 teaching_refugees_english.save
 teaching_refugees_spanish.save
 beach_cleaning.save
 nursing_home.save
 plant_trees.save
+sewing.save
 
 
 
