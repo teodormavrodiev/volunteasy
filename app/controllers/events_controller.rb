@@ -6,12 +6,13 @@ class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   def index
+    @event = Event.new
     session[:search_results] = params[:address]
     @events = policy_scope(Event)
 
-    if params[:tag].present?
-      tag_list = params[:tag]
-      @events = @events.where("tag @> ?", "{#{tag_list.join(",")}}")
+    if params[:tags].present?
+      tags_list = params[:tags]
+      @events = @events.where("tags @> ?", "{#{tags_list.join(",")}}")
     else
       @events = @events.all
     end
@@ -33,8 +34,8 @@ class EventsController < ApplicationController
 
   def show
     @attending = @event.participants.all
-    tag_list = @event.tag
-    @similar_events = Event.where("tag @> ?", "{#{tag_list.join(",")}}")
+    tags_list = @event.tags
+    @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
   end
 
   def new

@@ -10,7 +10,7 @@
   <div class="row">
     <div class="event-search-box">
       <div class="col-xs-12 col-sm-4">
-        <%= f.input :tag, label_html: { class: 'sr-only' }, 'Category') %>
+        <%= f.input :tags, label_html: { class: 'sr-only' }, 'Category') %>
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= f.input :address, label_html: { class: 'sr-only' }, placeholder: (session[:search_results] || 'Location') %>
