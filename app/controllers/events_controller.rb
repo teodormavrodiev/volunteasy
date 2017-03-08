@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :search]
+  skip_before_action :authenticate_user!, except: [:destroy]
   skip_after_action :verify_authorized, only: [:index, :show]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
@@ -17,15 +17,15 @@ class EventsController < ApplicationController
       @events = @events.all
     end
 
+
+    # Kaw thot krap, pom mai dai puut pasa falangse krap
+    # Chai pasa angrit thaonan krap, korp khun krap
     if params[:address].present?
-      @events = @events.where("address ILIKE ?", params[:address]) # ILIKE ne prend pas en compte la casse
+      # ILIKE ne prend pas en compte la casse
+      @events = @events.where("address ILIKE ?", params[:address])
     end
 
     @events = @events.order(start_time: :desc)
-  end
-
-  def search
-
   end
 
   def search
