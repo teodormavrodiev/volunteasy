@@ -37,53 +37,54 @@
 <div class="container">
   <div class="row">
 
+
     <% if @events.empty? %>
     NO RESULT !
     <% else %>
 
 
-    <% if @events_today.any? %>
+    <% if @events.today.any? %>
 
       <h2>Today</h2>
 
-      <% @events_today.each do |event| %>
+      <% @events.today.each do |event| %>
         <%= render event %>
       <% end %>
 
     <% end %>
 
-    <% if @events_tomorrow.any? %>
+    <% if @events.tomorrow.any? %>
 
       <h2>Tomorrow</h2>
 
-      <% @events_tomorrow.each do |event| %>
+      <% @events.tomorrow.each do |event| %>
         <%= render event %>
-
       <% end %>
+
     <% end %>
 
 
-    <% if @events_this_week.any? %>
+    <% if @events.this_week.any? %>
       <h2>This week</h2>
 
-      <% @events_this_week.each do |event| %>
+      <% @events.this_week.each do |event| %>
         <%= render event %>
       <% end %>
     <% end %>
 
-    <% if @events_next_week.any? %>
+    <% if @events.next_week.any? %>
       <h2>Next week</h2>
 
-      <% @events_next_week.each do |event| %>
+      <% @events.next_week.each do |event| %>
         <%= render event %>
       <% end %>
     <% end %>
 
 
-    <% if @events_later.any? %>
+    <% if @events.later.any? %>
       <h2>Later</h2>
 
-      <% @events_later.each do |event| %>
+      <% @events.later.each do |event| %>
         <%= render event %>
       <% end %>
     <% end %>

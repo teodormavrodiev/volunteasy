@@ -1,5 +1,17 @@
-  <div><%= event.id %></div>
-  <div><%= event.name %></div>
-  <div><%= event.address %> </div>
-  <div> <%= event.start_time %> </div>
+
+<%= link_to event_path(event) do %>
+  <div class='card' style="background-image: url('<%= cl_image_path event.photos.first.path %>');background-size:cover;">
+      <p class="card-event-name"> <%= event.name %> </p>
+      <p class="card-boat-address"> <%= event.address %> </p>
+      <p class="card-start-time"> <%= event.start_time.strftime('%d/%m/%Y') %> </p>
+
+      <% if event.spots_left > 0 %>
+        <p> Hot! <%= event.spots_left %> spots left!</p>
+        <% else %>
+        <p>Full</p>
+      <% end %>
+
+
+ </div>
+ <% end %>
 
