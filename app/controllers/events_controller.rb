@@ -20,13 +20,31 @@ class EventsController < ApplicationController
     end
 
     if params[:event][:address].present?
-      @events = @events.where("address ILIKE ?", "%#{params[:event][:address]}%") # ILIKE ne prend pas en compte la casse
-    end
+      @events = @events.where("address ILIKE ?", "%#{params[:event][:address]}%")
 
-    @events = @events.where('start_time >= ?', Date.today).order(start_time: :asc)
-               # .paginate(:per_page => 10, :page => params[:page])
-  end
+      # ILIKE ne prend pas en compte la casse
 
+      @events_today = @events.where('start_time = ?', Date.today).order(start_time: :asc)
+
+       # .paginate(:per_page => 10, :page => params[:page])
+
+       @events_tomorrow = @events.where('start_time = ?', 1.days.from_now).order(start_time: :asc)
+
+       @events_this_week = @events.where('start_time BETWEEN ? AND ?', 2.days.from_now, Date.today.end_of_week.to_time).order(start_time: :asc)
+
+       @events_next_week = @events.where('start_time BETWEEN ? AND ?', Date.today.end_of_week.to_time, Date.today.end_of_week.to_time + 6.days).order(start_time: :asc)
+       @events_later = @events.where('start_time > ?', Date.today.end_of_week.to_time + 6.days).order(start_time: :asc)
+     end
+   end
+
+# def get_events_in_week_or_month
+#   if params[:events_in] =='week'
+#     start_date_of_time_period = 2.days.from_now
+#     end_date_of_time_period = Date.today.end_of_week
+#   else
+#     start_date_of_time_period = Date.today.beginning_of_month
+#     end_date_of_time_period = Date.today.end_of_month
+#   end
 
 
 
@@ -48,11 +66,16 @@ class EventsController < ApplicationController
 
 
 
-  def my_events
+def my_events
 
-  end
+end
 
-  def show
+def show
+#     juliette's push
+#     @attending = @event.participants.all
+#     tags_list = @event.tags
+#     @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+    
     @participants = @event.participants.all
 
     # Spots Left
@@ -70,42 +93,42 @@ class EventsController < ApplicationController
     # Tagging
     tags_list = @event.tags
     @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+end
+
+def new
+  @event = Event.new
+  authorize @event
+end
+
+def edit
+end
+
+def create
+  @event = Event.new(event_params)
+  @event.organizer_id = current_user.id
+  authorize @event
+
+  if @event.save
+    redirect_to @event, notice: 'Event was successfully created.'
+  else
+    render :new
   end
+end
 
-  def new
-    @event = Event.new
-    authorize @event
+def update
+  if @event.update(event_params)
+    redirect_to @event, notice: 'Event was successfully updated.'
+  else
+    render :edit
   end
+end
 
-  def edit
-  end
+def destroy
+  @event.destroy
+  redirect_to events_url, notice: 'Event was successfully destroyed.'
+end
 
-  def create
-    @event = Event.new(event_params)
-    @event.organizer_id = current_user.id
-    authorize @event
-
-    if @event.save
-      redirect_to @event, notice: 'Event was successfully created.'
-    else
-      render :new
-    end
-  end
-
-  def update
-    if @event.update(event_params)
-      redirect_to @event, notice: 'Event was successfully updated.'
-    else
-      render :edit
-    end
-  end
-
-  def destroy
-    @event.destroy
-    redirect_to events_url, notice: 'Event was successfully destroyed.'
-  end
-
-  private
+private
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
@@ -116,4 +139,4 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :organization, :start_time, :end_time, :address, :capacity, :tags, :source_event_id, photos: [])
     end
-end
+  end

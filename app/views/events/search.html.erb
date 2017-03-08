@@ -5,7 +5,7 @@
 <!-- Search by category / Search by location  -->
 
 <!-- AJAXISER SI FORM MARCHE BIEN
- -->
+-->
 
 
 <!-- Search by category :  -->
@@ -19,42 +19,77 @@
 
 
 <%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline' do |f| %>
-  <div class="">
-    <div class="event-search-box">
+<div class="">
+  <div class="event-search-box">
 
-      <%= f.input :tags, label: "I care about...", checked: params[:event][:tags], include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
+    <%= f.input :tags, label: "I care about...", checked: params[:event][:tags], include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
 
-      <div class="col-xs-12 col-sm-4">
-        <%= f.input :address, input_html: { value: params[:event][:address] }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= f.submit  "Search!" %>
-      </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.input :address, input_html: { value: params[:event][:address] }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
+    </div>
+    <div class="col-xs-12 col-sm-4">
+      <%= f.submit  "Search!" %>
     </div>
   </div>
+</div>
 <% end %>
 
 <div class="container">
   <div class="row">
 
-  <% if @events.empty? %>
+    <% if @events.empty? %>
     NO RESULT !
-  <% else %>
+    <% else %>
 
 
-  <table>
+    <% if @events_today.any? %>
 
-  <% @events.each do |event| %>
-  <tr>
-    <td><%= event.name %></td>
-    <td><%= event.address %> </td>
-    <td> <%= event.start_time %> </td>
-  </tr>
-  <% end  %>
+      <h2>Today</h2>
 
-  </table>
+      <% @events_today.each do |event| %>
+        <%= render event %>
+      <% end %>
 
-  <% end %>
+    <% end %>
+
+    <% if @events_tomorrow.any? %>
+
+      <h2>Tomorrow</h2>
+
+      <% @events_tomorrow.each do |event| %>
+        <%= render event %>
+
+      <% end %>
+    <% end %>
+
+
+    <% if @events_this_week.any? %>
+      <h2>This week</h2>
+
+      <% @events_this_week.each do |event| %>
+        <%= render event %>
+      <% end %>
+    <% end %>
+
+    <% if @events_next_week.any? %>
+      <h2>Next week</h2>
+
+      <% @events_next_week.each do |event| %>
+        <%= render event %>
+      <% end %>
+    <% end %>
+
+
+    <% if @events_later.any? %>
+      <h2>Later</h2>
+
+      <% @events_later.each do |event| %>
+        <%= render event %>
+      <% end %>
+    <% end %>
+
+
+    <% end %>
 
   </div>
 </div>
