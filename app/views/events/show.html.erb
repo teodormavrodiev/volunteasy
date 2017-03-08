@@ -1,38 +1,54 @@
 <p id="notice"><%= notice %></p>
 
+<div>
+  <h2><%= @event.name %>| Going?: <%= @registration.nil? ? "NO" : "YES" %></h2>
+  <h3><%= @event.organization %></h3>
+</div>
+
+<h3>Spots left:</h3>
+<% if @spots_left == 0 %>
+  <h4>"This event is full!"</h4>
+<% elsif @spots_left > 5 %>
+  <h4><%= @spots_left %></h4>
+  <% else %>
+  <h4>Only <%= @spots_left %> spots left! Join before it's too late!</h4>
+<% end %>
+
+<h5>Invite a friend!</h5>
+
+<% @event.participants.last(2).each do |person| %>
+  <%= person.first_name %> <%= image_tag 'arnold.jpg', class: "avatar" %>
+<% end %>
+and <%= @event.capacity - 5 %> more are going! Join them!
+
 <p>
-  <strong>User:</strong>
-  <%= @event.organizer_id %>
+  <strong>Location:</strong> <%= @event.address %>
 </p>
 
 <p>
-  <strong>Start time:</strong>
-  <%= @event.start_time %>
+  <strong>Organized By:</strong>
+  <%= @organizer_name %> <%= link_to "View Profile", @event.organizer %>
 </p>
 
-<p>
-  <strong>End time:</strong>
-  <%= @event.end_time %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @event.address %>
-</p>
-
-<p>
-  <strong>Capacity:</strong>
-  <%= @event.capacity %>
-</p>
+<p> Last updated: <%= @event.updated_at.to_s %> </p>
 
 <p>
   <strong>Tags:</strong>
-  <%= @event.tags %>
+  <%= @event.tags.join(', ') %>
 </p>
+
 <p>
-  <strong>Source event:</strong>
-  <%= @event.source_event_id %>
+  <strong>Begins:</strong> <%= @event.start_time %>
 </p>
+
+<p>
+  <strong>Ends:</strong> <%= @event.end_time %>
+</p>
+
+<p>
+  <strong>Description:</strong> <%= @event.description %>
+</p>
+
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
@@ -60,8 +76,13 @@
 <script src="https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"></script>
 <script src="https://cdn.rawgit.com/apneadiving/Google-Maps-for-Rails/master/js_compilation/gmaps_google.js"></script>
 
-
-
+<br>
+<% if @event.participants.include? current_user %>
+ <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
+ <%= link_to 'Unregister', event_registration_path(@event, @registration), method: :delete %>
+<% else %>
+ <%= link_to 'Register', event_registrations_path(@event), method: :post %>
+<% end %>
 
 <script type="text/javascript">
   $(document).on('ready', function() {
