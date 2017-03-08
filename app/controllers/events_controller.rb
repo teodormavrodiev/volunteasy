@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :search]
-  skip_after_action :verify_authorized, only: [:index, :show, :search]
+  skip_before_action :authenticate_user!, except: [:destroy] # (For now)
+  skip_after_action :verify_authorized, except: [:destroy] # (For now)
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
   before_action :set_event, only: [:show, :edit, :update, :destroy]
@@ -19,6 +19,8 @@ class EventsController < ApplicationController
       @events = @events.all
     end
 
+    # Kaw thot krap, pom mai dai puut pasa falangse krap
+    # Chai pasa angrit thaonan krap, korp khun krap
     if params[:event][:address].present?
       @events = @events.where("address ILIKE ?", "%#{params[:event][:address]}%")
 
@@ -65,7 +67,6 @@ class EventsController < ApplicationController
 
 
 
-
 def my_events
 
 end
@@ -75,7 +76,6 @@ def show
 #     @attending = @event.participants.all
 #     tags_list = @event.tags
 #     @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
-    
     @participants = @event.participants.all
 
     # Spots Left
