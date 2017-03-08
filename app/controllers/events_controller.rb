@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
   skip_after_action :verify_authorized, only: [:index, :show]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
@@ -41,6 +41,7 @@ class EventsController < ApplicationController
     else
       @spots_left = @event.capacity - @event.participants.size
     end
+
 
     @organizer_name = @event.organizer.first_name << " " << @event.organizer.last_name
 

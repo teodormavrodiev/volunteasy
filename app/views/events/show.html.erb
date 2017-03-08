@@ -1,16 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-  <h2> @event.name | Going?: @registration.status </h2>
-  <h3> @event.organization </h3>
+  <h2><%= @event.name %>| Going?: <%= @registration.nil? ? "NO" : "YES" %></h2>
+  <h3><%= @event.organization %></h3>
 </div>
 
 <h3>Spots left:</h3>
 <% if @spots_left == 0 %>
   <h4>"This event is full!"</h4>
-<% else %>
-  <h4> @spots_left </h4>
+<% elsif @spots_left > 5 %>
+  <h4><%= @spots_left %></h4>
+  <% else %>
+  <h4>Only <%= @spots_left %> spots left! Join before it's too late!</h4>
 <% end %>
+
+<h5>Invite a friend!</h5>
+
+<% @event.participants.last(2).each do |person| %>
+  <%= person.first_name %> <%= image_tag 'arnold.jpg', class: "avatar" %>
+<% end %>
+and <%= @event.capacity - 5 %> more are going! Join them!
 
 <p>
   <strong>Location:</strong> <%= @event.address %>
@@ -18,16 +27,14 @@
 
 <p>
   <strong>Organized By:</strong>
-  <%= link_to, @organizer_name, @organizer %>
+  <%= @organizer_name %> <%= link_to "View Profile", @event.organizer %>
 </p>
 
-<p> Last updated: <%= @event.last_updated.to_s %> </p>
+<p> Last updated: <%= @event.updated_at.to_s %> </p>
 
 <p>
   <strong>Tags:</strong>
-  <% @event.tags.each do |tag| %>
-    <%= tag %> |
-  <% end %>
+  <%= @event.tags.join(', ') %>
 </p>
 
 <p>
