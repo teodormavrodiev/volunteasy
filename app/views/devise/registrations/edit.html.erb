@@ -11,11 +11,12 @@
     <% end %>
     <%= f.input :first_name, required: true, autofocus: true %>
     <%= f.input :last_name, required: true, autofocus: true %>
-    <%= f.input :bio, required: true, autofocus: true %>
-    <%= f.input :phone, required: true, autofocus: true %>
-    <%= f.input :address, required: true, autofocus: true %>
-    <%= f.input :dob, required: true, autofocus: true %>
-    <%= f.input :organization, required: true, autofocus: true %>
+    <%= f.input :bio, autofocus: true %>
+    <%= f.input :phone,  autofocus: true %>
+    <%= f.input :address, autofocus: true %>
+    <%= f.input :dob, autofocus: true %>
+    <%= f.input :organization, autofocus: true %>
+    <%= f.input :photo, as: :attachinary %>
 
     <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
     <%= f.input :password_confirmation, required: false %>

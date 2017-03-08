@@ -5,7 +5,7 @@
   <div class = "form-inline search-form form-group">
     <%= simple_form_for @event, url: search_path, method: :get do |f| %>
 
-    <%= f.input :address, placeholder:"Location...", label: false, input_html: {location: 'address', class: 'location'} %>
+    <%= f.input :address, placeholder: "Location...", label: false, input_html: {class: 'address'} %>
 
     <%= f.button :submit, value: "Go!" %>
 
