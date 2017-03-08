@@ -24,6 +24,9 @@ gem 'autoprefixer-rails'
 gem "geocoder"
 
 gem 'pundit'
+
+gem 'omniauth-facebook'
+
 # Photo implementation
 gem 'cloudinary', '1.1.7'
 gem 'attachinary', github: 'assembler/attachinary'
