@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div>
-  <h2><%= @event.name %>| Going?: <%= @registration.nil? ? "NO" : "YES" %></h2>
+  <h2><%= @event.name %>| Going?: <%= @event.participants.include?(current_user) ? "YES" : "NO" %></h2>
   <h3><%= @event.organization %></h3>
 </div>
 
@@ -51,7 +51,7 @@ and <%= @event.capacity - 5 %> more are going! Join them!
 
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
-<%= link_to 'Back', events_path %>
+
 <br>
 <% if @event.participants.include? current_user %>
   <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
@@ -60,8 +60,22 @@ and <%= @event.capacity - 5 %> more are going! Join them!
   <%= link_to 'Register', event_registrations_path(@event), method: :post %>
 <% end %>
 
+<!-- NEED TO TEST AFTER AUTHORIZATION IMPLEMENTED -->
+<% if @event.organizer == current_user %>
+  <%= link_to "Copy This Event!", new_event_url({name: @event.name,
+       organization: @event.organization,
+       start_time: @event.start_time,
+       end_time: @event.end_time,
+       description: @event.description,
+       address: @event.address,
+       capacity: @event.capacity,
+       tags: @event.tags,
+       photos: @event.photos
+       }), class: "btn btn-primary" %>
+<% end %>
 
 
+<%= link_to 'Back', events_path %>
 
 
 <!-- The map will be drawn in this div -->
