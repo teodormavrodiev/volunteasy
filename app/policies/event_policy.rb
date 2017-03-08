@@ -2,7 +2,7 @@ class EventPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope #= Event
+      scope.all #= Event
     end
   end
 
