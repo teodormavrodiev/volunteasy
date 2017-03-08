@@ -5,7 +5,7 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  devise_for :users, path_prefix: 'd'
+  devise_for :users, path_prefix: 'd', :controllers => { :registrations => :devise_registrations }
 
   resources :users, only: [:show] do
     get '/my_events/', to: 'events#my_events', as: 'events'
@@ -14,11 +14,11 @@ Rails.application.routes.draw do
   resources :events, except: [:index, :show]
 
   resources :events, only: [:show] do
-    resources :registrations, only: [:create, :destroy, :new]
+    resources :registrations, only: [:create, :destroy]
   end
 
   get '/events/', to: 'events#search', as: 'search'
-  get '/save_data', to: 'events#search'
+  get '/save_data/', to: 'events#search'
 
 
 

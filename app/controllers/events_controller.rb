@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  # skip_before_action :authenticate_user!, only: [:index, :show]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
   skip_after_action :verify_authorized, only: [:show, :search]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
