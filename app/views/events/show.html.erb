@@ -36,6 +36,13 @@
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
+<br>
+<% if @event.participants.include? current_user %>
+  <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
+  <%= link_to 'Unregister', event_registration_path(@event, @registration), method: :delete %>
+<% else %>
+  <%= link_to 'Register', event_registrations_path(@event), method: :post %>
+<% end %>
 
 
 
