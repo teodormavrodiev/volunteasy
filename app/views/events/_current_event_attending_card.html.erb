@@ -1,0 +1,17 @@
+<h1><%= event.name %></h1>
+<br>
+<%= event.start_time %>
+<br>
+Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.
+<br>
+<%= event.address %>
+<br>
+<% if @user.photo  %>
+  <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
+<% end %> and
+<% event.participants.first(4).each do |par| %>
+  <% if par.photo  %>
+    <%= cl_image_tag par.photo.path, width: 50, height: 70, crop: :fill %>
+  <% end %>
+<% end %> and <%= event.participants.count - 5 %> others.
+<br>

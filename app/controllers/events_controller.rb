@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :search]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search, :my_events]
   skip_after_action :verify_authorized, only: [:index, :show, :search]
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
@@ -49,7 +49,13 @@ class EventsController < ApplicationController
 
 
   def my_events
+    @user = User.find(params[:user_id])
+    authorize @user
 
+    @past_events_attended = past_events_attendee(@user)
+    @current_events_attended = current_events_attendee(@user)
+    @past_events_managed = past_events_manager(@user)
+    @current_events_managed = current_events_manager(@user)
   end
 
   def show
@@ -116,4 +122,22 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:name, :organization, :start_time, :end_time, :address, :capacity, :tags, :source_event_id, photos: [])
     end
+
+    def past_events_manager(user)
+      user.events.where("end_time < ?", DateTime.now)
+    end
+
+    def current_events_manager(user)
+      user.events.where("end_time > ?", DateTime.now)
+    end
+
+    def past_events_attendee(user)
+      user.events_as_participant.where("end_time < ?", DateTime.now)
+    end
+
+    def current_events_attendee(user)
+      user.events_as_participant.where("end_time > ?", DateTime.now)
+    end
+
+
 end

@@ -10,6 +10,10 @@ class EventPolicy < ApplicationPolicy
     return true
   end
 
+  def my_events?
+    return true
+  end
+
   def update?
     user_is_organizer_or_admin?
   end
