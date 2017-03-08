@@ -18,7 +18,10 @@ Rails.application.routes.draw do
   end
 
   get '/events/', to: 'events#search', as: 'search'
+  get '/save_data', to: 'events#search'
 
 
 
 end
+
+

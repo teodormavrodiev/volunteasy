@@ -6,14 +6,26 @@
 
 <!-- AJAXISER SI FORM MARCHE BIEN
  -->
-<%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline'  do |f| %>
-  <div class="row">
+
+
+<!-- Search by category :  -->
+
+<%= simple_form_for @event, remote: true, authenticity_token: :true do |f| %>
+
+
+<% end %>
+
+
+
+
+<%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline' do |f| %>
+  <div class="">
     <div class="event-search-box">
+
+      <%= f.input :tags, label: "I care about...", checked: params[:event][:tags], include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
+
       <div class="col-xs-12 col-sm-4">
-        <%= f.input :tags, label_html: { class: 'sr-only' }, 'Category') %>
-      </div>
-      <div class="col-xs-12 col-sm-4">
-        <%= f.input :address, label_html: { class: 'sr-only' }, placeholder: (session[:search_results] || 'Location') %>
+        <%= f.input :address, input_html: { value: params[:event][:address] }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
       </div>
       <div class="col-xs-12 col-sm-4">
         <%= f.submit  "Search!" %>
@@ -24,6 +36,14 @@
 
 <div class="container">
   <div class="row">
+
+  <% if @events.empty? %>
+    NO RESULT !
+  <% else %>
+
+
+  <table>
+
   <% @events.each do |event| %>
   <tr>
     <td><%= event.name %></td>
@@ -31,6 +51,10 @@
     <td> <%= event.start_time %> </td>
   </tr>
   <% end  %>
+
+  </table>
+
+  <% end %>
 
   </div>
 </div>
@@ -70,4 +94,4 @@
 
 <br>
 
-<%= link_to 'New Event', new_event_path %>
+

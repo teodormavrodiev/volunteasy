@@ -10,19 +10,43 @@ class EventsController < ApplicationController
     session[:search_results] = params[:address]
     @events = policy_scope(Event)
 
-    if params[:tags].present?
-      tags_list = params[:tags]
+    if params[:event][:tags].present?
+      tags_list = params[:event][:tags].select { |i| i.present? }
+
       @events = @events.where("tags @> ?", "{#{tags_list.join(",")}}")
+
     else
       @events = @events.all
     end
 
-    if params[:address].present?
-      @events = @events.where("address ILIKE ?", params[:address]) # ILIKE ne prend pas en compte la casse
+    if params[:event][:address].present?
+      @events = @events.where("address ILIKE ?", "%#{params[:event][:address]}%") # ILIKE ne prend pas en compte la casse
     end
 
-    @events = @events.order(start_time: :desc)
+    @events = @events.where('start_time >= ?', Date.today).order(start_time: :asc)
+               # .paginate(:per_page => 10, :page => params[:page])
   end
+
+
+
+
+
+
+# def update
+#         @cart = current_cart
+#         @cart_item = @cart.cart_items.find_by(product_id: params[:id])
+#         if @cart_item.product.storage >= cart_item_params[:quantity].to_i
+#             @cart_item.update(cart_item_params)
+#             redirect_to carts_path
+#         else
+#             redirect_to carts_path, alert: "exceed the storage"
+#         end
+
+# end
+
+
+
+
 
   def my_events
 
