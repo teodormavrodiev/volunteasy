@@ -53,8 +53,13 @@
 <script src="https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js"></script>
 <script src="https://cdn.rawgit.com/apneadiving/Google-Maps-for-Rails/master/js_compilation/gmaps_google.js"></script>
 
-
-
+<br>
+<% if @event.participants.include? current_user %>
+ <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
+ <%= link_to 'Unregister', event_registration_path(@event, @registration), method: :delete %>
+<% else %>
+ <%= link_to 'Register', event_registrations_path(@event), method: :post %>
+<% end %>
 
 <script type="text/javascript">
   $(document).on('ready', function() {
