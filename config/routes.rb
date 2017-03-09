@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  ActiveAdmin.routes(self)
   # Images implementation
   mount Attachinary::Engine => "/attachinary"
 

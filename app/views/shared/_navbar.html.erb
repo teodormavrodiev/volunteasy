@@ -27,9 +27,6 @@
 
     <% if user_signed_in? %>
     <div class="navbar-wagon-item">
-
-
-
         <% avatar_url = current_user.photo.path || "http://placehold.it/30x30" %>
 
         <%= cl_image_tag avatar_url, width: 55, height: 55, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { "toggle" => "dropdown"} %>
@@ -43,7 +40,7 @@
       </div>
     </div>
 
-</div>
+    <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
 
     <% else %>
     <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -57,6 +54,16 @@
     <%= link_to "My events", user_events_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %> -->
 
+<% end %>
+</div>
+
+
+
+
+<% if user_signed_in? %>
+<%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My events", user_events_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %> -->
 <% end %>
 
 

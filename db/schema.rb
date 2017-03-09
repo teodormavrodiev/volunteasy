@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170308143512) do
+ActiveRecord::Schema.define(version: 20170309134438) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "active_admin_comments", force: :cascade do |t|
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
+    t.string   "author_type"
+    t.integer  "author_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
+  end
 
   create_table "attachinary_files", force: :cascade do |t|
     t.string   "attachinariable_type"
@@ -28,6 +42,21 @@ ActiveRecord::Schema.define(version: 20170308143512) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
+  end
+
+  create_table "delayed_jobs", force: :cascade do |t|
+    t.integer  "priority",   default: 0, null: false
+    t.integer  "attempts",   default: 0, null: false
+    t.text     "handler",                null: false
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["priority", "run_at"], name: "delayed_jobs_priority", using: :btree
   end
 
   create_table "events", force: :cascade do |t|
@@ -52,8 +81,9 @@ ActiveRecord::Schema.define(version: 20170308143512) do
     t.integer  "participant_id"
     t.integer  "event_id"
     t.string   "status"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.boolean  "notifiable",     default: false
     t.index ["event_id"], name: "index_registrations_on_event_id", using: :btree
     t.index ["participant_id"], name: "index_registrations_on_participant_id", using: :btree
   end
