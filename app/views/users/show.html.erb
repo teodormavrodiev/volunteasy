@@ -16,6 +16,12 @@
   <%= @user.first_name %>
   <%= @user.last_name %>
   <br>
+
+<!--   TODO : display Volunteer status depending on number of events attended ie verified by organizer -->
+
+
+
+  <!-- TODO : Only if i organized events in the past  -->
   Works at <%= @user.organization %>
   <br>
   <%= link_to "Edit Profile", edit_user_registration_path  %>
@@ -28,25 +34,18 @@ Bio / I care about
 <%= @user.bio %>
 </div>
 
+<!-- TODO : Only if i organized events in the past  -->
 <div class="text-center" style="padding-bottom: 100px;">
 About my organization
 <%= @user.bio %> <!-- should be @user.org_bio -->
 </div>
 
-<div style="margin-bottom: 200px;">
-  <h2> Events I am Managing, if any </h2>
-  <% @current_events_managed.each_with_index do |event, index| %>
-    <%= render partial: "events/current_event_managed_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
-</div>
-<div style="margin-bottom: 200px;">
-  <h2> Events I am Attending, if any</h2>
-  <% @current_events_attended.each_with_index do |event, index| %>
-    <%= render partial: "events/current_event_attending_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
-</div>
+<!--
+TODO : Optional, display reviews from the NGOs
+ -->
+<!-- PAST EVENTS -->
+
+<div class="past_events"></div>"past_events"
 <div style="margin-bottom: 200px;">
   <h2> Events I have Managed in the Past, if any</h2>
   <% @past_events_managed.each_with_index do |event, index| %>

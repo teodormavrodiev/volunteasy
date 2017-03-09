@@ -19,14 +19,12 @@ class EventsController < ApplicationController
       # We'll try to find the query to display only non full events.
       # @non_full_events = @events.where('capacity > ?', participants.count)
     end
-    unless params[:event].nil? || params[:event][:address].blank?
 
-    # Kaw thot krap, pom mai dai puut pasa falangse krap
-    # Chai pasa angrit thaonan krap, korp khun krap
+    @address = params[:event][:address]
 
-      @events = @events.where("address ILIKE ?", "%#{params[:event][:address]}%")
+    unless params[:event].nil? || @address.blank?
+      @events = @events.where("address ILIKE ?", "%#{@address}%")
     end
-
   end
 
 

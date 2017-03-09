@@ -2,8 +2,7 @@
           <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
         <% else %>
           <% photo_url = image_path('teamwork.jpg') %>
-
-        <% end %>
+<% end %>
 
 
 <%= link_to event_path(event) do %>

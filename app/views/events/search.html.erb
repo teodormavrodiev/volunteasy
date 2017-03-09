@@ -23,7 +23,7 @@
   <div class="event-search-box">
     <%= f.input :tags, label: "I care about...", checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
     <div class="col-xs-12 col-sm-4">
-      <%= f.input :address, input_html: { value: (params[:event][:address] if params[:event]) }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
+      <%= f.input :address, input_html: { value: @address }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
     </div>
     <div class="col-xs-12 col-sm-4">
       <%= f.submit  "Search!" %>
