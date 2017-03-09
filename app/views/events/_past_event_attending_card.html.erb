@@ -1,17 +1,23 @@
-<h1><%= event.name %></h1>
-<br>
-<%= event.start_time %>
-<br>
-Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.
-<br>
-<%= event.address %>
-<br>
-<% if @user.photo  %>
-  <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
-<% end %> and
-<% event.participants.first(4).each do |par| %>
-  <% if par.photo  %>
-    <%= cl_image_tag par.photo.path, width: 50, height: 70, crop: :fill %>
-  <% end %>
-<% end %> and <%= event.participants.count - 5 %> others.
+<% if event.photos? %>
+<% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
+<% else %>
+<% photo_url = image_path('teamwork.jpg') %>
+<% end %>
 
+
+<div class='boat-search-result-card'>
+  <%= link_to event_path(event) do %>
+  <div class='boat-card-image' style="background-image: url('<%= photo_url %>');background-size:cover;">
+    <% end  %>
+    <div class="boat-search-card-info">
+      <div class="card-boat-caption">
+        <span class="card-boat-category"> <%= event.name %></span>
+        <span class='card-boat-location'><%= event.start_time.strftime('%d/%m/%Y') %></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div>
+<!-- TODO : Implement a link to share a past event on FB -->
+</div>

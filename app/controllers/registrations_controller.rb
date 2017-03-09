@@ -13,6 +13,12 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  def update
+    registration = Registration.find(params[:id])
+    registration.update(status: "1")
+
+  end
+
   def destroy
     @registration = Registration.find(params[:id])
     authorize @registration
