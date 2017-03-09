@@ -44,6 +44,9 @@ gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 # DelayedJob (for Twilio)
 gem 'delayed_job_active_record'
 
+# Twilio
+gem 'twilio-ruby'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
