@@ -20,6 +20,7 @@ class User < ApplicationRecord
   # validates :phone, presence: true
   # validates :dob, presence: true
 
+  after_create :send_welcome_email
 
   def self.find_for_facebook_oauth(auth)
     user_params = auth.slice(:provider, :uid)
@@ -40,6 +41,12 @@ class User < ApplicationRecord
     end
 
     return user
+  end
+
+  private
+
+  def send_welcome_email
+    UserMailer.welcome(self.id).deliver_later
   end
 
 end
