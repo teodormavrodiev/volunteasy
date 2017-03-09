@@ -5,7 +5,7 @@ class EventsController < ApplicationController
   skip_after_action :verify_authorized, except: [:destroy] # (For now)
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: [:show, :edit, :update, :destroy, :users]
 
   def search
     @event = Event.new
@@ -29,13 +29,18 @@ class EventsController < ApplicationController
 
 
 def my_events
-  @user = User.find(params[:user_id])
+  @user = current_user
   authorize @user
 
   @past_events_attended = past_events_attendee(@user)
   @current_events_attended = current_events_attendee(@user)
   @past_events_managed = past_events_manager(@user)
   @current_events_managed = current_events_manager(@user)
+end
+
+
+def users
+  @event_users = @event.participants.all
 end
 
 def show
