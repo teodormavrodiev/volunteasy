@@ -111,11 +111,25 @@ teaching_refugees_spanish = Event.new({
   ]
   })
 
+teaching_refugees_english = Event.new({
+  name: "Teach refugees english",
+  organizer_id: jackie.id,
+  start_time: DateTime.strptime("19:00 19/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 19/03/2017", "%H:%M %d/%m/%Y"),
+  address: "The Bibi Bar, 3 calle Princesa 08001 Barcelona",
+  capacity: 8,
+  description: "No specific skills required, just a desire to help and a friendly smile",
+  tags: ["Education"],
+  photo_urls: [
+    "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+  ]
+  })
+
 beach_cleaning = Event.new({
   name: "let's clean the beach!",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("19:00 08/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 08/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: DateTime.strptime("19:00 20/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 20/03/2017", "%H:%M %d/%m/%Y"),
   address: "Playa de Barceloneta, 08001 Barcelona",
   capacity: 15,
   description: "Let's work together for a nicer beach :)",
@@ -165,7 +179,7 @@ sewing = Event.new({
   ]
   })
 
-sewing = Event.new({
+business = Event.new({
   name: "Share your knowledge with a small business owner",
   organizer_id: jackie.id,
   start_time: DateTime.strptime("19:00 15/03/2017", "%H:%M %d/%m/%Y"),
@@ -186,6 +200,7 @@ beach_cleaning.save
 nursing_home.save
 plant_trees.save
 sewing.save
+business.save
 
 
 

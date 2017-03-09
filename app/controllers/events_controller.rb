@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :search, :my_events]
+  skip_after_action :verify_authorized, only: [:index, :show, :search]
   skip_before_action :authenticate_user!, except: [:destroy] # (For now)
   skip_after_action :verify_authorized, except: [:destroy] # (For now)
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
@@ -10,65 +12,34 @@ class EventsController < ApplicationController
     session[:search_results] = params[:address]
     @events = policy_scope(Event)
 
-    if params[:event][:tags].present?
+    unless params[:event][:tags].blank?
       tags_list = params[:event][:tags].select { |i| i.present? }
-
-      @events = @events.where("tags @> ?", "{#{tags_list.join(",")}}")
-
-    else
-      @events = @events.all
+      @events = @events.including_tags(tags_list)
+      # (Juliette) Show only non full events : right now we will show all events and display full for full events.
+      # We'll try to find the query to display only non full events.
+      # @non_full_events = @events.where('capacity > ?', participants.count)
     end
+
+
+    unless params[:event][:address].blank?
 
     # Kaw thot krap, pom mai dai puut pasa falangse krap
     # Chai pasa angrit thaonan krap, korp khun krap
-    if params[:event][:address].present?
+
       @events = @events.where("address ILIKE ?", "%#{params[:event][:address]}%")
+    end
 
-      # ILIKE ne prend pas en compte la casse
-
-      @events_today = @events.where('start_time = ?', Date.today).order(start_time: :asc)
-
-       # .paginate(:per_page => 10, :page => params[:page])
-
-       @events_tomorrow = @events.where('start_time = ?', 1.days.from_now).order(start_time: :asc)
-
-       @events_this_week = @events.where('start_time BETWEEN ? AND ?', 2.days.from_now, Date.today.end_of_week.to_time).order(start_time: :asc)
-
-       @events_next_week = @events.where('start_time BETWEEN ? AND ?', Date.today.end_of_week.to_time, Date.today.end_of_week.to_time + 6.days).order(start_time: :asc)
-       @events_later = @events.where('start_time > ?', Date.today.end_of_week.to_time + 6.days).order(start_time: :asc)
-     end
-   end
-
-# def get_events_in_week_or_month
-#   if params[:events_in] =='week'
-#     start_date_of_time_period = 2.days.from_now
-#     end_date_of_time_period = Date.today.end_of_week
-#   else
-#     start_date_of_time_period = Date.today.beginning_of_month
-#     end_date_of_time_period = Date.today.end_of_month
-#   end
-
-
-
-
-
-# def update
-#         @cart = current_cart
-#         @cart_item = @cart.cart_items.find_by(product_id: params[:id])
-#         if @cart_item.product.storage >= cart_item_params[:quantity].to_i
-#             @cart_item.update(cart_item_params)
-#             redirect_to carts_path
-#         else
-#             redirect_to carts_path, alert: "exceed the storage"
-#         end
-
-# end
-
-
+  end
 
 
 def my_events
+  @user = User.find(params[:user_id])
+  authorize @user
 
+  @past_events_attended = past_events_attendee(@user)
+  @current_events_attended = current_events_attendee(@user)
+  @past_events_managed = past_events_manager(@user)
+  @current_events_managed = current_events_manager(@user)
 end
 
 def show
@@ -139,4 +110,23 @@ private
     def event_params
       params.require(:event).permit(:name, :organization, :start_time, :end_time, :address, :capacity, :tags, :source_event_id, photos: [])
     end
-  end
+
+    def past_events_manager(user)
+      user.events.where("end_time < ?", DateTime.now)
+    end
+
+    def current_events_manager(user)
+      user.events.where("end_time > ?", DateTime.now)
+    end
+
+    def past_events_attendee(user)
+      user.events_as_participant.where("end_time < ?", DateTime.now)
+    end
+
+    def current_events_attendee(user)
+      user.events_as_participant.where("end_time > ?", DateTime.now)
+    end
+
+
+end
+

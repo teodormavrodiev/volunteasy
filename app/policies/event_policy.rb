@@ -2,11 +2,15 @@ class EventPolicy < ApplicationPolicy
 
   class Scope < Scope
     def resolve
-      scope #= Event
+      scope.all #= Event
     end
   end
 
   def create?
+    return true
+  end
+
+  def my_events?
     return true
   end
 

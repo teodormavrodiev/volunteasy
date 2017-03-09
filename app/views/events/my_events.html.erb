@@ -1,38 +1,3 @@
-<div style="float: left;">
-  <br>
-  <% if @user.photo  %>
-  <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
-  <% end %>
-  <br>
-  <%= @user.address %>
-  <br>
-  <%= @user.email %>
-  <br>
-  <%= @user.phone %>
-  <br>
-</div>
-
-<div style="float:right;">
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-  <br>
-  Works at <%= @user.organization %>
-  <br>
-  <%= link_to "Edit Profile", edit_user_registration_path  %>
-</div>
-
-<div style="clear:both;"></div>
-
-<div class="text-center" style="padding-bottom: 100px;">
-Bio / I care about
-<%= @user.bio %>
-</div>
-
-<div class="text-center" style="padding-bottom: 100px;">
-About my organization
-<%= @user.bio %> <!-- should be @user.org_bio -->
-</div>
-
 <div style="margin-bottom: 200px;">
   <h2> Events I am Managing, if any </h2>
   <% @current_events_managed.each_with_index do |event, index| %>
@@ -60,8 +25,4 @@ About my organization
     <%= render partial: "events/past_event_attending_card", locals: {event: event} %>
   <!-- plug in events card with proper styling here -->
   <% end %>
-</div>
-
-<div>
-  More info? + / Footer
 </div>
