@@ -37,6 +37,9 @@ gem 'coffee-rails'
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'
 
+# DelayedJob (for Twilio)
+gem 'delayed_job_active_record'
+
 group :development, :test do
   gem 'binding_of_caller'
   gem 'better_errors'
