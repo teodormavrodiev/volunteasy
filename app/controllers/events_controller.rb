@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :search, :my_events]
+  skip_before_action :authenticate_user!, only: [:index, :show, :search]
+
+
   skip_after_action :verify_authorized, only: [:index, :show, :search]
-  skip_before_action :authenticate_user!, except: [:destroy] # (For now)
   skip_after_action :verify_authorized, except: [:destroy] # (For now)
   after_action :verify_policy_scoped, only: [:index], unless: :skip_pundit?
 
@@ -77,14 +78,18 @@ end
 
 def create
   @event = Event.new(event_params)
-  @event.organizer_id = current_user.id
-  authorize @event
+  if current_user?
+    @event.organizer_id = current_user.id
+    authorize @event
+  else
+    redirect_to
 
   if @event.save
     redirect_to @event, notice: 'Event was successfully created.'
   else
     render :new
   end
+end
 end
 
 def update
