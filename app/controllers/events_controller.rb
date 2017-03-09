@@ -21,7 +21,7 @@ class EventsController < ApplicationController
       # @non_full_events = @events.where('capacity > ?', participants.count)
     end
 
-    @address = params[:event][:address]
+    @address = params[:event][:address] if params[:event]
 
     unless params[:event].nil? || @address.blank?
       @events = @events.where("address ILIKE ?", "%#{@address}%")
