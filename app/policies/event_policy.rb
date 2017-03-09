@@ -7,11 +7,15 @@ class EventPolicy < ApplicationPolicy
   end
 
   def create?
-    return true
+    true
+  end
+
+  def users?
+    true
   end
 
   def my_events?
-    return true
+    true
   end
 
   def update?

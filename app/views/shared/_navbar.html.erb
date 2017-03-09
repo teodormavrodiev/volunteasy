@@ -34,16 +34,16 @@
 
         <%= cl_image_tag avatar_url, width: 55, height: 55, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { "toggle" => "dropdown"} %>
 
-        <div class="dropdown">
-
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+          <li><%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %> </li>
+          <li><%= link_to "My events", user_events_path, class: "navbar-wagon-item navbar-wagon-link" %></li>
+          <li><%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li><%= link_to "Profile",  user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %></li>
           <li><%= link_to "Log Out",  destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %></li>
         </ul>
       </div>
     </div>
 
-</div>
 
     <% else %>
     <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -52,9 +52,7 @@
 
 
 
-<%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My events", user_events_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %> -->
+
 
 
 
