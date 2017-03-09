@@ -10,8 +10,8 @@ class EventMailer < ApplicationMailer
     @event = Event.find(event_id)
 
     @event.participants.each do |par|
-
-      mail(to: par.email, subject: 'Update of ' + @event.name )
+      @participant = par
+      mail(to: @participant.email, subject: 'Update of ' + @event.name )
 
     end
 
