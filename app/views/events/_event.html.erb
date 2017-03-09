@@ -1,6 +1,12 @@
+<% if event.photos? %>
+          <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
+        <% else %>
+          <% photo_url = image_path('teamwork.jpg') %>
+<% end %>
+
 
 <%= link_to event_path(event) do %>
-  <div class='card' style="background-image: url('<%= cl_image_path event.photos.first.path %>');background-size:cover;">
+  <div class='card' style="background-image: url('<%= photo_url %>');background-size:cover;">
       <p class="card-event-name"> <%= event.name %> </p>
       <p class="card-boat-address"> <%= event.address %> </p>
       <p class="card-start-time"> <%= event.start_time.strftime('%d/%m/%Y') %> </p>
