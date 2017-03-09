@@ -12,16 +12,14 @@ class EventsController < ApplicationController
     session[:search_results] = params[:address]
     @events = policy_scope(Event)
 
-    unless params[:event][:tags].blank?
+    unless params[:event].nil? || params[:event][:tags].blank?
       tags_list = params[:event][:tags].select { |i| i.present? }
       @events = @events.including_tags(tags_list)
       # (Juliette) Show only non full events : right now we will show all events and display full for full events.
       # We'll try to find the query to display only non full events.
       # @non_full_events = @events.where('capacity > ?', participants.count)
     end
-
-
-    unless params[:event][:address].blank?
+    unless params[:event].nil? || params[:event][:address].blank?
 
     # Kaw thot krap, pom mai dai puut pasa falangse krap
     # Chai pasa angrit thaonan krap, korp khun krap
@@ -108,7 +106,7 @@ private
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:name, :organization, :start_time, :end_time, :address, :capacity, :tags, :source_event_id, photos: [])
+      params.require(:event).permit(:name, :organization, :start_time, :end_time, :address, :capacity, :description, :source_event_id, photos: [], tags: [])
     end
 
     def past_events_manager(user)
