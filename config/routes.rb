@@ -3,6 +3,12 @@ Rails.application.routes.draw do
   # Images implementation
   mount Attachinary::Engine => "/attachinary"
 
+  # Sidekiq Web UI, only for admins.
+  require "sidekiq/web"
+  authenticate :user, lambda { |u| u.admin } do
+    mount Sidekiq::Web => '/sidekiq'
+  end
+
   root to: 'pages#home'
 
   devise_for :users, path_prefix: 'd', :controllers => { :registrations => :devise_registrations, omniauth_callbacks: 'users/omniauth_callbacks' }
