@@ -4,8 +4,13 @@
       List of participants :
 
         <% @event.registrations.each do |reg| %>
+        <%= link_to user_path(@event) do %>
             <% if reg.participant.photo  %>
             <%= cl_image_tag reg.participant.photo.path, width: 50, height: 70, crop: :fill %>
+            <% else %>
+
+            <%= image_tag('arnold.jpg', width: 50, height: 70, crop: :fill) %>
+          <% end %>
           <% end %>
           <%=  reg.participant.first_name %>
 
