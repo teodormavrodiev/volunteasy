@@ -20,6 +20,8 @@ class Event < ApplicationRecord
   validates :description, presence: true
   validates :tags, presence: true
 
+  after_update :send_update_email, if: :start_time_changed? || :finish_time_changed?
+
   scope :today, -> { where('start_time BETWEEN ? AND ?', Time.current.beginning_of_day, Time.current.end_of_day).order(start_time: :asc) }
   scope :tomorrow, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.beginning_of_day, Date.current.end_of_day).order(start_time: :asc) }
   scope :this_week, -> { where('start_time BETWEEN ? AND ?', 2.days.from_now, Date.today.end_of_week.to_time).order(start_time: :asc) }
@@ -35,6 +37,13 @@ class Event < ApplicationRecord
   def start_day
     start_time.to_date
   end
+
+  private
+
+  def send_update_email
+    EventMailer.update(self.id).deliver_later
+  end
+
 
   # def uncomplete
   #   if self. # is a class
