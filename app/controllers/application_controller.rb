@@ -10,12 +10,6 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
-  before_action :test
-
-  def test
-    Registration.first.update_sms_time
-  end
-
   private
 
   def skip_pundit?

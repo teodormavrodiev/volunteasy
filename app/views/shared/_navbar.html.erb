@@ -41,11 +41,6 @@
       </div>
     </div>
 
-<<<<<<< HEAD
-=======
-    <%= link_to "Log out", destroy_user_session_path, :method => :delete %>
->>>>>>> master
-
     <% else %>
     <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
@@ -53,15 +48,10 @@
 
     <%= link_to "Log Out",  destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %>
 
-<<<<<<< HEAD
-
-
-=======
 <% if current_user %>
 <%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "My events", user_events_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %> -->
->>>>>>> master
+    <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
 <% end %>
 </div>

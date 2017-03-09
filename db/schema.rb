@@ -80,16 +80,10 @@ ActiveRecord::Schema.define(version: 20170309135808) do
   create_table "registrations", force: :cascade do |t|
     t.integer  "participant_id"
     t.integer  "event_id"
-<<<<<<< HEAD
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
-    t.integer  "status",         default: 0
-=======
     t.datetime "created_at",                     null: false
     t.datetime "updated_at",                     null: false
-    t.integer  "status",         default: 0
     t.boolean  "notifiable",     default: false
->>>>>>> master
+    t.integer  "status",         default: 0
     t.index ["event_id"], name: "index_registrations_on_event_id", using: :btree
     t.index ["participant_id"], name: "index_registrations_on_participant_id", using: :btree
   end
