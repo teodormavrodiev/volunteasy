@@ -7,6 +7,11 @@ class DeviseRegistrationsController < Devise::RegistrationsController
     end
 
     def after_sign_up_path_for(resource)
+      if cookies[:event_id]
+        event = Event.find(cookies[:event_id])
+        event.organizer_id = resource.id
+        event.save
+      end
       user_path(resource)
     end
 

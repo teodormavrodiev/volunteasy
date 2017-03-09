@@ -27,8 +27,9 @@
 
     <% if user_signed_in? %>
     <div class="navbar-wagon-item">
+        <% if current_user.photo %>
         <% avatar_url = current_user.photo.path || "http://placehold.it/30x30" %>
-
+        <% end %>
         <%= cl_image_tag avatar_url, width: 55, height: 55, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { "toggle" => "dropdown"} %>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
