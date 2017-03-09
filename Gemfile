@@ -33,6 +33,10 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
+gem "letter_opener", group: :development
+
+gem 'sidekiq'
+gem 'sidekiq-failures'
 # ActiveAdmin
 gem 'activeadmin', github: 'activeadmin/activeadmin'
 gem 'inherited_resources', github: 'activeadmin/inherited_resources'

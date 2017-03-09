@@ -1,0 +1,6 @@
+<h2> Dear <%= @participant.first_name %>, </h2>
+
+<p> This is a courteousy email to inform you that the time of <%= @event.name %> has changed.</p>
+<p> The new time is now <%= @event.start_time %> to: <%= @event.end_time %> </p>
+
+<p> <%= link_to 'Let us know', 'confirm-registration-url' %> if you can still make it! </p>
