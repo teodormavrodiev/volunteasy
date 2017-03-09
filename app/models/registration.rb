@@ -7,7 +7,7 @@ class Registration < ApplicationRecord
   validates :participant_id, presence: true
   validates :event_id, presence: true
 
-  after_create :reminder
+  after_create :send_sms
 
   @@REMINDER_TIME = 120.minutes # minutes before appointment
 
@@ -26,9 +26,26 @@ class Registration < ApplicationRecord
     puts message.to
   end
 
-  def when_to_run
+  def send_sms
+    SendEventSmsJob.set(wait_until: time_to_run).perform_later(self.id)
+  end
+
+  def time_to_run
     self.event.start_time - @@REMINDER_TIME
   end
 
-  # handle_asynchronously :reminder, run_at: Proc.new { |i| i.when_to_run }
+  def update_sms_time
+    jobs = Sidekiq::ScheduledSet.new.to_a
+
+    jobs.each do |job|
+      job_hash = JSON.parse(job.value)
+
+      data = job_hash['args'][0]
+      if data['job_class'] == 'SendEventSmsJob' and data['arguments'][0] == self.id
+        job.delete
+      end
+    end
+
+    self.send_sms
+  end
 end

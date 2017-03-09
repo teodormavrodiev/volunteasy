@@ -21,6 +21,7 @@ class Event < ApplicationRecord
   validates :tags, presence: true
 
   after_update :send_update_email, if: :start_time_changed? || :finish_time_changed?
+  after_update :update_registrations, if: :start_time_changed? || :finish_time_changed?
 
   scope :today, -> { where('start_time BETWEEN ? AND ?', Time.current.beginning_of_day, Time.current.end_of_day).order(start_time: :asc) }
   scope :tomorrow, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.beginning_of_day, Date.current.end_of_day).order(start_time: :asc) }
@@ -42,6 +43,12 @@ class Event < ApplicationRecord
 
   def send_update_email
     EventMailer.update(self.id).deliver_later
+  end
+
+  def update_registrations
+    self.registrations.each do |registration|
+      registration.update_sms_time
+    end
   end
 
 
