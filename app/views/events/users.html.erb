@@ -1,33 +1,43 @@
 <div class="container" style="margin-top: 300px">
   <div class="row">
     <div class="col-xs-12">
-    <div class="list">
-<% @event.registrations.each do |reg| %>
-    <% if policy(reg).update? %>
-             Participants to your event
-          <% else %>
-      List of participants
-      <% end %>
 
-</div>
-        <%= link_to user_path(@event) do %>
-        <div>
-            <% if reg.participant.photo  %>
-            <%= cl_image_tag reg.participant.photo.path, width: 50, height: 70, crop: :fill %>
-            <% else %>
 
-            <%= image_tag('arnold.jpg', width: 50, height: 70, crop: :fill) %>
-          <% end %>
-          <% end %>
-          <%=  reg.participant.first_name %>
+      <div class="list">
+        <% if @event.organizer == current_user %>
+        Participants to your event
+        <% else %>
+        List of participants
+        <% end %>
+      </div>
+
+
+      <% @event.registrations.each do |reg| %>
+
+      <%= link_to user_path(reg.participant) do %>
+      <div class="photo_participant">
+        <% if reg.participant.photo  %>
+        <%= cl_image_tag reg.participant.photo.path, width: 50, height: 70, crop: :fill %>
+        <% else %>
+
+        <%= image_tag('arnold.jpg', width: 50, height: 70, crop: :fill) %>
+        <% end %>
+        <% end %>
+
+        <%=  reg.participant.first_name %>
 
         <!-- If current user is organizer and if event is past :  -->
-           <% if policy(reg).update? %>
-             <%= link_to "Attended?", event_registration_path(@event, reg), method: :put %>
-           <!--   TODO : redirect to same page with notice "thank you for your review" -->
-          <% end %>
-          </div>
+        <% if policy(reg).update? %>
+<!--         If hasnt been updated yet:  -->
+              <% if reg.missed? %>
+              <%= link_to "Attended?", event_registration_path(@event, reg), method: :put %>
+              <% else %>
+              Checked as attended :)
+              <% end %>
+        <!--   TODO : redirect to same page with notice "thank you for your review" -->
         <% end %>
+      </div>
+      <% end %>
 
     </div>
   </div>

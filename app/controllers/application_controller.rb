@@ -19,6 +19,7 @@ class ApplicationController < ActionController::Base
       event = Event.find_by(id:cookies[:event_id])
       registration = event.registrations.find_by(participant_id:0)
       registration.participant_id = resource.id if registration
+      cookies[:participant] = "nil"
       if registration.save
         user_events_path
       else
@@ -27,6 +28,7 @@ class ApplicationController < ActionController::Base
     elsif cookies[:event_id] && cookies[:participant] == "false"
       event = Event.find_by(id:cookies[:event_id])
       event.organizer_id = resource.id if event
+      cookies[:participant] = "nil"
       if event.save
         user_events_path
       else

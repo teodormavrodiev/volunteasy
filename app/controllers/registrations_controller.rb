@@ -17,8 +17,8 @@ class RegistrationsController < ApplicationController
       @registration.participant_id = 0
       @registration.event_id = @event.id
       authorize @registration
-      user = User.find(0)
-      user = User.create(first_name: "placehold", last_name: "placehold", email: "test@test.com", password: "testtest" ) unless user
+      user = User.find_by(id: 0)
+      user = User.create(id: 0, first_name: "placehold", last_name: "placehold", email: "testaa@test.com", password: "testtest" ) unless user
       if @registration.save
         cookies[:event_id] = @event.id
         cookies[:participant] = true
@@ -29,11 +29,12 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  # Only for changing status of registration to "attended" or vice versa
   def update
     @registration = Registration.find(params[:id])
     authorize @registration
     @registration.complete!
-    redirect_to @event, notice: 'Thanks!'
+    redirect_to event_users_path(@event), notice: 'Thanks!'
   end
 
   def destroy
