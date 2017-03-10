@@ -2,17 +2,55 @@ MY EVENTS
 
 
 <div style="margin-bottom: 200px;">
-  <h2> Events I am Managing, if any </h2>
+
+
+  <h2> Events I am Managing</h2>
+  <% if @current_events_managed.count == 0 %>
+      You're not managing any event yet!
+      <%= link_to "Create one now", new_event_path %>
+  <% else %>
   <% @current_events_managed.each_with_index do |event, index| %>
     <%= render partial: "events/current_event_managed_card", locals: {event: event} %>
   <!-- plug in events card with proper styling here -->
   <% end %>
+  <% end %>
 </div>
 <div style="margin-bottom: 200px;">
-  <h2> Events I am Attending, if any</h2>
+  <h2> Events I am Attending</h2>
+  <% if @current_events_attended.count == 0 %>
+      You're not attending any event yet!
+      <%= link_to "Find the perfect opportunity", search_path %>
+  <% else %>
   <% @current_events_attended.each_with_index do |event, index| %>
     <%= render partial: "events/current_event_attending_card", locals: {event: event} %>
   <!-- plug in events card with proper styling here -->
   <% end %>
+  <% end %>
 </div>
 
+<!-- PAST EVENTS -->
+
+<div class="past_events">
+<div style="margin-bottom: 200px;">
+
+<% if @past_events_managed.count > 0 %>
+
+  <h2> Events I have Managed in the Past</h2>
+  <% @past_events_managed.each_with_index do |event, index| %>
+    <%= render partial: "events/past_event_managed_card", locals: {event: event} %>
+  <!-- plug in events card with proper styling here -->
+  <% end %>
+  <% end %>
+</div>
+<div style="margin-bottom: 200px;">
+
+<% if @past_events_attended.count > 0 %>
+
+  <h2> Events I have Attended in the Past</h2>
+  <% @past_events_attended.each_with_index do |event, index| %>
+    <%= render partial: "events/past_event_attending_card", locals: {event: event} %>
+  <!-- plug in events card with proper styling here -->
+  <% end %>
+   <% end %>
+</div>
+</div>

@@ -1,27 +1,48 @@
 <% if event.photos? %>
-<% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
+<% photo_url = cl_image_path event.photos.first.path, crop: :fill %>
 <% else %>
 <% photo_url = image_path("teamwork.jpg") %>
 <% end %>
 
-
-<div class="event-card">
-  <%= link_to event_path(event) do %>
-  <div class="event-card-image" style="background-image: url('<%= photo_url %>');background-size:cover;">
-
-    <div class="event-card-info">
-      <div class="event-card-caption">
-        <span class="event-card-category"> <%= event.name %></span>
-        <span class="event-card-location"><%= event.start_time.strftime("%d/%m/%Y") %></span>
+<div class="container_card">
+  <!-- Normal Demo-->
+  <div class="column">
+    <!-- Post-->
+    <div class="post-module">
+      <!-- Thumbnail-->
+      <div class="thumbnail">
+        <div class="date">
+          <div class="day"><%= event.start_time.strftime('%d') %></div>
+          <div class="month"><%= event.start_time.strftime('%b') %></div>
+        </div>
+        <%= link_to event_path(event) do %>
+        <%= image_tag photo_url%>
+        <% end %>
       </div>
+      <!-- Post Content-->
+      <div class="post-content">
+        <h1 class="title"><%= event.name %></h1>
+        <h2 class="sub_title"><%= event.start_time.strftime('%d/%m/%Y') %></h2>
+        <p class="description"><%= event.description %></p>
+        <div class="participants">
+        <%= link_to event_users_path(event) do %>
+          <% if @user.photo  %>
+          <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
+          <% end %> and
+          <% event.participants.first(4).each do |par| %>
+          <% if par.photo  %>
+          <%= cl_image_tag par.photo.path, width: 50, height: 70, crop: :fill %>
+          <% end %>
+          <!--   TO DO : FIX NUMBERS OF PARTICIPANTS -->
+          <% end %> and <%= event.participants.count - 5 %> others went.
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div>
+      <%= link_to "Post photos", edit_event_path(event) %>
     </div>
   </div>
 </div>
-  <% end %>
+</div>
 
-<div>
-  <%= link_to "Post photos", edit_event_path(event) %>
-</div>
-<div>
-<!-- TODO : Implement a link to share a past event on FB -->
-</div>

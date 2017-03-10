@@ -1,0 +1,59 @@
+@import 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-97/variables.less';
+@import 'https://s3-us-west-2.amazonaws.com/s.cdpn.io/169963/mixins.less';
+
+
+body {
+  // background: darken(@white, 5%);
+  // font-family: 'proxima-nova-soft', sans-serif;
+  font-size: 14px;
+  // .font-smoothing;
+}
+
+.container_card {
+  max-width: 800px;
+  min-width: 640px;
+  margin: 0 auto;
+  background-color: #D2DCED;
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+  .column {
+    width: 50%;
+    padding: 0 25px;
+    // .box-size;
+    float: left;
+    .demo-title {
+      margin: 0 0 15px;
+      color: gray;
+      font-size: 18px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  .info {
+    width: 300px;
+    margin: 50px auto;
+    text-align: center;
+    h1 {
+      margin: 0 0 15px;
+      padding: 0;
+      font-size: 24px;
+      font-weight: bold;
+      color: gray;
+    }
+    span {
+      color: gray;
+      font-size: 12px;
+      a {
+        color: black;
+        text-decoration: none;
+      }
+      .fa {
+        color: #e74c3c;
+      }
+    }
+  }
+}
