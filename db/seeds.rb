@@ -5,12 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
 # organizer
 Registration.destroy_all
 Event.destroy_all
 User.destroy_all
-
 ruben = User.new({
   email: "ruben@gmail.com",
   password: "rosebud",
@@ -20,7 +18,6 @@ ruben = User.new({
   phone: "0909090909",
   photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAhQAAAAJDFlZjZmZmYwLWQ5ZTgtNDc1ZS1iNzM1LWJmZmQ3Mjc5OWE2Yw.jpg"
   })
-
 jackie = User.new({
   email: "jackie-kennedy@kennedy.com",
   password: "rosebud",
@@ -30,7 +27,6 @@ jackie = User.new({
   phone: "0908076532",
   photo_url: "https://i.ytimg.com/vi/Hv5Q1EL-4pQ/maxresdefault.jpg"
   })
-
 jeanjacques = User.new({
   email: "jeanjakie@gmail.com",
   password: "rosebud",
@@ -40,15 +36,12 @@ jeanjacques = User.new({
   phone: "09080787632",
   photo_url: "http://www.sarahbeaucheminwriter.com/wp-content/uploads/2014/11/rousseau.jpg"
   })
-
 ruben.save
 jackie.save
 jeanjacques.save
-
 puts ruben.attributes
 puts jeanjacques.attributes
 puts jackie.attributes
-
 # participant
 joe = User.new({
   email: "joel@gmail.com",
@@ -57,7 +50,6 @@ joe = User.new({
   first_name: "Joe",
   last_name: "Froogy"
   })
-
 jimmy = User.new({
   email: "jimmy@gmail.com",
   password: "rosebud",
@@ -65,7 +57,6 @@ jimmy = User.new({
   first_name: "Jimmy",
   last_name: "Ballon"
   })
-
 julia = User.new({
   email: "julia@gmail.com",
   password: "rosebud",
@@ -73,15 +64,12 @@ julia = User.new({
   first_name: "Julia",
   last_name: "Roberts"
   })
-
 joe.save
 julia.save
 jimmy.save
-
 puts joe.attributes
 puts julia.attributes
 puts jimmy.attributes
-
 puppy_feeding = Event.new({
   name: "Puppy feeding",
   organizer_id: ruben.id,
@@ -95,8 +83,6 @@ puppy_feeding = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
   ]
   })
-
-
 teaching_refugees_spanish = Event.new({
   name: "Teach refugees spanish",
   organizer_id: jackie.id,
@@ -110,7 +96,6 @@ teaching_refugees_spanish = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
   ]
   })
-
 teaching_refugees_english = Event.new({
   name: "Teach refugees english",
   organizer_id: jackie.id,
@@ -124,7 +109,6 @@ teaching_refugees_english = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
   ]
   })
-
 beach_cleaning = Event.new({
   name: "let's clean the beach!",
   organizer_id: jeanjacques.id,
@@ -138,7 +122,6 @@ beach_cleaning = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
   ]
   })
-
 nursing_home = Event.new({
   name: "Cup of tea at the Nursing Home",
   organizer_id: jeanjacques.id,
@@ -152,7 +135,6 @@ nursing_home = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
-
 plant_trees = Event.new({
   name: "Help save local forest",
   organizer_id: jeanjacques.id,
@@ -166,7 +148,6 @@ plant_trees = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
-
 sewing = Event.new({
   name: "Activity volunteer - sewing",
   organizer_id: jackie.id,
@@ -180,7 +161,6 @@ sewing = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
-
 business = Event.new({
   name: "Share your knowledge with a small business owner",
   organizer_id: jackie.id,
@@ -194,7 +174,6 @@ business = Event.new({
     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
-
 puppy_feeding.save
 teaching_refugees_english.save
 teaching_refugees_spanish.save
@@ -203,58 +182,42 @@ nursing_home.save
 plant_trees.save
 sewing.save
 business.save
-
-
-
-
 registration_one = Registration.new({
   participant_id: joe.id,
   event_id: nursing_home.id
   })
-
 registration_two = Registration.new({
   participant_id: joe.id,
   event_id: beach_cleaning.id
   })
-
 registration_three = Registration.new({
   participant_id: julia.id,
   event_id: nursing_home.id
   })
-
 registration_for = Registration.new({
   participant_id: julia.id,
   event_id: puppy_feeding.id
   })
-
 registration_five = Registration.new({
   participant_id: jimmy.id,
   event_id: puppy_feeding.id
   })
-
 registration_six = Registration.new({
   participant_id: jimmy.id,
   event_id: teaching_refugees_english.id
   })
-
-
 registration_seven = Registration.new({
   participant_id: julia.id,
   event_id: teaching_refugees_english.id
   })
-
 registration_eight = Registration.new({
   participant_id: jimmy.id,
   event_id: beach_cleaning.id
   })
-
-
 registration_nine = Registration.new({
   participant_id: julia.id,
   event_id: plant_trees.id
   })
-
-
 registration_one.save
 registration_two.save
 registration_three.save
@@ -263,9 +226,4 @@ registration_five.save
 registration_six.save
 registration_seven.save
 registration_eight.save
-
-
 puts "///////////////////"
-
-
-
