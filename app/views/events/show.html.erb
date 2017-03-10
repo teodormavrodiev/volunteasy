@@ -18,27 +18,81 @@
 
   <!-- 2. Who's coming -->
 
-<!-- 1. IF PAST EVENT TODO  -->
+
 
   <!-- If organizer -->
+
+
   <% if @event.organizer == current_user %>
 
-  <h3>Who's coming?</h3>
-  <% @event.participants.each do |person| %>
-  <%= person.first_name %>
-  <br>
-  <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
-  <% end %>
-  <h3>Send them a email</h3>
+    <!-- 1. IF PAST EVENT  -->
+
+    <% if event.end_time < DateTime.now %>
+
+    <h3>Who went?</h3>
+      <div class="participants">
+    <% @event.participants.each do |person| %>
+      <%= person.first_name %>
+      <br>
+      <!-- TODO : Replace fake avatar by real avatar -->
+      <%= link_to image_tag('arnold', class: "avatar"), user_path(person) %>
+    <% end %>
+
+    <%= link_to event_users_path(event) do %>
+    <h3>Review participants' attendance</h3>
   <!-- TODO : Implement a way to send group email -->
 
-  <% else %> <!-- If participant :  -->
-  <h3>Who's coming?</h3>
-    <% @event.participants.last(2).each do |person| %>
-  <%= person.first_name %>
-  <br>
-  <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+
+
+  <!-- 1. IF FUTURE EVENT  -->
+
+  <% else %>
+
+    <h3>Who's coming?</h3>
+    <% @event.participants.each do |person| %>
+      <%= person.first_name %>
+      <br>
+      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+    <% end %>
+    <h3>Send them a email</h3>
+    <!-- TODO : Implement a way to send group email -->
+
+
   <% end %>
+
+
+
+
+
+  <% else %> <!-- If participant :  -->
+
+
+  <!-- 1. IF PAST EVENT  -->
+
+    <% if event.end_time < DateTime.now %>
+
+      <h3>Who went?</h3>
+      <div class="participants">
+        <% @event.participants.each do |person| %>
+          <%= person.first_name %>
+          <br>
+      <!-- TODO : Replace fake avatar by real avatar -->
+          <%= link_to image_tag('arnold', class: "avatar"), user_path(person) %>
+        <% end %>
+
+  <!-- 1. IF FUTURE EVENT  -->
+
+  <% else %>
+
+
+    <h3>Who's coming?</h3>
+
+    <% @event.participants.last(2).each do |person| %>
+      <%= person.first_name %>
+      <br>
+      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+    <% end %>
+
   and <%= @event.capacity - 5 %> more are going! Join them!
 
 
@@ -50,9 +104,11 @@
   <h4>Only <%= @spots_left %> spots left! Join before it's too late!</h4>
   <h5>Invite a friend!</h5>
 <!-- TODO : implement FB connect / route to sign in form if not sign in  -->
-
-
   <% end %>
+
+
+
+
   <% end %>
 
   <!-- 3. date/place/organizedby -->
