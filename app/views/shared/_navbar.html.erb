@@ -13,7 +13,7 @@
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
-<!--
+
   <!-- Search form -->
     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
@@ -23,7 +23,6 @@
     </form>
 
     <!-- Text link -->
-
 
     <% if user_signed_in? %>
     <div class="navbar-wagon-item">
@@ -51,7 +50,7 @@
 
 <% if current_user %>
 <%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My events", user_events_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My events", user_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
 
 <% end %>
@@ -62,7 +61,7 @@
 
 <% if user_signed_in? %>
 <%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
-    <%= link_to "My events", user_events_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
+    <%= link_to "My events", user_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <%= link_to "My profile", user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %> -->
 <% end %>
 

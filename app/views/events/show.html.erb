@@ -19,26 +19,85 @@
   <!-- 2. Who's coming -->
 
 
+
   <!-- If organizer -->
+
+
   <% if @event.organizer == current_user %>
 
-  <h3>Who's coming?</h3>
-  <% @event.participants.each do |person| %>
-  <%= person.first_name %>
-  <br>
-  <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
-  <% end %>
-  <h3>Send them a email</h3>
+    <!-- 1. IF PAST EVENT  -->
+
+    <% if event.end_time < DateTime.now %>
+
+    <h3>Who went?</h3>
+      <div class="participants">
+    <% @event.participants.each do |person| %>
+      <%= person.first_name %>
+      <br>
+      <!-- TODO : Replace fake avatar by real avatar -->
+      <%= link_to image_tag('arnold', class: "avatar"), user_path(person) %>
+    <% end %>
+
+    <%= link_to event_users_path(event) do %>
+    <h3>Review participants' attendance</h3>
   <!-- TODO : Implement a way to send group email -->
 
+
+
+  <!-- 1. IF FUTURE EVENT  -->
+
+  <% else %>
+
+    <h3>Who's coming?</h3>
+    <% @event.participants.each do |person| %>
+      <%= person.first_name %>
+      <br>
+      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+    <% end %>
+    <h3>Send them a email</h3>
+    <!-- TODO : Implement a way to send group email -->
+
+
+  <% end %>
+
+
+
+
+
   <% else %> <!-- If participant :  -->
-  <h3>Who's coming?</h3>
+
+
+  <!-- 1. IF PAST EVENT  -->
+
+    <% if event.end_time < DateTime.now %>
+
+      <h3>Who went?</h3>
+      <div class="participants">
+        <% @event.participants.each do |person| %>
+          <%= person.first_name %>
+          <br>
+      <!-- TODO : Replace fake avatar by real avatar -->
+          <%= link_to image_tag('arnold', class: "avatar"), user_path(person) %>
+        <% end %>
+
+  <!-- 1. IF FUTURE EVENT  -->
+
+  <% else %>
+
+
+    <h3>Who's coming?</h3>
+
     <% @event.participants.last(2).each do |person| %>
+
+
+
+
   <%= person.first_name %>
   <br>
   <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
   <% end %>
-  and <%= @event.capacity - 5 %> more are going! Join them!
+  and <%= @event.capacity - 2 < 0 ? 0 : @vent.capacity - 2 %> more are going! Join them!
+
 
 
 <!--   <h3>Spots left:</h3> -->
@@ -49,9 +108,11 @@
   <h4>Only <%= @spots_left %> spots left! Join before it's too late!</h4>
   <h5>Invite a friend!</h5>
 <!-- TODO : implement FB connect / route to sign in form if not sign in  -->
-
-
   <% end %>
+
+
+
+
   <% end %>
 
   <!-- 3. date/place/organizedby -->
@@ -146,7 +207,7 @@ Yay! You're going!
 <!-- The map will be drawn in this div -->
 <div id="map"></div>
 <!-- Include Google Maps JS library. You should use your *own* key -->
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyBSQcCZYk-r2BU_lENH1gmVOQnS_6ccCH4"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyAuR9xHZcoRnTgQfFzsuXRCzGSsW4bG7Pw"></script>
 
 <!-- Include Dependencies of GMaps for Rails gem -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -163,8 +224,8 @@ Yay! You're going!
     handler.buildMap({ internal: { id: 'map' } }, function(){
       markers = handler.addMarkers([
       {
-        "lat": @event.latitude,
-        "lng": @event.longitude
+        "lat": <%= @event.latitude %>,
+        "lng": <%= @event.longitude %>
         // "infowindow": "<h1>São Paulo</h1><p><img src='https://d1gofzrmx0fcbg.cloudfront.net/production/cities/city_pictures/000/000/015/thumbnail/12280389883_aecfecfc0e_h.jpg?1458582747' height='200'></p>"
       }
       ]);

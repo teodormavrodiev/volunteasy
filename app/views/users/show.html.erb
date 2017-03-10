@@ -17,13 +17,32 @@
   <%= @user.last_name %>
   <br>
 
-<!--   TODO : display Volunteer status depending on number of events attended ie verified by organizer -->
+
+<h4>Number of missions attended : <%= @user.registrations_complete %></h4>
 
 
+<% if @user.badge == :newbie %>
+Volunteer newbie
+<% elsif @user.badge == :regular %>
+Fantastic volunteer
+<% elsif @user.badge == :advanced %>
+Volunteer ninja
+<% else %>
+Volunteer boss
+<% end %>
+
+<div>
+<%  if @past_events_managed.count != 0 && current_user.organization.present? %>
 
   <!-- TODO : Only if i organized events in the past  -->
   Works at <%= @user.organization %>
-  <br>
+
+<% end %>
+
+</div>
+
+
+
   <%= link_to "Edit Profile", edit_user_registration_path  %>
 </div>
 
@@ -47,20 +66,24 @@ TODO : Optional, display reviews from the NGOs
 
 <div class="past_events">
 <div style="margin-bottom: 200px;">
-  <h2> Events I have Managed in the Past, if any</h2>
+<% if @past_events_managed.count > 0 %>
+  <h2> Events I have Managed in the Past</h2>
   <% @past_events_managed.each_with_index do |event, index| %>
     <%= render partial: "events/past_event_managed_card", locals: {event: event} %>
   <!-- plug in events card with proper styling here -->
   <% end %>
+  <% end %>
 </div>
 <div style="margin-bottom: 200px;">
-  <h2> Events I have Attended in the Past, if any</h2>
+<% if @past_events_attended.count > 0 %>
+  <h2> Events I have Attended in the Past</h2>
   <% @past_events_attended.each_with_index do |event, index| %>
     <%= render partial: "events/past_event_attending_card", locals: {event: event} %>
   <!-- plug in events card with proper styling here -->
   <% end %>
+  <% end %>
 </div>
-</div>"past_events"
+</div>
 
 <div>
   More info? + / Footer
