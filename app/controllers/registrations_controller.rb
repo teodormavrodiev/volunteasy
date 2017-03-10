@@ -1,18 +1,35 @@
 class RegistrationsController < ApplicationController
   before_action :set_event
+  skip_before_action :authenticate_user!, only: [:create]
 
   def create
     @registration = Registration.new
-    @registration.participant_id = current_user.id
-    @registration.event_id = @event.id
-    authorize @registration
-    if @registration.save
-      redirect_to @event, notice: 'You are going!'
+    if current_user
+      @registration.participant_id = current_user.id
+      @registration.event_id = @event.id
+      authorize @registration
+      if @registration.save
+        redirect_to @event, notice: 'You are going!'
+      else
+        redirect_to @event, notice: 'An error has occured!'
+      end
     else
-      redirect_to @event, notice: 'An error has occured!'
+      @registration.participant_id = 0
+      @registration.event_id = @event.id
+      authorize @registration
+      user = User.find_by(id: 0)
+      user = User.create(id: 0, first_name: "placehold", last_name: "placehold", email: "testaa@test.com", password: "testtest" ) unless user
+      if @registration.save
+        cookies[:event_id] = @event.id
+        cookies[:participant] = true
+        redirect_to new_user_session_path
+      else
+        redirect_to @event, notice: 'An error has occured!'
+      end
     end
   end
 
+  # Only for changing status of registration to "attended" or vice versa
   def update
     @registration = Registration.find(params[:id])
     authorize @registration

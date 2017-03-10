@@ -9,7 +9,7 @@
     <%= f.input :description, placeholder: "What kind of help do you need?" %>
     <%= f.input :address, placeholder: "Street, City, ZIP" %>
     <%= f.input :capacity %>
-    <%= f.input :tags, label: "I care about...", value: params[:tags], include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
+    <%= f.input :tags, label: "This event is related to...", value: params[:tags], include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
     <%= f.input :photos, as: :attachinary %>
     <%= f.input :source_event_id, as: :hidden %>
   </div>
