@@ -5,7 +5,7 @@ class DeviseRegistrationsController < Devise::RegistrationsController
   end
 
   def after_sign_up_path_for(resource)
-    check_for_event_or_reg
+    check_for_event_or_reg(resource)
   end
 
   # def update_resource(resource, params)
