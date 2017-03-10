@@ -1,7 +1,7 @@
-Dear <%= @organizer.first_name %>,
+<h2>Dear <%= @organizer.first_name %>,</h2>
 
-## Thank you for organizing @event.name
+<p>Thank you for organizing <%= @event.name %>! </p>
 
-## You and number of others participated.
+<p>Please take a minute to let us know who showed up and who didn't. <% link_to "Here!", restaurant_url(@restaurant) %></p>
 
-## Please take a minute to let us know who showed up and who didn't. This helps us improve the experience on our site.
+<h2>Thank you!</h2>
