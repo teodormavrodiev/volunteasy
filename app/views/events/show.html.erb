@@ -18,6 +18,7 @@
 
   <!-- 2. Who's coming -->
 
+<!-- 1. IF PAST EVENT TODO  -->
 
   <!-- If organizer -->
   <% if @event.organizer == current_user %>
@@ -146,7 +147,7 @@ Yay! You're going!
 <!-- The map will be drawn in this div -->
 <div id="map"></div>
 <!-- Include Google Maps JS library. You should use your *own* key -->
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyBSQcCZYk-r2BU_lENH1gmVOQnS_6ccCH4"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyAuR9xHZcoRnTgQfFzsuXRCzGSsW4bG7Pw"></script>
 
 <!-- Include Dependencies of GMaps for Rails gem -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -163,8 +164,8 @@ Yay! You're going!
     handler.buildMap({ internal: { id: 'map' } }, function(){
       markers = handler.addMarkers([
       {
-        "lat": @event.latitude,
-        "lng": @event.longitude
+        "lat": <%= @event.latitude %>,
+        "lng": <%= @event.longitude %>
         // "infowindow": "<h1>São Paulo</h1><p><img src='https://d1gofzrmx0fcbg.cloudfront.net/production/cities/city_pictures/000/000/015/thumbnail/12280389883_aecfecfc0e_h.jpg?1458582747' height='200'></p>"
       }
       ]);

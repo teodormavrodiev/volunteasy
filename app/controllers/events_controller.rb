@@ -21,10 +21,6 @@ class EventsController < ApplicationController
       # @non_full_events = @events.where('capacity > ?', participants.count)
     end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 379f32f00710015d2a3f8635ee5dc602cfc253b1
     @address = params[:event][:address] if params[:event]
 
     unless params[:event].nil? || @address.blank?
@@ -82,16 +78,6 @@ end
 
 def create
   @event = Event.new(event_params)
-<<<<<<< HEAD
-  if current_user?
-    @event.organizer_id = current_user.id
-    authorize @event
-  else
-    redirect_to
-
-  if @event.save
-    redirect_to @event, notice: 'Event was successfully created.'
-=======
   if current_user
     @event.organizer_id = current_user.id
     authorize @event
@@ -100,7 +86,7 @@ def create
     else
       render :new
     end
->>>>>>> 379f32f00710015d2a3f8635ee5dc602cfc253b1
+
   else
     @event.organizer_id = 0
     authorize @event
@@ -114,7 +100,7 @@ def create
     end
   end
 end
-end
+
 
 def update
   if @event.update(event_params)
