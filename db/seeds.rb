@@ -92,7 +92,7 @@ puppy_feeding = Event.new({
   description: "Help us feeding puppies at Barcelona shelter!",
   tags: ["Animals"],
   photo_urls: [
-    "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
+    "http://res.cloudinary.com/demo/image/fetch/http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
   ]
   })
 
@@ -107,7 +107,7 @@ teaching_refugees_spanish = Event.new({
   description: "No specific skills required, just a desire to help and a friendly smile",
   tags: ["Education"],
   photo_urls: [
-    "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+    "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
   ]
   })
 
@@ -121,7 +121,7 @@ teaching_refugees_english = Event.new({
   description: "No specific skills required, just a desire to help and a friendly smile",
   tags: ["Education"],
   photo_urls: [
-    "http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+    "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
   ]
   })
 
@@ -135,7 +135,7 @@ beach_cleaning = Event.new({
   description: "Let's work together for a nicer beach :)",
   tags: ["Animals", "Environment"],
   photo_urls: [
-    "http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
+    "http://res.cloudinary.com/demo/image/fetch/http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
   ]
   })
 
@@ -149,7 +149,7 @@ nursing_home = Event.new({
   description: "Come for a chat and share a meal with our residents",
   tags: ["Seniors", "People with disabilities"],
   photo_urls:[
-    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+    "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
 
@@ -163,7 +163,7 @@ plant_trees = Event.new({
   description: "We'll plant trees and discuss about local initiatives",
   tags: ["Environment"],
   photo_urls: [
-    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+    "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
 
@@ -177,7 +177,7 @@ sewing = Event.new({
   description: "We partner with individuals ages 60+ to foster community connections and improve quality of life.",
   tags: ["Community"],
   photo_urls: [
-    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+    "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
 
@@ -191,7 +191,7 @@ business = Event.new({
   description: "Volunteer as a mentor on MicroMentor.org and make a meaningful connection with a business owner. ",
   tags: ["Community"],
   photo_urls: [
-    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+    "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
   ]
   })
 
