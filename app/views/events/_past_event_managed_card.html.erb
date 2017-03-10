@@ -1,22 +1,23 @@
 <% if event.photos? %>
 <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
 <% else %>
-<% photo_url = image_path('teamwork.jpg') %>
+<% photo_url = image_path("teamwork.jpg") %>
 <% end %>
 
 
-<div class='boat-search-result-card'>
+<div class="event-card">
   <%= link_to event_path(event) do %>
-  <div class='boat-card-image' style="background-image: url('<%= photo_url %>');background-size:cover;">
-    <% end  %>
-    <div class="boat-search-card-info">
-      <div class="card-boat-caption">
-        <span class="card-boat-category"> <%= event.name %></span>
-        <span class='card-boat-location'><%= event.start_time.strftime('%d/%m/%Y') %></span>
+  <div class="event-card-image" style="background-image: url('<%= photo_url %>');background-size:cover;">
+
+    <div class="event-card-info">
+      <div class="event-card-caption">
+        <span class="event-card-category"> <%= event.name %></span>
+        <span class="event-card-location"><%= event.start_time.strftime("%d/%m/%Y") %></span>
       </div>
     </div>
   </div>
 </div>
+  <% end %>
 
 <div>
   <%= link_to "Post photos", edit_event_path(event) %>

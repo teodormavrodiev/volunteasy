@@ -1,37 +1,37 @@
 <% if event.photos? %>
-          <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
-        <% else %>
-          <% photo_url = image_path('teamwork.jpg') %>
+  <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
+<% else %>
+  <% photo_url = image_path('teamwork.jpg') %>
 <% end %>
 
 
-<div class='event-card'>
-<%= link_to event_path(event) do %>
-  <div class='boat-card-image' style="background-image: url('<%= photo_url %>');background-size:cover;">
-<% end  %>
-  <div class="boat-search-card-info">
-    <div class="card-boat-caption">
-      <span class="card-boat-category"> <%= event.name %></span>
-      <span class='card-boat-location'><%= event.start_time.strftime('%d/%m/%Y') %></span>
-      <span class='card-boat-address'><%= event.address %></span>
-      Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.
+<div class="event-card">
+  <%= link_to event_path(event) do %>
+    <div class="event-card-image" style="background-image: url('<%= photo_url %>');background-size:cover;">
+    <div class="event-card-info">
+    <div class="event-card-caption">
+      <span class="event-card-category"> <%= event.name %></span>
+      <span class="event-card-time"><%= event.start_time.strftime('%d/%m/%Y') %></span>
+      <span class='event-card-address'><%= event.address %></span>
+        Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.
     </div>
 
-    <div class="participants">
-      <% if @user.photo  %>
+    <div>
+      <% if @user.photo %>
         <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
-        <% end %> and
-          <% event.participants.first(4).each do |par| %>
+      <% end %> and
+      <% event.participants.first(4).each do |par| %>
         <% if par.photo  %>
-        <%= cl_image_tag par.photo.path, width: 50, height: 70, crop: :fill %>
+          <%= cl_image_tag par.photo.path, width: 50, height: 70, crop: :fill %>
         <% end %>
-        <!--   TO DO : FIX NUMBERS OF PARTICIPANTS -->
+        <!-- TO DO: FIX NUMBERS OF PARTICIPANTS -->
         <% end %> and <%= event.participants.count - 5 %> others.
-<!--         TODO : Implement a invite a friend on FB link here -->
+        <!-- TODO: Implement a invite a friend on FB link here -->
     </div>
 </div>
+  <% end %>
 
-<!-- TODO : If possible here, grab actual position of user to update the search  -->
+<!-- TODO: If possible here, grab actual position of user to update the search  -->
 </div>
   <%= link_to "See more near me", search_path %>
 </div>
