@@ -88,12 +88,16 @@
     <h3>Who's coming?</h3>
 
     <% @event.participants.last(2).each do |person| %>
-      <%= person.first_name %>
-      <br>
-      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
-    <% end %>
 
-  and <%= @event.capacity - 5 %> more are going! Join them!
+
+
+
+  <%= person.first_name %>
+  <br>
+  <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+  <% end %>
+  and <%= @event.capacity - 2 < 0 ? 0 : @vent.capacity - 2 %> more are going! Join them!
+
 
 
 <!--   <h3>Spots left:</h3> -->
