@@ -29,11 +29,12 @@ class RegistrationsController < ApplicationController
     end
   end
 
+  # Only for changing status of registration to "attended" or vice versa
   def update
     @registration = Registration.find(params[:id])
     authorize @registration
     @registration.complete!
-    redirect_to @event, notice: 'Thanks!'
+    render @event, notice: 'Thanks!'
   end
 
   def destroy
