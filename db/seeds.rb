@@ -91,9 +91,7 @@ puppy_feeding = Event.new({
   capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!",
   tags: ["Animals"],
-  photo_urls: [
-    "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
-  ]
+  photo_url: "http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
   })
 
 
@@ -148,7 +146,9 @@ nursing_home = Event.new({
   capacity: 5,
   description: "Come for a chat and share a meal with our residents",
   tags: ["Seniors", "People with disabilities"],
-  photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  photo_urls: [
+    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  ]
   })
 
 plant_trees = Event.new({
