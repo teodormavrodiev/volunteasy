@@ -9,23 +9,23 @@
   <% if @event.end_time < DateTime.now %>
   <h3>Who went?</h3>
   <div class="participants">
-    <% @event.participants.each do |person| %>
-    <%= person.first_name %>
+    <% @event.participants.each do |par| %>
+    <%= par.first_name %>
     <br>
     <!-- TODO : Replace fake avatar by real avatar -->
-    <%= link_to image_tag('arnold', class: "avatar"), user_path(person) %>
+    <%= link_to image_tag('arnold', class: "avatar"), user_path(par) %>
     <% end %>
-    <%= link_to event_users_path(event) do %>
+    <%= link_to event_users_path(@event) do %>
     <h3>Review participants' attendance</h3>
     <!-- TODO : Implement a way to send group email -->
     <% end %>
     <!-- 1. IF FUTURE EVENT  -->
     <% else %>
     <h3>Who's coming? who knows</h3>
-    <% @event.participants.each do |person| %>
-    <%= person.first_name %>
+    <% @event.participants.each do |par| %>
+    <%= par.first_name %>
     <br>
-    <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+    <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(par) %>
     <% end %>
     <h3>Send them a email</h3>
     <!-- TODO : Implement a way to send group email -->
@@ -35,19 +35,19 @@
     <% if @event.end_time < DateTime.now %>
     <h3>Who went?</h3>
     <div class="participants">
-      <% @event.participants.each do |person| %>
-      <%= person.first_name %>
+      <% @event.participants.each do |par| %>
+      <%= par.first_name %>
       <br>
       <!-- TODO : Replace fake avatar by real avatar -->
-      <%= link_to image_tag('arnold', class: "avatar"), user_path(person) %>
+      <%= link_to image_tag('arnold', class: "avatar"), user_path(par) %>
       <% end %>
       <!-- 1. IF FUTURE EVENT  -->
       <% else %>
       <h3>Who's coming?</h3>
-      <% @event.participants.last(2).each do |person| %>
-      <%= person.first_name %>
+      <% @event.participants.last(2).each do |par| %>
+      <%= par.first_name %>
       <br>
-      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(person) %>
+      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(par) %>
       <% end %>
       and <%= @event.capacity - 2 < 0 ? 0 : @event.capacity - 2 %> more are going! Join them!
       <!--   <h3>Spots left:</h3> -->

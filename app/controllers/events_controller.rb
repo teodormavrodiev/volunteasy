@@ -89,8 +89,12 @@ class EventsController < ApplicationController
     else
       @event.organizer_id = 0
       authorize @event
-      user = User.find(0)
-      user = User.create(first_name: "placehold", last_name: "placehold", email: "test@test.com", password: "testtest" ) unless user
+      if User.find_by(id: 0)
+        user = User.find(0)
+      else
+        user = User.create(id: 0, first_name: "placehold", last_name: "placehold", email: "test@test.com", password: "testtest" )
+      end
+
       if @event.save
         cookies[:event_id] = @event.id
         cookies[:participant] = false

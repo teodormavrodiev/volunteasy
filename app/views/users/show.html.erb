@@ -41,9 +41,10 @@ Volunteer boss
 
 </div>
 
-
-
-  <%= link_to "Edit Profile", edit_user_registration_path  %>
+  <!-- Change to Devise at some point -->
+  <% if current_user == @user %>
+    <%= link_to "Edit Profile", edit_user_registration_path  %>
+  <% end %>
 </div>
 
 <div style="clear:both;"></div>
