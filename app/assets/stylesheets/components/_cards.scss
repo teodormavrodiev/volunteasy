@@ -1,0 +1,123 @@
+/* Card design */
+
+.wrapper {
+  background-color: #F7F7F7;
+}
+
+.text-center {
+  text-align:center;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.card {
+  position:absolute;
+  height: 250px;
+  width: 320px;
+  // background: #e3e3e3;
+  background-size: cover;
+  border-radius: 8px;
+  color:#A7A8B6;
+  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  margin: 10px;
+}
+
+.event-card-image {
+  height: 185px;
+}
+
+.card-event-caption {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+}
+
+.card-event-category {
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 22px;
+}
+
+.card-boat-location {
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.card-boat-rating-box {
+  position: absolute;
+  width: 150px;
+  top: 5px;
+  left: 5px;
+}
+
+.card-boat-name {
+  position: absolute;
+  font-weight: 100;
+  font-size: 14px;
+  color: #3e3e3e;
+  top: 5px;
+  right: 5px;
+}
+
+.card-boat-rating {
+  position: absolute;
+  left: 110px;
+  top: 5px;
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+.card-boat-stars {
+  position:absolute;
+  text-align: left;
+}
+
+.card-no-reviews {
+  color: #3e3e3e;
+  font-weight: 100;
+  font-size: 14px;
+}
+
+
+.card-description {
+  position:absolute;
+  bottom:10px;
+  left:10px;
+}
+
+.card-link {
+/*  background: black;
+  opacity: 0;*/
+  width: 100%;
+  position:absolute;
+  bottom:0px;
+  top:0px;
+  opacity: 0.3;
+  transition: color 0,5s ease;
+}
+
+.card-link a:hover{
+  color: #FFFF00;
+       opacity: 0;
+}
+
+.owner-renter {
+  list-style-type: none;
+  text-align:center;
+}
+
+.description {
+  color: #A7A398;
+}
+
+
+
+
+
+
+
+
+
+

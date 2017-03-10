@@ -1,4 +1,16 @@
 <!-- <p id="notice"><%= notice %></p> -->
+<head>
+#     <meta charset="UTF-8">
+#     <title>Google Maps Markers - Static Example</title>
+#     <style type="text/css">
+#       body { margin: 0; }
+#       #map {
+#         display: flex;
+#         height: 100vh;
+#         width: 100%;
+#       }
+#     </style>
+#   </head>
 
 <div>
   <!-- 1. Name event -->
@@ -64,6 +76,8 @@
 
   <!-- 4. description  -->
 
+<!-- The map will be drawn in this div -->
+
   <h3><%= @event.organization %></h3>
 </div>
 
@@ -80,6 +94,16 @@
 
 
 <br>
+
+<!-- MAP PORTION OF PAGE -->
+
+      <div class="col-sm-4">
+        <div class="map-float"><!--start map -->
+          <div id="map">
+          </div>
+        </div><!--end map -->
+      </div>
+
 <div class='footer' id="notice">
 
   <% if @event.participants.include? current_user %>
@@ -122,7 +146,7 @@ Yay! You're going!
 <!-- The map will be drawn in this div -->
 <div id="map"></div>
 <!-- Include Google Maps JS library. You should use your *own* key -->
-<script src="https://maps.google.com/maps/api/js?key=AIzaSyDANjx3bosEtIyzJaoWs50Wnt6nt_1rmxU"></script>
+<script src="https://maps.google.com/maps/api/js?key=AIzaSyBSQcCZYk-r2BU_lENH1gmVOQnS_6ccCH4"></script>
 
 <!-- Include Dependencies of GMaps for Rails gem -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
