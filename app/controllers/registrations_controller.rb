@@ -34,7 +34,7 @@ class RegistrationsController < ApplicationController
     @registration = Registration.find(params[:id])
     authorize @registration
     @registration.complete!
-    render @event, notice: 'Thanks!'
+    redirect_to event_users_path(@event), notice: 'Thanks!'
   end
 
   def destroy
