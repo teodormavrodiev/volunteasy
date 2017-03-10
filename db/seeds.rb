@@ -148,7 +148,9 @@ nursing_home = Event.new({
   capacity: 5,
   description: "Come for a chat and share a meal with our residents",
   tags: ["Seniors", "People with disabilities"],
-  photo_url: "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  photo_urls:[
+    "http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  ]
   })
 
 plant_trees = Event.new({
