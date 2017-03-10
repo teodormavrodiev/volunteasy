@@ -11,10 +11,10 @@ class ApplicationController < ActionController::Base
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
   def after_sign_in_path_for(resource)
-    check_for_event_or_reg
+    check_for_event_or_reg(resource)
   end
 
-  def check_for_event_or_reg
+  def check_for_event_or_reg(resource)
     if cookies[:event_id] && cookies[:participant] == "true"
       event = Event.find_by(id:cookies[:event_id])
       registration = event.registrations.find_by(participant_id:0)
