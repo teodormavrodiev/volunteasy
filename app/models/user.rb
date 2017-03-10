@@ -43,6 +43,22 @@ class User < ApplicationRecord
     return user
   end
 
+  def registrations_complete
+    self.registrations.where(status: :complete).count
+  end
+
+  def badge
+    if registrations_complete == 0
+      :newbie
+    elsif registrations_complete > 1 and registrations_complete <= 3
+      :regular
+    elsif registrations_complete > 3 and registrations_complete < 6
+      :advanced
+    else
+      :expert
+    end
+  end
+
   private
 
   def send_welcome_email

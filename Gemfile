@@ -8,10 +8,10 @@ gem 'figaro'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'redis'
-gem "coffee-rails"
-gem "gmaps4rails"
+gem 'coffee-rails'
+gem 'gmaps4rails'
 source 'https://rails-assets.org' do
-  gem "rails-assets-underscore"
+  gem 'rails-assets-underscore'
 end
 
 gem 'sass-rails'
@@ -21,7 +21,7 @@ gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'autoprefixer-rails'
-gem "geocoder"
+gem 'geocoder'
 
 gem 'pundit'
 
@@ -33,7 +33,7 @@ gem 'attachinary', github: 'assembler/attachinary'
 gem 'jquery-fileupload-rails'
 gem 'coffee-rails'
 
-gem "letter_opener", group: :development
+gem 'letter_opener', group: :development
 
 gem 'sidekiq'
 gem 'sidekiq-failures'

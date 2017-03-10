@@ -10,6 +10,35 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
+  def after_sign_in_path_for(resource)
+    check_for_event_or_reg(resource)
+  end
+
+  def check_for_event_or_reg(resource)
+    if cookies[:event_id] && cookies[:participant] == "true"
+      event = Event.find_by(id:cookies[:event_id])
+      registration = event.registrations.find_by(participant_id:0)
+      registration.participant_id = resource.id if registration
+      cookies[:participant] = "nil"
+      if registration.save
+        user_events_path
+      else
+        user_path(resource)
+      end
+    elsif cookies[:event_id] && cookies[:participant] == "false"
+      event = Event.find_by(id:cookies[:event_id])
+      event.organizer_id = resource.id if event
+      cookies[:participant] = "nil"
+      if event.save
+        user_events_path
+      else
+        user_path(resource)
+      end
+    else
+      user_path(resource)
+    end
+  end
+
   private
 
   def skip_pundit?
