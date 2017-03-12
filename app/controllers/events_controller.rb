@@ -45,27 +45,30 @@ class EventsController < ApplicationController
   end
 
   def show
-  #     juliette's push
-  #     @attending = @event.participants.all
-  #     tags_list = @event.tags
-  #     @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
-      @participants = @event.participants.all
+    @participants = @event.participants.all
 
-      # Spots Left
-      if (@event.capacity - @event.participants.size) <= 0
-        @spots_left = 0
-      else
-        @spots_left = @event.capacity - @event.participants.size
-      end
+    # Spots Left
+    if (@event.capacity - @event.participants.size) <= 0
+      @spots_left = 0
+    else
+      @spots_left = @event.capacity - @event.participants.size
+    end
 
 
-      @organizer_name = @event.organizer.first_name << " " << @event.organizer.last_name
+    @organizer_name = @event.organizer.first_name << " " << @event.organizer.last_name
 
-      # @registration = Registration.where(participant_id: current_user.id).where(event_id: @event.id)
+    # @registration = Registration.where(participant_id: current_user.id).where(event_id: @event.id)
 
-      # Tagging
-      tags_list = @event.tags
-      @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+    # Tagging
+    tags_list = @event.tags
+    @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
+
+
+    @hash = Gmaps4rails.build_markers(@event) do |event, marker|
+      marker.lat event.latitude
+      marker.lng event.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
   end
 
   def new
