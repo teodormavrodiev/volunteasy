@@ -115,7 +115,7 @@
       <% if @event.participants.include? current_user %>
       <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
       Yay! You're going!
-      <%= link_to "Can't go anymore?", event_registration_path(@event, @registration), method: :delete, data: { confirm: 'Are you sure ?' + @organizer_name + ' will miss you :(' } %>
+      <%= link_to "Can't go anymore?", event_registration_path(@event, @registration), method: :delete %>
       <% elsif @event.organizer == current_user %>
       <%= link_to 'Cancel event?', event_path(@event), method: :delete %>
       <%= link_to 'Edit', edit_event_path(@event) %>

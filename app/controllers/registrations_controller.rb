@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
-  before_action :set_event_and_registration, unless: [:create]
+  before_action :set_event_and_registration, only: [:destroy, :update]
   skip_before_action :authenticate_user!, only: [:create]
 
   def create
