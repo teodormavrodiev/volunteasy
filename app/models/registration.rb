@@ -7,6 +7,7 @@ class Registration < ApplicationRecord
 
   validates :participant_id, presence: true
   validates :event_id, presence: true
+  validates_uniqueness_of :participant_id, :scope => :event_id, unless: "participant_id==0"
 
   after_create :send_sms
 

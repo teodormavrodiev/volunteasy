@@ -110,7 +110,7 @@
     </div>
     <!-- NEED TO TEST AFTER AUTHORIZATION IMPLEMENTED -->
     <% if @event.organizer == current_user %>
-    <%= link_to "Copy This Event!", new_event_url({name: @event.name,
+    <%= link_to "Copy This Event!", new_event_path({name: @event.name,
      organization: @event.organization,
      start_time: @event.start_time,
      end_time: @event.end_time,

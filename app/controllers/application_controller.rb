@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
       registration.participant_id = resource.id if registration
       cookies[:participant] = "nil"
       if registration.save
-        user_events_path
+        event
       else
         user_path(resource)
       end
@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
       event.organizer_id = resource.id if event
       cookies[:participant] = "nil"
       if event.save
-        user_events_path
+        event
       else
         user_path(resource)
       end
