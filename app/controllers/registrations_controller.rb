@@ -1,8 +1,9 @@
 class RegistrationsController < ApplicationController
-  before_action :set_event
+  before_action :set_event_and_registration, only: [:destroy, :update]
   skip_before_action :authenticate_user!, only: [:create]
 
   def create
+    @event = Event.find(params[:event_id])
     @registration = Registration.new
     if current_user
       @registration.participant_id = current_user.id
@@ -31,23 +32,21 @@ class RegistrationsController < ApplicationController
 
   # Only for changing status of registration to "attended" or vice versa
   def update
-    @registration = Registration.find(params[:id])
-    authorize @registration
     @registration.complete!
     redirect_to event_users_path(@event), notice: 'Thanks!'
   end
 
   def destroy
-    @registration = Registration.find(params[:id])
-    authorize @registration
     @registration.destroy
     redirect_to @event, notice: 'You unregistered successfully.'
   end
 
-private
+  private
 
-def set_event
-  @event = Event.find(params[:event_id])
-end
+  def set_event_and_registration
+    @event = Event.find(params[:event_id])
+    @registration = Registration.find(params[:id])
+    authorize @registration
+  end
 
 end

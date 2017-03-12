@@ -51,13 +51,5 @@ class Event < ApplicationRecord
     end
   end
 
-
-  # def uncomplete
-  #   if self. # is a class
-  #     ...
-  #   else
-  #     # ...
-  # end
-
 end
 

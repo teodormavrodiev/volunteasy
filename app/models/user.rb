@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   has_many :events, foreign_key: "organizer_id", dependent: :destroy
   has_many :events_as_participant, through: :registrations, source: :event
-  # BOOM
+                                                            # BOOM
   has_many :registrations, foreign_key: "participant_id", dependent: :destroy
 
   # Images
@@ -17,8 +17,6 @@ class User < ApplicationRecord
   validates :email, presence: true, format: { with: Devise::email_regexp }
   validates :first_name, presence: true
   validates :last_name, presence: true
-  # validates :phone, presence: true
-  # validates :dob, presence: true
 
   after_create :send_welcome_email
 
@@ -50,7 +48,7 @@ class User < ApplicationRecord
   def badge
     if registrations_complete == 0
       :newbie
-    elsif registrations_complete > 1 and registrations_complete <= 3
+    elsif registrations_complete >= 1 and registrations_complete <= 3
       :regular
     elsif registrations_complete > 3 and registrations_complete < 6
       :advanced
