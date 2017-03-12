@@ -1,10 +1,5 @@
 class EventMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.event_mailer.update.subject
-  #
   def update(event_id)
 
     @event = Event.find(event_id)

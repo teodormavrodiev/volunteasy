@@ -1,11 +1,10 @@
 class PagesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :home ]
+  skip_before_action :authenticate_user!, only: [:home]
   skip_after_action :verify_authorized, only: [:home]
-  after_action :verify_policy_scoped, only: [:home], unless: :skip_pundit?
 
   def home
 
-    if not cookies[:address].present?
+    unless cookies[:address].present?
       city = request.location.city
 
       cookies[:address] = {
@@ -16,7 +15,5 @@ class PagesController < ApplicationController
 
     @event = Event.new
   end
-
-private
 
 end
