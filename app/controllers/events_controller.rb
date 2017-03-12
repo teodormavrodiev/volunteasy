@@ -65,8 +65,13 @@ class EventsController < ApplicationController
 
 
     @hash = Gmaps4rails.build_markers(@event) do |event, marker|
-      marker.lat event.latitude
-      marker.lng event.longitude
+      if event.latitude
+        marker.lat event.latitude
+        marker.lng event.longitude
+      else
+        marker.lat '29.9792345'
+        marker.lng '31.1320132'
+      end
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
   end
