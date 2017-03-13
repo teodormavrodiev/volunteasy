@@ -2,39 +2,84 @@
 <div class="navbar-wagon navbar-fixed-top" data-spy="affix" data-offset-top="150">
   <!-- Logo -->
   <a href="/" class="navbar-wagon-brand">
-    <%= image_tag "logo.png", {id: "logo"}%>
+    <%= image_tag "volunteasy-logo.png", {id: "logo"} %>
   </a>
 
-  <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-
-  <!-- Search form -->
+  <!-- Search form, hidden on phone screens -->
+  <div class="hidden-xs">
     <form action="" class="navbar-wagon-search">
       <input type="text" class="navbar-wagon-search-input" placeholder="Search something">
       <button type="submit" class="navbar-wagon-search-btn">
         <i class="fa fa-search"></i>
       </button>
     </form>
+  </div>
 
+  <!-- Right Navigation -->
+  <!-- LARGER SCREENS -->
+  <div class="navbar-wagon-right hidden-xs">
     <% if current_user %>
-        <%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "My events", user_events_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Profile",  user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Log Out",  destroy_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete %>
+        <div>
+          <%= link_to new_event_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+            <span class="fa fa-plus-circle fa-1x"></span>  New Event
+          <% end %>
+        </div>
+        <%= link_to user_events_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-calendar-check-o fa-1x"></span>  My Events
+        <% end %>
+        <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-user-circle-o fa-1x"></span>  Profile
+        <% end %>
     <% else %>
-        <%= link_to "New event", new_event_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Log In", new_user_session_path, class: "navbar-wagon-item navbar-wagon-link" %>
-        <%= link_to "Sign Up", new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link" %>
+        <%= link_to new_event_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-plus-circle fa-1x"></span>  New Event
+        <% end %>
+        <%= link_to new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete do %>
+          Log In
+        <% end %>
+        <%= link_to new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete do %>
+          Sign Up
+        <% end %>
     <% end %>
   </div>
 
-  <div class="navbar-wagon-right hidden-md hidden-lg">
-    <% if user_signed_in? %>
-      <div class="navbar-wagon-item">
-        <% if current_user.photo %>
-          <% avatar_url = current_user.photo.path || "http://placehold.it/30x30" %>
+  <!-- PHONE SCREENS -->
+  <div class="navbar-wagon-right hidden-sm hidden-md hidden-lg">
+    <% if current_user %>
+        <%= link_to new_event_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-plus-circle fa-2x"></span>
         <% end %>
-        <%= cl_image_tag avatar_url, width: 55, height: 55, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { "toggle" => "dropdown"} %>
+        <%= link_to user_events_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-calendar-check-o fa-2x"></span>
+        <% end %>
+        <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-user-circle-o fa-2x"></span>
+        <% end %>
+    <% else %>
+        <%= link_to new_event_path, class: "navbar-wagon-item navbar-wagon-link" do %>
+          <span class="fa fa-plus-circle fa-2x"></span>
+        <% end %>
+        <%= link_to new_user_session_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete do %>
+          Log In
+        <% end %>
+        <%= link_to new_user_registration_path, class: "navbar-wagon-item navbar-wagon-link", method: :delete do %>
+          Sign Up
+        <% end %>
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+    <% if user_signed_in? %>
+      <div class="navbar-wagon-item no-padding">
+
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-bars fa-2x"></i>
+      </a>
 
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
@@ -55,8 +100,10 @@
         </ul>
       </div>
     <% else %>
-      <div class="navbar-wagon-item">
-        <%= cl_image_tag avatar_url, width: 55, height: 55, crop: :fill, class: "avatar-large dropdown-toggle", id: "navbar-wagon-menu", data: { "toggle" => "dropdown"} %>
+      <div class="navbar-wagon-item no-padding">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+          <i class="fa fa-bars fa-2x"></i>
+        </a>
         <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
           <li>
             <%= link_to "Search", search_path, class: "navbar-wagon-item navbar-wagon-link" %>

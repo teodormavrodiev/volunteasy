@@ -5,7 +5,7 @@
   transition: all 0.3s ease;
   display: flex;
   height: 70px;
-  padding: 0px 30px;
+  padding: 0px 15px 0px 15px;
   align-items: center;
   justify-content: space-between;
 }
@@ -21,7 +21,7 @@
 
 /* Navbar logo */
 .navbar-wagon-brand img {
-  width: 50px;
+  width: 40px;
 }
 
 /* Navbar right section (with form, links, button) */
@@ -31,11 +31,19 @@
   justify-content: space-between;
 }
 
+.navbar-buttons {
+  margin-left: auto;
+}
+
 /* Navbar item */
 .navbar-wagon-item {
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
+}
+
+.no-padding {
+  padding: 0px;
 }
 
 /* Navbar standard link */

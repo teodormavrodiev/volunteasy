@@ -1,13 +1,16 @@
-MY EVENTS
 
-
-<div style="margin-bottom: 200px;">
-
-
-  <h2> Events I am Managing</h2>
+<div style="margin-bottom: 100px;">
+  <div class="text-center">
+      <h3> Events I'm Managing</h3>
+  </div>
   <% if @current_events_managed.count == 0 %>
-      You're not managing any event yet!
+    <div class="watermark">
+      <i class="fa fa-frown-o" aria-hidden="true"></i>
+    </div>
+    <div class="watermark-text">
+        You're not managing any event yet!
       <%= link_to "Create one now", new_event_path %>
+    </div>
   <% else %>
   <% @current_events_managed.each_with_index do |event, index| %>
     <%= render partial: "events/current_event_managed_card", locals: {event: event} %>
@@ -15,9 +18,14 @@ MY EVENTS
   <% end %>
   <% end %>
 </div>
-<div style="margin-bottom: 200px;">
-  <h2> Events I am Attending</h2>
+
+
+<div style="margin-bottom: 100px;">
+  <div class="text-center">
+      <h3> Events I'm Attending</h3>
+  </div>
   <% if @current_events_attended.count == 0 %>
+      <i class="fa fa-frown-o fa-4x" aria-hidden="true"></i>
       You're not attending any event yet!
       <%= link_to "Find the perfect opportunity", search_path %>
   <% else %>
