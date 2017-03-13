@@ -5,10 +5,8 @@
   <% photo_url = image_path('teamwork.jpg') %>
 <% end %>
 
-<div class="container_card">
+<div class="card-container">
   <!-- Normal Demo-->
-  <div class="column">
-    <!-- Post-->
     <div class="post-module">
       <!-- Thumbnail-->
       <div class="thumbnail">
@@ -22,10 +20,10 @@
       </div>
       <!-- Post Content-->
       <div class="post-content">
-        <h1 class="title"><%= event.name %></h1>
-        <h2 class="sub_title"><%= event.start_time.strftime('%d/%m/%Y') %></h2>
-        <p class="sub_title"><%= event.address %></p>
-        <p class="sub_title"> Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.</p>
+        <h1 class="card-title"><%= event.name %></h1>
+        <h2 class="card-time"><%= event.start_time.strftime('%d/%m/%Y') %></h2>
+        <p class="event-card-address"><%= event.address %></p>
+        <p class="event-card-days-left"> Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.</p>
          <p class="description"><%= event.description %></p>
         <div class="participants">
         <%= link_to event_users_path(event) do %>
@@ -45,5 +43,4 @@
     <div>
       <%= link_to "See more near me", search_path %>
     </div>
-  </div>
 </div>

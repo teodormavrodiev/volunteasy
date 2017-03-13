@@ -22,12 +22,10 @@
     <!-- Navbar -->
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <%= yield %>
+
+    <div style="margin-top: 70px">
+      <%= yield %>
+    </div>
     <%= javascript_include_tag 'application' %>
     <%= cloudinary_js_config %>
   </body>
