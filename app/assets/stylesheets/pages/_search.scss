@@ -4,10 +4,16 @@ a.selected {
   z-index:100;
 }
 
+.event-search-box {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .categories {
   background-color:#FFFFFF;
   border:1px solid #999999;
   cursor:default;
+  color: #979797;
   display:none;
   margin-top: 15px;
   position:absolute;
@@ -34,7 +40,7 @@ label {
   display:block;
   width: 100%;
   color: #979797;
-  background-color: #979797;
+  background-color: #FFFFFF;
   }
 .go {
     background-color: $button-green;
@@ -45,4 +51,15 @@ label {
   color: #979797;
   text-align:center;
   border: 1px solid #ccc;
+}
+
+.button-categories {
+  color: #979797;
+}
+
+.results h2 {
+  color: #5E5E5E;
+  text-align:center;
+  font-size: 25px;
+
 }
