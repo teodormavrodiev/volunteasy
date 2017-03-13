@@ -9,29 +9,29 @@ body {
   // .font-smoothing;
 }
 
-.container_card {
-  max-width: 800px;
-  min-width: 640px;
+.card-container {
+  max-width: 200px;
+  min-width: 200px;
   margin: 0 auto;
-  background-color: #D2DCED;
+  background-color: $green;
   &:before,
   &:after {
     content: '';
     display: block;
     clear: both;
   }
-  .column {
-    width: 50%;
-    padding: 0 25px;
-    // .box-size;
-    float: left;
-    .demo-title {
+  .card-title {
+    font-size: 18px;
+  }
+  .card-time {
+    font-size: 14px;
+  }
+  .demo-title {
       margin: 0 0 15px;
       color: gray;
       font-size: 18px;
       font-weight: bold;
       text-transform: uppercase;
-    }
   }
   .info {
     width: 300px;
@@ -40,7 +40,6 @@ body {
     h1 {
       margin: 0 0 15px;
       padding: 0;
-      font-size: 24px;
       font-weight: bold;
       color: gray;
     }

@@ -1,0 +1,129 @@
+.form {
+  background-color: white;
+  padding: 25px;
+  margin-bottom: 100px;
+  h1,h2,h3,h4,p,label {
+    color: #2F2E2F;
+  }
+  a {
+    color: #fff;
+    text-decoration: none;
+  }
+  select {
+    margin: 10px 0;
+  }
+  .actionBtn {
+    position: relative;
+    text-align: left;
+    white-space: nowrap;
+    border-radius: 0.2em;
+    font-size: 23px;
+    color: #FFF;
+    margin-bottom: 10px;
+  }
+  .actionBtn--facebook {
+    background-color: #3B5998;
+    border-color: #3B5998;
+    color: #fff;
+    line-height: 64px;
+    padding: 5px 55px 5px 55px;
+    width: 100%;
+  }
+  .actionBtn--volunteasy {
+    background-color: $bg-green;
+    border-color: $bg-green;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+  }
+  .actionBtn--cancel {
+    background-color: red;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border: none;
+  }
+  .actionBtn--reset {
+    background-color: $bg-green;
+    color: #fff;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    border-color: $bg-green;
+    font-size: 18px;
+  }
+  .simple-form-for {
+    a {
+      color: #2F2E2F;
+      padding: 15px 0;
+      font-size: 16px;
+      line-height: 40px;
+    }
+    a:last-child {
+      margin-bottom: 25px;
+    }
+    input[type="file"] {
+    background: #D9DCDC;
+    width: 100%;
+    padding: 15px 0;
+    }
+  }
+}
+.strike {
+    display: block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    margin-bottom: 20px;
+}
+
+.strike > span {
+    position: relative;
+    display: inline-block;
+    color: #2F2E2F;
+}
+
+.strike > span:before,
+.strike > span:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 9999px;
+    height: 1px;
+    background: $bg-green;
+}
+
+.strike > span:before {
+    right: 100%;
+    margin-right: 15px;
+}
+
+.strike > span:after {
+    left: 100%;
+    margin-left: 15px;
+}
+.form-heading {
+  h1,h2,h3,h4 {
+    color: #2F2E2F;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

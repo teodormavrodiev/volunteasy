@@ -1,6 +1,12 @@
-<h1>Create a Mission!</h1>
-<h3>Find passionate people for your project</h3>
+<div class="wrapper">
+  <div class="container">
+    <div class="col-xs-12 col-sm-8 col-md-4">
+      <div class="form-heading">
+        <h3>Create a Mission!</h3>
+        <h4>Find passionate people for your project</h4>
+      </div>
+      <%= render 'form', event: @event %>
 
-<%= render 'form', event: @event %>
-
-<%= link_to 'Back', events_path %>
+    </div>
+  </div>
+</div>
