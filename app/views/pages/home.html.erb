@@ -2,14 +2,25 @@
 
   <div class="video-container">
         <div class="filter"></div>
-        <video autoplay loop class="fillWidth">
+<!--         <video autoplay loop class="fillWidth">
             <source src="/videos/Everest/MP4/Everest.mp4" type="video/mp4" />Your browser does not support the video tag. I suggest you upgrade your browser.
             <source src="/videos/Everest/WEBM/Everest.webm" type="video/webm" />Your browser does not support the video tag. I suggest you upgrade your browser.
-        </video>
+        </video> -->
+        <video poster="img/yourposterimage.jpg" id="bgvid" playsinline autoplay muted loop>
+<source src="https://player.vimeo.com/external/147585012.hd.mp4?s=1726e3b9f04d4351927b118333bc58008aeb2af7&profile_id=113" type="video/mp4"></video>
         <div class="poster hidden">
         <img src="/videos/Everest/Snapshots/Everest.jpg" alt="">
         </div>
   </div>
+
+
+
+
+
+
+
+
+
 
 <div class="container homepage homepage-hero-module">
 
@@ -18,24 +29,26 @@
       <div class="homepage-content">
         <div class="banner-content">
           <%= image_tag("volunteasy-logo.png", class: 'logo-home') %>
-          <h3 class="text-center">Make a difference in your community</h3>
+          <div class="title"> <h2>Volunteasy</h2>
+          </div>
+          <h3>Make a difference in your community</h3>
           <div class = "form-inline search-form">
             <%= simple_form_for @event, url: search_path, html: { class: 'form-inline'}, method: :get do |f| %>
 
-            <%= f.input :address, placeholder: "Location...", label: false, input_html: {class: 'input-lg', value: cookies[:address]} %>
+            <%= f.input :address, placeholder: "Your city...", label: false, input_html: {class: 'city input-lg', value: cookies[:address]} %>
 
-            <%= f.button :submit, value: "Go!", class: "btn-lg btn-block" %>
+            <%= f.button :submit, value: "Go!", class: "btn-lg go btn-block" %>
 
             <% end %>
           </div>
         </div>
-        <div class="create-login">
-          <div class="text-center">
-            <%= link_to "Or create your own !", new_event_path %>
-          </div>
-          <div class="text-center">
-            <%= link_to "Already a member? Log-in", user_session_path %>
-          </div>
+        <div class="col-xs-12">
+
+        <%= link_to "Create a mission", new_event_path, class: "btn-lg create btn-block" %>
+        </div>
+        <div class="create-login form-inline">
+            <%= link_to "Already a member? Log-in", user_session_path, class: 'login' %>
+
         </div>
 
       </div>
