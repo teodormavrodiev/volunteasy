@@ -25,7 +25,11 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
+  <% if params[:action] == "home" %>
+    <div>
+  <% else %>
     <div style="margin-top: 116px">
+  <% end %>
       <div class="container">
         <%= yield %>
       </div>
