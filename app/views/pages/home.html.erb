@@ -1,17 +1,16 @@
 <div class="container">
-  <div>
-    <h1 class=text-center>Find an opportunity now</h1>
+  <div class=text-center>
+    <h1>Find an opportunity now</h1>
   </div>
-  <div class = "form-inline search-form form-group">
+  <!-- <div class="input-group"> -->
+  <div class = "form-inline search-form form-group-lg">
     <%= simple_form_for @event, url: search_path, method: :get do |f| %>
-
     <%= f.input :address, placeholder: "Location...", label: false, input_html: {class: 'address', value: cookies[:address]} %>
-
-    <%= f.button :submit, value: "Go!" %>
-
+    <%= f.button :submit, value: "Go!", class: "btn btn-primary btn-lg" %>
     <% end %>
+  <!-- </div> -->
   </div>
-</div>
-<div class="container text-center">
-  <%= link_to "Or create your own !", new_event_path %>
+  <div class="text-center" style="margin-top: 100px">
+    <%= link_to "Or create your own !", new_event_path %>
+  </div>
 </div>
