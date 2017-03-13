@@ -12,10 +12,10 @@
       <%= link_to "Create one now", new_event_path %>
     </div>
   <% else %>
-  <% @current_events_managed.each_with_index do |event, index| %>
-    <%= render partial: "events/current_event_managed_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
+    <% @current_events_managed.each_with_index do |event, index| %>
+      <%= render partial: "events/current_event_managed_card", locals: {event: event} %>
+    <!-- plug in events card with proper styling here -->
+    <% end %>
   <% end %>
 </div>
 
@@ -25,14 +25,14 @@
       <h5>EVENTS I'M ATTENDING</h5>
   </div>
   <% if @current_events_attended.count == 0 %>
-      <i class="fa fa-frown-o fa-4x" aria-hidden="true"></i>
-      You're not attending any event yet!
-      <%= link_to "Find the perfect opportunity", search_path %>
+    <i class="fa fa-frown-o fa-4x" aria-hidden="true"></i>
+    You're not attending any event yet!
+    <%= link_to "Find the perfect opportunity", search_path %>
   <% else %>
-  <% @current_events_attended.each_with_index do |event, index| %>
-    <%= render partial: "events/current_event_attending_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
+    <% @current_events_attended.each_with_index do |event, index| %>
+      <%= render partial: "events/current_event_attending_card", locals: {event: event} %>
+    <!-- plug in events card with proper styling here -->
+    <% end %>
   <% end %>
 </div>
 
