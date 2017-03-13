@@ -1,0 +1,23 @@
+
+<!-- Right Navigation -->
+<!-- LARGER SCREENS -->
+<div class="navbar-wagon-bottom">
+
+  <!-- Search -->
+    <%= link_to events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
+    <span class="nav-icon fa fa-search"></span><br>
+      <span class="nav-button-text">Search</span>
+    <% end %>
+
+  <!-- Add Event -->
+    <%= link_to new_event_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
+    <span class="nav-icon fa fa-plus-circle"></span><br>
+      <span class="nav-button-text">Add Event</span>
+    <% end %>
+  <!-- My Events -->
+    <%= link_to user_events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
+    <span class="nav-icon fa fa-calendar-check-o"></span><br>
+      <span class="nav-button-text">My Events</span>
+    <% end %>
+
+</div>

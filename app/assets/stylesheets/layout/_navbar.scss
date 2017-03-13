@@ -1,10 +1,24 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: $bg-dark;
+  background: $bg-nav;
   transition: all 0.3s ease;
+  // height: 116px;
+}
+
+#navbar-top {
+  height: 50px;
   display: flex;
-  height: 70px;
+  padding: 0px 15px 0px 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#navbar-bottom {
+  height: 66px;
+  margin: 0;
+  background: #FFFFFF;
+  display: flex;
   padding: 0px 15px 0px 15px;
   align-items: center;
   justify-content: space-between;
@@ -22,17 +36,28 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 40px;
+  margin-left: 14px;
 }
 
-/* Navbar right section (with form, links, button) */
-.navbar-wagon-right {
+/* Navbar bottom section (with form, links, button) */
+.navbar-wagon-bottom {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.navbar-buttons {
-  margin-left: auto;
+.nav-button {
+  text-align: center;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.nav-button-text {
+  font-size: 12px;
+  text-decoration: none;
 }
 
 /* Navbar item */
@@ -51,6 +76,7 @@
   color: $text-link;
   font-size: 14px;
 }
+
 .navbar-wagon-link:hover {
   color: $text-link-hover;
   text-decoration: none;
@@ -102,16 +128,33 @@
   font-size: 14px;
   outline: none;
 }
+
 .navbar-wagon-search-input:focus  {
   border: 1px solid #CCCCCC;
 }
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
-  margin-top: 15px;
+  margin-top: -56px;
+  margin-right: 20px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
+  width: 120px;
+  background-color: #fff;
 }
+
+#caret {
+  position: relative;
+  left: -5px;
+  top: -5px;
+}
+
+.navbar-wagon-dropdown-menu li {
+  display: block;
+  border-width: 0px;
+  width: 100px;
+}
+
 .navbar-wagon-dropdown-menu li > a {
   transition: color 0.3s ease;
   font-weight: lighter !important;
@@ -119,9 +162,9 @@
   font-size: 15px !important;
   line-height: 22px !important;
   padding: 10px 20px;
+  background: #fff !important;
 }
 .navbar-wagon-dropdown-menu li > a:hover {
-  background: transparent !important;
   color: black !important;
 }
 .navbar-wagon-dropdown-menu:before {
@@ -129,10 +172,21 @@
   height: 10px;
   width: 10px;
   position: absolute;
-  right: 10px;
+  right: 34px;
   top: -6px;
   background-color: white;
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+.dropdown-button {
+  color: #f3f3f3;
+  margin-right: 10px;
+}
+
+
+
+
+
+
