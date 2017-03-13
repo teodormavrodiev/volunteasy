@@ -24,7 +24,9 @@
     <%= render 'shared/flashes' %>
 
     <div style="margin-top: 100px">
-      <%= yield %>
+      <div class="container">
+        <%= yield %>
+      </div>
     </div>
 
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>

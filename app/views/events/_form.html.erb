@@ -1,20 +1,27 @@
-<%= simple_form_for(@event) do |f| %>
-  <%= f.error_notification %>
+<div class="form">
+  <div class="simple-form-for">
+    <%= simple_form_for(@event) do |f| %>
+      <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :name, placeholder: "Event Name", input_html: { value: params[:name] || event.name } %>
-    <%= f.input :organization, placeholder: "My organization", input_html: { value: params[:organization] || event.organization }  %>
-    <%= f.input :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
-    <%= f.input :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
-    <%= f.input :description, placeholder: "What kind of help do you need?", input_html: { value: params[:description] || event.description } %>
-    <%= f.input :address, placeholder: "Street, City, ZIP", input_html: { value: params[:address] || event.address}  %>
-    <%= f.input :capacity, input_html: { value: params[:capacity] || event.capacity}  %>
-    <%= f.input :tags, label: "This event is related to...", input_html: { value: params[:tags] || event.tags }, include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
-    <%= f.input :photos, as: :attachinary, input_html: { value: params[:photos] || event.photos }  %>
-    <%= f.input :source_event_id, as: :hidden, input_html: { value: params[:source_event_id] }  %>
-  </div>
+      <div class="form-inputs">
+        <%= f.input :name, placeholder: "Event Name", input_html: { value: params[:name] || event.name } %>
+        <%= f.input :organization, placeholder: "My organization", input_html: { value: params[:organization] || event.organization }  %>
+        <%= f.input :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
+        <%= f.input :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
+        <%= f.input :description, placeholder: "What kind of help do you need?", input_html: { value: params[:description] || event.description } %>
+        <%= f.input :address, placeholder: "Street, City, ZIP", input_html: { value: params[:address] || event.address}  %>
+        <%= f.input :capacity, input_html: { value: params[:capacity] || event.capacity}  %>
+        <%= f.input :tags, label: "This event is related to...", input_html: { value: params[:tags] || event.tags }, include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
+        <%= f.input :photos, as: :attachinary, input_html: { value: params[:photos] || event.photos }  %>
+        <%= f.input :source_event_id, as: :hidden, input_html: { value: params[:source_event_id] }  %>
+      </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+      <div class="form-actions">
+        <%= f.button :submit, class: "actionBtn actionBtn--volunteasy" %>
+      </div>
+    <% end %>
+    <br>
+    <br>
+    <%= link_to 'Back', events_path %>
   </div>
-<% end %>
+</div>
