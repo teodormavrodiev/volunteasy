@@ -33,4 +33,16 @@ label {
 .btn-search {
   display:block;
   width: 100%;
+  color: #979797;
+  background-color: #979797;
+  }
+.go {
+    background-color: $button-green;
+    color: white;
+  }
+.create {
+  background: rgba(0, 0, 0, 0);
+  color: #979797;
+  text-align:center;
+  border: 1px solid #ccc;
 }
