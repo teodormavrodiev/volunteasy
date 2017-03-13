@@ -36,6 +36,7 @@
 /* Navbar logo */
 .navbar-wagon-brand img {
   width: 40px;
+  margin-left: 14px;
 }
 
 /* Navbar bottom section (with form, links, button) */
@@ -127,6 +128,7 @@
   font-size: 14px;
   outline: none;
 }
+
 .navbar-wagon-search-input:focus  {
   border: 1px solid #CCCCCC;
 }
@@ -140,6 +142,13 @@
   width: 120px;
   background-color: #fff;
 }
+
+#caret {
+  position: relative;
+  left: -5px;
+  top: -5px;
+}
+
 .navbar-wagon-dropdown-menu li {
   display: block;
   border-width: 0px;
@@ -163,7 +172,7 @@
   height: 10px;
   width: 10px;
   position: absolute;
-  right: 12px;
+  right: 34px;
   top: -6px;
   background-color: white;
   transform: rotate(45deg);
