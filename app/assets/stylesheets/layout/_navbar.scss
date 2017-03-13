@@ -38,15 +38,25 @@
   width: 40px;
 }
 
-/* Navbar right section (with form, links, button) */
-.navbar-wagon-right {
+/* Navbar bottom section (with form, links, button) */
+.navbar-wagon-bottom {
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.navbar-buttons {
-  margin-left: auto;
+.nav-button {
+  text-align: center;
+}
+
+.nav-icon {
+  font-size: 20px;
+}
+
+.nav-button-text {
+  font-size: 12px;
+  text-decoration: none;
 }
 
 /* Navbar item */
@@ -65,6 +75,7 @@
   color: $text-link;
   font-size: 14px;
 }
+
 .navbar-wagon-link:hover {
   color: $text-link-hover;
   text-decoration: none;
