@@ -12,12 +12,12 @@
     <!-- Facebook Sharing for All Pages -->
     <div id="fb-root"></div>
     <script>(function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));</script>
 
     <!-- Navbar -->
     <%= render 'shared/navbar' %>
@@ -26,7 +26,16 @@
     <div style="margin-top: 70px">
       <%= yield %>
     </div>
-    <%= javascript_include_tag 'application' %>
+
+    <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+
+    <%= javascript_include_tag "application" %>
+
+    <%= yield(:after_js) %>
+
     <%= cloudinary_js_config %>
+
   </body>
 </html>

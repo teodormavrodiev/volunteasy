@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require bootstrap-sprockets
 //= require jquery-fileupload/basic
+//= require underscore
+//= require gmaps/google
 //= require cloudinary/jquery.cloudinary
 //= require attachinary
 
