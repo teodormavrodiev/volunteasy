@@ -1,4 +1,9 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.homepage {
+  background-color: $bg;
+  color: $input-white;
+}
+
+.logo-home {
+  margin: 0 auto;
+  display: block;
+}

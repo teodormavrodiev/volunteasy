@@ -1,17 +1,26 @@
-<div class="container">
-  <div>
-    <h1 class=text-center>Find an opportunity now</h1>
+<div class="container homepage">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="banner-content">
+      <%= image_tag("volunteasy-logo.png", class: 'logo-home') %>
+        <h1 class="text-center">Find an opportunity now</h1>
+      <div class = "form-inline search-form">
+        <%= simple_form_for @event, url: search_path, method: :get do |f| %>
+
+        <%= f.input :address, placeholder: "Location...", label: false, input_html: {class: 'address', value: cookies[:address]} %>
+
+        <%= f.button :submit, value: "Go!" %>
+
+        <% end %>
+      </div>
+      </div>
+      <div class="text-center">
+        <%= link_to "Or create your own !", new_event_path %>
+      </div>
+      <div class="login">
+        Already a member? <%= link_to "Log-in", user_session_path %>
+      </div>
+    </div>
+
   </div>
-  <div class = "form-inline search-form form-group">
-    <%= simple_form_for @event, url: search_path, method: :get do |f| %>
-
-    <%= f.input :address, placeholder: "Location...", label: false, input_html: {class: 'address', value: cookies[:address]} %>
-
-    <%= f.button :submit, value: "Go!" %>
-
-    <% end %>
-  </div>
-</div>
-<div class="container text-center">
-  <%= link_to "Or create your own !", new_event_path %>
 </div>
