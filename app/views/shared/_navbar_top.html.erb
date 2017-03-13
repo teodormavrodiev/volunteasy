@@ -16,18 +16,22 @@
     <!-- Right Navigation -->
     <!-- LARGER SCREENS -->
     <div class="navbar-wagon-right hidden-xs">
+
       <% if current_user %>
+
       <div>
         <%= link_to new_event_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-        <span class="fa fa-plus-circle fa-1x"></span>  New Event
+        <span class="fa fa-plus-circle fa-1x"></span> New Event
         <% end %>
       </div>
       <%= link_to user_events_path, class: "navbar-wagon-item navbar-wagon-link" do %>
-      <span class="fa fa-calendar-check-o fa-1x"></span>  My Events
+      <span class="fa fa-calendar-check-o fa-1x"></span> My Events
       <% end %>
       <%= link_to user_path(current_user), class: "navbar-wagon-item navbar-wagon-link" do %>
       <span class="fa fa-user-circle-o fa-1x"></span>  Profile
       <% end %>
+
+
       <% else %>
       <%= link_to new_event_path, class: "navbar-wagon-item navbar-wagon-link" do %>
       <span class="fa fa-plus-circle fa-1x"></span>  New Event
@@ -70,9 +74,9 @@
     <% if user_signed_in? %>
     <div class="navbar-wagon-item no-padding">
 
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <div class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-bars fa-2x"></i>
-      </a>
+      </div>
 
       <ul id="dropdown" class="dropdown dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
@@ -94,9 +98,9 @@
     </div>
     <% else %>
     <div class="navbar-wagon-item no-padding">
-      <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+      <div class="dropdown-toggle" data-toggle="dropdown">
         <i class="fa fa-bars fa-2x"></i>
-      </a>
+      </div>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
         <li>
           <%= link_to "Search", search_path, class: "navbar-wagon-item navbar-wagon-link" %>
