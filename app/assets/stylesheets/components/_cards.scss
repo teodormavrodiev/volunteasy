@@ -4,6 +4,8 @@
   background-color: #F7F7F7;
 }
 
+
+// CARD CONTAINER ------------->
 .event-card-container {
   position: relative;
   height: 377px;
@@ -21,11 +23,13 @@
   }
 }
 
+// CARD IMAGE ------------->
 .event-card-image {
   height: 172px;
   overflow: hidden;
 }
 
+// CARD TAB ------------->
 .event-card-tab {
   position: absolute;
   text-align: center;
@@ -63,20 +67,83 @@
   text-align: center;
 }
 
-.event-card-time {
 
-}
 
+// CARD DATA ------------->
 .event-card-data {
-  height: 205px;
+  text-align: center;
+  position: relative;
+  height: 145px;
   text-align: left;
   padding: 15px 15px 15px 15px;
+}
+
+.event-card-address-icon {
+  position: absolute;
+  left: 17px;
+  top: 50px
+}
+
+.event-card-address {
+  margin-top: 10px;
+  margin-left: 30px;
+}
+
+.event-card-time-icon {
+  position: absolute;
+  left: 17px;
+  top: 100px;
+}
+
+.event-card-time {
+  margin-top: 5px;
+  margin-left: 30px;
 }
 
 .event-card-caption {
   margin-top: 10px;
 }
 
+.event-card-separator {
+  // position: absolute;
+  height: 1px;
+  background: #E2E2E2;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.event-card-remainder {
+  margin-left: 10px;
+  border-radius: 4px;
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #F5F5F5;
+  height: 20px;
+  line-height: 20px;
+  font-size: 8px;
+  font-family: "Avenir";
+  font-weight: 700px;
+  font-color: #A0A6AD;
+}
+
+// CARD FOOTER ------------->
+.event-card-footer {
+  position: relative;
+  height: 60px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  margin-left: 14px;
+  // padding: 15px 15px 15px 15px;
+
+  // FOR EVENT CARD REMAINDER
+  a {
+    text-decoration: none !important;
+  }
+}
+
+// UNUSED ------------->
 .event-card-category {
   color: #3e3e3e;
   font-weight: 100;
