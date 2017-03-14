@@ -1,0 +1,82 @@
+.user-basic-info {
+  position: relative;
+  background-color: #fff;
+  width: 100%;
+  height: 300px;
+  box-shadow: 0px 0px 5px #888888;
+  .user-image {
+    position: absolute;
+    top: 0;
+    left: 37%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: -45px;
+    border: white 3px solid;
+  }
+  .user-name {
+    padding-top: 17%;
+  }
+}
+.user-edit-button {
+  text-align: center;
+  vertical-align: center;
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  box-shadow: 0px 0px 5px #888888;
+  .pencil {
+    margin-top: 27%;
+  }
+}
+
+.user-bio,.user-organization,.user-past-events {
+  background-color: #fff;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0px 0px 5px #888888;
+}
+.margin-top-user-page {
+  margin-top: 50px;
+}
+
+.user-past-events {
+  .past-event-card {
+    margin-top: 35px;
+    .past-event-image {
+      float: left;
+      width: 33%;
+      img {
+        width: 100%;
+      }
+    }
+    .past-event-information {
+      float: left;
+      width: 64%;
+      margin-left: 3%;
+      .participant-img {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+    }
+    .manager-options {
+      margin-top: 30px;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
