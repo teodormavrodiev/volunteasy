@@ -23,7 +23,7 @@ a.selected {
   padding: 10px 10px 10px;
 }
 
-label {
+.categories label {
   display: block;
   margin-bottom: 3px;
   padding-left: 15px;
@@ -47,8 +47,8 @@ label {
     color: white;
   }
 .create {
-  background: rgba(0, 0, 0, 0);
-  color: #979797;
+  background-color: $blue-button;
+  color: white;
   text-align:center;
   border: 1px solid #ccc;
 }
@@ -62,4 +62,8 @@ label {
   text-align:center;
   font-size: 25px;
 
+}
+
+.city {
+  padding-left: 27px;
 }
