@@ -27,6 +27,8 @@ Rails.application.routes.draw do
   get '/events/:id/users/', to: 'events#users', as: 'event_users'
   get '/my_events/', to: 'events#my_events', as: 'user_events'
   get "/login_signup/", to: "pages#login_signup", as: "login_signup"
+  get '/home_create/', to: 'pages#home_create', as: 'home_create'
+  get '/home_search/', to: 'pages#home_search', as: 'home_search'
 
 
 end
