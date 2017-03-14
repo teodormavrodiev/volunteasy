@@ -165,7 +165,8 @@
   margin-left:15px;
   // float:left;
   position:absolute;
-left: 0;
+  z-index: 9;
+  left: 0;
 }
 
 .fa-arrow-left:before {
