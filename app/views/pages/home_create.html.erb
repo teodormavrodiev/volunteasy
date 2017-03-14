@@ -16,10 +16,21 @@
 
 
 
+
+
+<!-- IF PUSHED BUTTON CREATE EVENT :  -->
+
+
+
 <div class="container homepage homepage-hero-module">
 
   <div class="row">
     <div class="col-xs-12">
+        <div class="arrow">
+    <%= link_to root_path do %>
+  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+<% end %>
+</div>
 
       <div class="row">
         <div class="col-xs-offset-1 col-xs-10">
@@ -34,27 +45,47 @@
                 Fighting the right fight starts with your fingertips
                 </h3>
 
-              <div class = "simple-form form-inline search-form">
-                  <div class="form-group">
-                <%= button_to "Find an event", home_search_path, class: "btn go btn-block", method: :get  %>
+
+
+<div class = "form-inline search-form">
+                <%= simple_form_for @event, url: new_event_path, html: { class: 'form-inline'}, method: :get do |f| %>
+
+                <div class="icon-compass">
+                <i class="fa fa-compass my-compass" aria-hidden="true"></i>
+
+                <%= f.input :address, placeholder: 'Your city', label: false, input_html: {class: 'city', value: cookies[:address]} %>
+
                 </div>
-                <%= button_to "Create an event", home_create_path, class: "btn create btn-block", method: :get %>
 
-              </div>
+                <%= f.button :submit, value: "Create!", class: "btn create btn-block signin" %>
+
+                <% end %>
+
+
+
+
+
             </div>
+            </div>
+
+            <div class="col-xs-12 more_options">
+
+            <%= link_to "More options", home_create_path, class: "" %>
+            </div>
+
+
             <div class="create-login form-inline">
-                Registering you accept the Terms and Conditions and Privacy
+                <%= link_to "Log-in / Sign up", login_signup_path, class: 'login' %>
 
             </div>
 
-          </div>
+
 
         </div>
       </div>
     </div>
   </div>
 </div>
-
 
 
 

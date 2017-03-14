@@ -19,13 +19,16 @@
 
 
 <div class="container homepage homepage-hero-module">
-<div class="row">
-  <div class="arrow">
-    <i class="fa fa-arrow-left" aria-hidden="true"></i>
-  </div>
-</div>
+
+
+
   <div class="row">
     <div class="col-xs-12">
+    <div class="arrow">
+    <%= link_to root_path do %>
+  <i class="fa fa-arrow-left" aria-hidden="true"></i>
+<% end %>
+</div>
       <div class="row">
         <div class="col-xs-offset-1 col-xs-10">
 
@@ -39,19 +42,16 @@
                 Fighting the right fight starts with your fingertips
                 </h3>
 
-              <div class = "form-inline search-form">
-
-                <%= button_to "Log-in", new_user_session_path, class: "btn go btn-block"  %>
-                <%= button_to "Sign up", user_session_path, class: "btn go btn-block"  %>
+              <div class = "simple-form form-inline search-form">
+                  <div class="form-group">
+                <%= button_to "Log-in", new_user_session_path, class: "btn signin btn-block"  %>
+                </div>
+                <%= button_to "Sign up", user_session_path, class: "btn signin btn-block"  %>
 
               </div>
             </div>
-            <div class="col-xs-12">
-
-            <%= link_to "Create a mission", new_event_path, class: "btn create btn-block" %>
-            </div>
             <div class="create-login form-inline">
-                <%= link_to "Already a member? Log-in", user_session_path, class: 'login' %>
+                Registering you accept the Terms and Conditions and Privacy
 
             </div>
 

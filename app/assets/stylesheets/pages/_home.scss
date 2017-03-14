@@ -61,6 +61,18 @@
   }
 }
 
+.pages-home_search {
+  .navbar-wagon {
+    display:none;
+  }
+}
+
+.pages-home_create {
+  .navbar-wagon {
+    display:none;
+  }
+}
+
 
 .banner-content {
   margin-top: 30px;
@@ -68,6 +80,7 @@
   padding-left: 10px;
   padding-right: 10px;
   text-align:center;
+  position:relative;
 }
 
 .search-form input {
@@ -79,7 +92,7 @@
   }
 
 
-h3 {
+.banner-content h3 {
   font-size: 15px;
   margin-top: 56px;
   color: #FFFFFF;
@@ -133,6 +146,12 @@ h3 {
     width: 100%;
 }
 
+.signin {
+  color: $text-link;
+  background-color: #FFFFFF;
+  text-align:center;
+  border: 1px solid #ccc;
+}
 
 
 
@@ -142,6 +161,33 @@ h3 {
 
 .arrow .fa {
   color: white;
+  margin-top:15px;
+  margin-left:15px;
+  // float:left;
+  position:absolute;
+left: 0;
+}
+
+.fa-arrow-left:before {
+  margin-left:15px;
+}
+
+.icon-compass {
+  position: relative;
+}
+
+
+.my-compass {
+    color: #373737;
+    font-size: 15px;
+    position: absolute;
+    left: 10px;
+    top: 11px;
+}
+
+.more_options {
+  text-decoration: underline;
+  text-align:center;
 }
 
 
