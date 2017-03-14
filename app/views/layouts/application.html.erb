@@ -8,8 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
-  <body class="<%= "#{params[:controller]}-#{params[:action]}".gsub('/', '-') %>
-">
+  <body class="<%= "#{params[:controller]}-#{params[:action]}".gsub('/', '-') %>">
 
     <!-- Facebook Sharing for All Pages -->
     <div id="fb-root"></div>
@@ -27,6 +26,8 @@
 
   <% if params[:action] == "home" %>
     <div>
+  <% elsif %>
+  <% params[:action] == "login_signup" %>
   <% else %>
     <div style="margin-top: 116px">
   <% end %>

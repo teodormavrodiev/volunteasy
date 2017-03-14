@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/save_data/', to: 'events#search'
   get '/events/:id/users/', to: 'events#users', as: 'event_users'
   get '/my_events/', to: 'events#my_events', as: 'user_events'
+  get "/login_signup/", to: "pages#login_signup", as: "login_signup"
 
 
 end

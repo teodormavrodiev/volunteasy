@@ -18,10 +18,6 @@
 
 
 
-
-
-
-
 <div class="container homepage homepage-hero-module">
 
   <div class="row">
@@ -40,13 +36,10 @@
                 </h3>
 
               <div class = "form-inline search-form">
-                <%= simple_form_for @event, url: search_path, html: { class: 'form-inline'}, method: :get do |f| %>
 
-                <%= f.input :address, placeholder: "Your city...", label: false, input_html: {class: 'city', value: cookies[:address]} %>
+                <%= button_to "Log-in", new_user_session_path, class: "btn go btn-block"  %>
+                <%= button_to "Sign up", user_session_path, class: "btn go btn-block"  %>
 
-                <%= f.button :submit, value: "Go!", class: "btn go btn-block" %>
-
-                <% end %>
               </div>
             </div>
             <div class="col-xs-12">
@@ -54,7 +47,7 @@
             <%= link_to "Create a mission", new_event_path, class: "btn create btn-block" %>
             </div>
             <div class="create-login form-inline">
-                <%= link_to "Log-in / Sign up", login_signup_path, class: 'login' %>
+                <%= link_to "Already a member? Log-in", user_session_path, class: 'login' %>
 
             </div>
 
