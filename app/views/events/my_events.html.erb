@@ -1,5 +1,4 @@
-
-<div style="margin-bottom: 100px;">
+<div style="margin-bottom: 100px; text-align: center">
   <div class="text-center">
       <h5>EVENTS I'M MANAGING</h5>
   </div>
@@ -8,7 +7,7 @@
       <i class="fa fa-frown-o" aria-hidden="true"></i>
     </div>
     <div class="watermark-text">
-        You're not managing any event yet!
+        You're not managing any events yet!
       <%= link_to "Create one now", new_event_path %>
     </div>
   <% else %>
@@ -18,15 +17,14 @@
     <% end %>
   <% end %>
 </div>
-
-
-<div style="margin-bottom: 100px;">
+s
+<div style="margin-bottom: 100px;" class="text-center">
   <div class="text-center">
       <h5>EVENTS I'M ATTENDING</h5>
   </div>
   <% if @current_events_attended.count == 0 %>
     <i class="fa fa-frown-o fa-4x" aria-hidden="true"></i>
-    You're not attending any event yet!
+    You're not attending any events yet!
     <%= link_to "Find the perfect opportunity", search_path %>
   <% else %>
     <% @current_events_attended.each_with_index do |event, index| %>

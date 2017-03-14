@@ -4,32 +4,77 @@
   background-color: #F7F7F7;
 }
 
-.text-center {
-  text-align:center;
-  font-weight: bold;
-  margin-bottom: 30px;
-}
-
-.card {
-  position:absolute;
-  height: 250px;
-  width: 320px;
-  // background: #e3e3e3;
+.event-card-container {
+  position: relative;
+  height: 377px;
+  max-width: 600px;
   background-size: cover;
-  border-radius: 8px;
-  color:#A7A8B6;
-  text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
+  background: #fff;
+  border-radius: 4px;
+  background-color: #fff;
+  color:#A0A6AD;
   margin: 10px;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  h3 {
+    margin: 0px;
+    padding: 0px;
+  }
 }
 
 .event-card-image {
-  height: 185px;
+  height: 172px;
+  overflow: hidden;
+}
+
+.event-card-tab {
+  position: absolute;
+  text-align: center;
+  top: 144px;
+  right: 12px;
+  height: 62px;
+  width: 103px;
+  border-radius: 21px;
+  background-color: #fff;
+  text-align: center;
+  h3 {
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 10px;
+    text-align: center;
+  }
+  p {
+    font-family: "Montserrat", "Open Sans";
+    font-size: 12px;
+    font-weight: 200;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    top: 12px;
+    text-align: center;
+  }
+}
+
+.event-card-days {
+  text-align: center;
+}
+
+.event-card-left {
+  text-align: center;
+}
+
+.event-card-time {
+
+}
+
+.event-card-data {
+  height: 205px;
+  text-align: left;
+  padding: 15px 15px 15px 15px;
 }
 
 .event-card-caption {
-  position: absolute;
-  bottom: 5px;
-  left: 5px;
+  margin-top: 10px;
 }
 
 .event-card-category {
@@ -106,7 +151,6 @@
 .description {
   color: #A7A398;
 }
-
 
 
 
