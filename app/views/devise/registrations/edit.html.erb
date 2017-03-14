@@ -1,33 +1,90 @@
-<div class="form">
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="form-signup">
+
+    <div class="col-xs-12">
+        <div class="close-form">
+            <%= link_to root_path do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+        </div>
+
+
+        <div class="edit-video">
+          <h3>Hey, edit your profile :)</h3>
+        </div>
+        <% if @user.photo  %>
+        <%= cl_image_tag @user.photo.path, class: "avatar-very-large" %>
+      <% end %>
+
+
+
+
+            </div>
+
   <div class="simple-form-for">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
       <div class="form-inputs">
-        <%= f.input :first_name, required: true, autofocus: true %>
-        <%= f.input :last_name, required: true, autofocus: true %>
-        <%= f.input :bio, autofocus: true %>
-        <%= f.input :phone,  autofocus: true %>
-        <%= f.input :address, autofocus: true %>
-        <%= f.input :dob, autofocus: true %>
-        <%= f.input :organization, autofocus: true %>
-        <%= f.input :photo, as: :attachinary %>
+      <div class="input-group login-form">
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+        <%= f.input :first_name, required: true, autofocus: true, placeholder: @current_user.first_name, label: false,  input_html: { class: 'form-control btn-lg btn-login' } %>
+      </div>
+      <div class="input-group login-form">
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+        <%= f.input :last_name, required: true, autofocus: true, placeholder: @current_user.last_name, label: false,  input_html: { class: 'form-control btn-lg btn-login' } %>
+        </div>
+        <div class="input-group login-form">
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+        <%= f.input :email, required: true, autofocus: true, placeholder:@current_user.email, label: false, input_html: { class: 'form-control btn-login' } %>
+        </div>
+        <div class="input-group login-form">
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+      <%= f.input :organization, autofocus: true, placeholder: "Your organization...", label: false,  input_html: { class: 'form-control btn-lg btn-login' }  %>
+        </div>
+        <div class="input-group login-form input-bio">
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+        <%= f.input :bio, autofocus: true, placeholder: "Please write something about you", label: false,  input_html: { class: 'form-control btn-lg btn-login' } %>
+        </div>
+        <div class="input-group login-form input-bio">
+      <span class="input-group-addon" id="basic-addon1"></span>
+
+        <%= f.input :photo, as: :attachinary, input_html: { class: "already_account" } %>
+      </div>
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit, "Update", class: "actionBtn actionBtn--volunteasy" %>
+        <%= f.button :submit, "Update", class: "form-control btn-free-account btn-lg" %>
       </div>
     <% end %>
-    <br>
-    <div class="strike">
+
+
+<div class="already_account_div">
+ <div class="strike">
       <span>Unhappy?</span>
     </div>
-    <br>
-    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "actionBtn actionBtn--cancel" %>
-    <br>
-    <br>
-    <%= link_to "Back", :back %>
-    <br>
-    <br>
-  </div>
+            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "already_account" %>
 </div>
+
+
+
+
+
+</div>
+
+
+
+</div>
+
