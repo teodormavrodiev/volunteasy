@@ -16,4 +16,7 @@ class PagesController < ApplicationController
     @event = Event.new
   end
 
+  def login_signup
+  end
+
 end

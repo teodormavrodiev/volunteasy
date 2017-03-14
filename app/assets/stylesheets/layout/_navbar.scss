@@ -1,20 +1,24 @@
 /* Main class */
 .navbar-wagon {
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
-  background: $bg-nav;
   transition: all 0.3s ease;
   // height: 116px;
 }
 
 #navbar-top {
+  background: $bg-nav;
   height: 50px;
   display: flex;
   padding: 0px 15px 0px 15px;
   align-items: center;
   justify-content: space-between;
+  z-index: 999;
+  position: relative;
 }
 
 #navbar-bottom {
+  z-index: 99;
+  position: relative;
   height: 66px;
   margin: 0;
   background: #FFFFFF;
@@ -22,6 +26,16 @@
   padding: 0px 15px 0px 15px;
   align-items: center;
   justify-content: space-between;
+}
+
+.fixed-categories {
+  position: fixed;
+  top: 81px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  background: #F3F3F3;
+  left: 0;
+  right: 0;
 }
 
 /* Optional class to fix the navbar on top */
@@ -188,5 +202,6 @@
 
 
 
-
-
+.fat-title {
+  line-height: 1.8;
+}
