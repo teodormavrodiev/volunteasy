@@ -25,14 +25,26 @@
 }
 
 body {
-  color: #373737;
+  color: #A0A6AD;
+  font-weight: 300;
 }
 
 a {
-  color: #373737;
+  color: #A0A6AD;
   text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #5E5E5E;
+  text-shadow: none;
 }
 
 h1 {
   font-size: 40px;
+}
+
+h3 {
+  font-family: "Avenir";
+  font-weight: 600;
+  font-size: 16px;
 }

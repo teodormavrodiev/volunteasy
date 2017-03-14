@@ -1,46 +1,66 @@
-
 <% if event.photos? %>
-  <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
+  <% main_photo = event.photos.first.path %>
 <% else %>
-  <% photo_url = image_path('teamwork.jpg') %>
+  <% main_photo = image_path('teamwork.jpg') %>
 <% end %>
 
-<div class="card-container">
-  <!-- Normal Demo-->
-    <div class="post-module">
-      <!-- Thumbnail-->
-      <div class="thumbnail">
-        <div class="date">
-          <div class="day"><%= event.start_time.strftime('%d') %></div>
-          <div class="month"><%= event.start_time.strftime('%b') %></div>
-        </div>
-        <%= link_to event_path(event) do %>
-        <%= image_tag photo_url%>
-        <% end %>
-      </div>
-      <!-- Post Content-->
-      <div class="post-content">
-        <h1 class="card-title"><%= event.name %></h1>
-        <h2 class="card-time"><%= event.start_time.strftime('%d/%m/%Y') %></h2>
-        <p class="event-card-address"><%= event.address %></p>
-        <p class="event-card-days-left"> Just <%= (event.end_time - DateTime.now).to_i/60/60/24 %> days left.</p>
-         <p class="description"><%= event.description %></p>
-        <div class="participants">
-        <%= link_to event_users_path(event) do %>
-          <% if @user.photo  %>
-          <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
-          <% end %> and
-          <% event.participants.first(4).each do |par| %>
-          <% if par.photo  %>
-          <%= cl_image_tag par.photo.path, width: 50, height: 70, crop: :fill %>
-          <% end %>
-          <!--   TO DO : FIX NUMBERS OF PARTICIPANTS -->
-          <% end %> and <%= event.participants.count - 5 %> others are coming.
-          <% end %>
-        </div>
-      </div>
+<div class="event-card-container">
+  <div class="event-card-image" style='background-image: linear-gradient(rgba(60,95,120,0.3), rgba(60,95,120,0.2)), url("<%= cl_image_path main_photo, height: 300, width: 600, crop: :fill, radius: 4; %>")'>
+
+  </div>
+
+  <div class="event-card-tab">
+      <h3><%= (event.end_time - DateTime.now).to_i/60/60/24 %> days</h3>
+      <p>left</p>
+  </div>
+
+  <div class="event-card-data">
+
+    <div class="event-card-caption">
+      <h3><%= event.name %></h3>
     </div>
-    <div>
-      <%= link_to "See more near me", search_path %>
+
+    <div class="event-card-address-icon">
+      <i class="fa fa-home"></i>
+    </div>
+
+    <div class="event-card-address">
+      <%= event.address %>
+    </div>
+
+    <div class="event-card-time-icon">
+      <i class="fa fa-clock-o"></i>
+    </div>
+
+    <div class="event-card-time">
+      <%= event.start_time.strftime('%d/%m/%Y %H:%M') %>
+    </div>
+  </div>
+
+
+
+  <div class="event-card-separator"></div>
+
+
+
+<!-- CARD FOOTER -->
+<div class="event-card-footer">
+
+    <%= link_to event_users_path(event) do %>
+        <% @counter = 0 %>
+        <% event.participants.last(5).each do |par| %>
+        <% if par.photo %>
+          <% @counter = @counter + 1 %>
+          <%= cl_image_tag par.photo.path, class: "avatar-mini" %>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <div class="event-card-remainder">
+      + <%= event.participants.count - @counter %> ARE GOING
     </div>
 </div>
+
+</div><!-- CLOSE EVENT CARD -->
+
+

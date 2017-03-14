@@ -88,21 +88,22 @@ joe = User.new({
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "Joe",
-  last_name: "Froogy"
-  })
+  last_name: "Froogy",
+  photo_url: "http://res.cloudinary.com/demo/image/fetch/http://cdn.mos.cyclingnews.com/2016/03/24/2/bettini_catalunya_4-300-80.jpg"  })
 jimmy = User.new({
   email: "jimmy@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "Jimmy",
-  last_name: "Ballon"
-  })
+  last_name: "Ballon",
+  photo_url: "http://res.cloudinary.com/demo/image/fetch/http://cdn.mos.cyclingnews.com/2016/03/24/2/bettini_catalunya_4-300-80.jpg"  })
 julia = User.new({
   email: "julia@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
   first_name: "Julia",
-  last_name: "Roberts"
+  last_name: "Roberts",
+  photo_url: "http://res.cloudinary.com/demo/image/fetch/https://s-media-cache-ak0.pinimg.com/originals/9f/71/12/9f71124b93343d50f68548af271a54db.jpg"
   })
 
 
