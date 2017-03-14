@@ -20,22 +20,27 @@
       <h3><%= event.name %></h3>
     </div>
 
-    <div class="event-card-address-icon">
-      <i class="fa fa-home"></i>
+    <div class="event-card-address-row">
+      <div class="event-card-address-icon">
+        <i class="fa fa-home"></i>
+      </div>
+      <div class="event-card-address">
+              <%= event.address %>
+
+      </div>
     </div>
 
-    <div class="event-card-address">
-      <%= event.address %>
-    </div>
-
-    <div class="event-card-time-icon">
-      <i class="fa fa-clock-o"></i>
-    </div>
-
-    <div class="event-card-time">
-      <%= event.start_time.strftime('%d/%m/%Y %H:%M') %>
+    <div class="event-card-time-row">
+     <div class="event-card-time-icon">
+        <i class="fa fa-clock-o"></i>
+      </div>
+      <div class="event-card-time">
+        <%= event.start_time.strftime('%d/%m/%Y %H:%M') %>
+      </div>
     </div>
   </div>
+
+
 
 
 

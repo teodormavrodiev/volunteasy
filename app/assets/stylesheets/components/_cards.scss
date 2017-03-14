@@ -79,25 +79,30 @@
 }
 
 .event-card-address-icon {
-  position: absolute;
-  left: 17px;
-  top: 50px
+  // position: absolute;
+  // left: 17px;
+  // top: 50px
+  margin-right: 12px;
+
 }
 
-.event-card-address {
+.event-card-address-row {
   margin-top: 10px;
-  margin-left: 30px;
+  // margin-left: 10px;
+  display: flex;
 }
 
 .event-card-time-icon {
-  position: absolute;
-  left: 17px;
-  top: 100px;
+  // position: absolute;
+  // left: 17px;
+  // top: 100px;
+  margin-right: 12px;
 }
 
-.event-card-time {
+.event-card-time-row {
   margin-top: 5px;
-  margin-left: 30px;
+  // margin-left: 10px;
+  display: flex;
 }
 
 .event-card-caption {
