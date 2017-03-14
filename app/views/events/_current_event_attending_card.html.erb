@@ -1,9 +1,32 @@
-
 <% if event.photos? %>
-  <% photo_url = cl_image_path event.photos.first.path, width: 300, height: 300, crop: :fill %>
+  <% main_photo = event.photos.first.path %>
 <% else %>
-  <% photo_url = image_path('teamwork.jpg') %>
+  <% main_photo = image_path('teamwork.jpg') %>
 <% end %>
+
+<div class="event-card-container">
+  <div class="event-card-image" style='background-image: linear-gradient(rgba(60,95,120,0.3), rgba(60,95,120,0.2)), url("<%= cl_image_path main_photo, height: 300, width: 600, crop: :fill, radius: 4; %>")'>
+
+  </div>
+  <div class="event-card-tab">
+      <h3>6 days</h3>
+      <p>left</p>
+  </div>
+  <div class="event-card-data">
+
+    <div class="event-card-caption">
+      <h3>Helping Refugees</h3>
+    </div>
+
+    <div class="event-card-address">Ronda Sant Antoni, 55, 08001
+Barcelona.
+    </div>
+
+    <div class="event-card-time">Monday, 9 AM
+    </div>
+  </div>
+</div>
+
 
 <div class="card-container">
   <!-- Normal Demo-->
@@ -15,7 +38,7 @@
           <div class="month"><%= event.start_time.strftime('%b') %></div>
         </div>
         <%= link_to event_path(event) do %>
-        <%= image_tag photo_url%>
+        <%= image_tag main_photo %>
         <% end %>
       </div>
       <!-- Post Content-->
