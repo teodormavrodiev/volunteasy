@@ -1,99 +1,113 @@
-<!-- <p id="notice"><%= notice %></p> -->
-<div>
-<%= event_url %>
-  <div class="fb-share-button" data-href="<%= event_url %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="">Share</a></div>
-  <!-- 1. Name event -->
-  <h2><%= @event.name %></h2>
-  <!-- 2. Who's coming -->
-  <!-- If organizer -->
-  <% if @event.organizer == current_user %>
-  <!-- 1. IF PAST EVENT  -->
-  <% if @event.end_time < DateTime.now %>
-  <h3>Who went?</h3>
-  <div class="participants">
-    <% @event.participants.each do |par| %>
-    <%= par.first_name %>
-    <br>
-    <!-- TODO : Replace fake avatar by real avatar -->
-    <%= link_to image_tag('arnold', class: "avatar"), user_path(par) %>
-    <% end %>
-    <%= link_to event_users_path(@event) do %>
-    <h3>Review participants' attendance</h3>
-    <!-- TODO : Implement a way to send group email -->
-    <% end %>
-    <!-- 1. IF FUTURE EVENT  -->
-    <% else %>
-    <h3>Who's coming? who knows</h3>
-    <% @event.participants.each do |par| %>
-    <%= par.first_name %>
-    <br>
-    <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(par) %>
-    <% end %>
-    <h3>Send them a email</h3>
-    <!-- TODO : Implement a way to send group email -->
-    <% end %>
-    <% else %> <!-- If participant :  -->
-    <!-- 1. IF PAST EVENT  -->
-    <% if @event.end_time < DateTime.now %>
-    <h3>Who went?</h3>
-    <div class="participants">
-      <% @event.participants.each do |par| %>
-      <%= par.first_name %>
-      <br>
-      <!-- TODO : Replace fake avatar by real avatar -->
-      <%= link_to image_tag('arnold', class: "avatar"), user_path(par) %>
-      <% end %>
-      <!-- 1. IF FUTURE EVENT  -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="event-show-card">
+      <h2> <%= @event.name %> </h2>
+
+      <!-- Time of event -->
+
+      <% if @event_is_past %>
+        <h3> When was it? </h3>
       <% else %>
-      <h3>Who's coming?</h3>
-      <% @event.participants.last(2).each do |par| %>
-      <%= par.first_name %>
-      <br>
-      <%= link_to image_tag('arnold.jpg', class: "avatar"), user_path(par) %>
+        <h3> When is it? </h3>
       <% end %>
-      and <%= @event.capacity - 2 < 0 ? 0 : @event.capacity - 2 %> more are going! Join them!
-      <!--   <h3>Spots left:</h3> -->
-      <% if @spots_left == 0 %>
-      <h4>"This event is full!"</h4>
-      <% elsif @spots_left > 5 %>
-      <!--   <h4><%= @spots_left %></h4> -->
-      <h4>Only <%= @spots_left %> spots left! Join before it's too late!</h4>
-      <h5>Invite a friend!</h5>
-      <!-- TODO : implement FB connect / route to sign in form if not sign in  -->
-      <% end %>
-      <% end %>
-<% end %>
-      <!-- 3. date/place/organizedby -->
-      <p>
-        <strong>Location:</strong> <%= @event.address %>
-      </p>
-      <p>
-        <strong>Organized By:</strong>
-        <%= @organizer_name %> <%= link_to "View Profile", @event.organizer %>
-      </p>
       <p>
         <strong>Begins:</strong> <%= @event.start_time.strftime('%d/%m/%Y') %> <%= @event.start_time.strftime("at %I:%M%p") %>
       </p>
       <p>
         <strong>Ends:</strong> <%= @event.end_time.strftime('%d/%m/%Y') %> <%= @event.end_time.strftime("at %I:%M%p") %>
       </p>
-      <!-- 4. description  -->
-      <!-- The map will be drawn in this div -->
-      <h3><%= @event.organization %></h3>
-    </div>
-    <p>
+
+      <!-- Who goes to the event -->
+
+      <% if @event_is_past %>
+        <h3> Who went? </h3>
+      <% else %>
+        <h3> Who is coming? </h3>
+      <% end %>
+      <div class="participants">
+        <% @participants.each do |par| %>
+          <div class="participant">
+          <% if par.photo %>
+            <%= link_to user_path(par) do %>
+              <%= cl_image_tag par.photo.path, crop: :fill, class: "participant-img" %>
+            <% end %>
+          <% else %>
+            <%= link_to user_path(par) do %>
+              <%= image_tag("no-img.png", class: "participant-img") %>
+            <% end %>
+          <% end %>
+          <p> <%= par.first_name %> </p>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- Spots left in the event -->
+
+      <div class="spots-left">
+        <p>
+        Only <%= @spots_left %> spots are left!
+        <% if @participants.include? current_user %>
+          <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
+          <%= link_to "Can't go anymore?", event_registration_path(@event, @registration), method: :delete %>
+        <% else %>
+          <%= link_to "Join now", event_registrations_path(@event), method: :post %>
+        <% end %>
+        </p>
+        <p>
+        <%= link_to "Invite a friend", '' %>
+        </p>
+      </div>
+
+      <h3> Event details </h3>
+
+      <!-- Event organized by -->
+
+      <p>
+        <strong>Organized By:</strong>
+        <%= link_to "#{@event.organizer.first_name}", @event.organizer %>
+      </p>
+
+      <!-- Event description -->
+
+      <p>
+        <strong>Description:</strong> <%= @event.description %>
+      </p>
+
+      <!-- Event location and tags -->
+
+      <p>
+        <strong>Location:</strong> <%= @event.address %>
+      </p>
+
+      <p>
       <strong>Tags:</strong>
       <%= @event.tags.join(', ') %>
-    </p>
-    <p>
-      <strong>Description:</strong> <%= @event.description %>
-    </p>
+      </p>
+
     <br>
+    <br>
+
+    <div class="fb-share-button" data-href="<%= event_url %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="">Share</a></div>
+
+    <br>
+
+
+      <%= link_to "Copy This Event!", new_event_path({name: @event.name,
+       organization: @event.organization,
+       start_time: @event.start_time,
+       end_time: @event.end_time,
+       description: @event.description,
+       address: @event.address,
+       capacity: @event.capacity,
+       tags: @event.tags,
+       photos: @event.photos
+     }), class: "btn btn-primary copy-event" %>
+
+
     <!-- MAP PORTION OF PAGE -->
-    <div class="col-sm-4">
     <!-- The map will be drawn in this div -->
-      <div id="map" style="width: 100% !important; height: 300px; margin-bottom: 100px;"></div>
-      <% content_for(:after_js) do %>
+    <div id="map" style="width: 100% !important; height: 300px; margin: 50px 0px;"></div>
+    <% content_for(:after_js) do %>
       <%= javascript_tag do %>
         $(document).ready(function() {
           var handler = Gmaps.build('Google');
@@ -110,7 +124,7 @@
         });
       <% end %>
     <% end %>
-    </div>
+
     <div class='footer' id="notice">
       <% if @event.participants.include? current_user %>
       <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
@@ -123,17 +137,10 @@
       <%= link_to 'Are you going?', event_registrations_path(@event), method: :post %>
       <% end %>
     </div>
-    <!-- NEED TO TEST AFTER AUTHORIZATION IMPLEMENTED -->
-    <% if @event.organizer == current_user %>
-    <%= link_to "Copy This Event!", new_event_path({name: @event.name,
-     organization: @event.organization,
-     start_time: @event.start_time,
-     end_time: @event.end_time,
-     description: @event.description,
-     address: @event.address,
-     capacity: @event.capacity,
-     tags: @event.tags,
-     photos: @event.photos
-   }), class: "btn btn-primary" %>
-   <% end %>
-   <%= link_to 'Back', events_path %>
+
+    </div>
+  </div>
+</div>
+
+
+

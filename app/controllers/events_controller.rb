@@ -42,19 +42,12 @@ class EventsController < ApplicationController
   end
 
   def show
-    @participants = @event.participants.all
-
-    if (@event.capacity - @event.participants.size) <= 0
-      @spots_left = 0
-    else
-      @spots_left = @event.capacity - @event.participants.size
-    end
-
-    @organizer_name = @event.organizer.first_name << " " << @event.organizer.last_name
-
-    tags_list = @event.tags
-    @similar_events = Event.where("tags @> ?", "{#{tags_list.join(",")}}")
-
+    @event_is_past = @event.end_time < DateTime.now ? true : false
+    @organizer_is_user = @event.organizer_id == current_user.id ? true : false
+    @spots_left = @event.capacity - @event.participants.count
+    @spots_left = 0 if @spots_left < 0
+    @tags_list = @event.tags
+    @participants = @event.participants
 
     @hash = Gmaps4rails.build_markers(@event) do |event, marker|
       if event.latitude
@@ -66,6 +59,7 @@ class EventsController < ApplicationController
       end
       # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
     end
+
   end
 
   def new
