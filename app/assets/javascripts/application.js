@@ -10,5 +10,7 @@
 //= require cable.js
 //= require checkbox_tags.js
 //= require init_attachinary.js
+//= require cover_homepage.js
+//= require hiding_div.js
 
 //= require_tree ./channels

@@ -92,7 +92,7 @@
     <!-- MAP PORTION OF PAGE -->
     <div class="col-sm-4">
     <!-- The map will be drawn in this div -->
-      <div id="map" style="width: 200px; height: 300px; margin-bottom: 100px;"></div>
+      <div id="map" style="width: 100% !important; height: 300px; margin-bottom: 100px;"></div>
       <% content_for(:after_js) do %>
       <%= javascript_tag do %>
         $(document).ready(function() {
