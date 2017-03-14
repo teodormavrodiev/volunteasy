@@ -65,6 +65,9 @@ class EventsController < ApplicationController
   def new
     @event = Event.new
     authorize @event
+    session[:search_results] = params[:address]
+    @events = policy_scope(Event)
+    @address = params[:event][:address] if params[:event]
   end
 
   def edit

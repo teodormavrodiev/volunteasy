@@ -24,20 +24,37 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
 
+
+<!-- Condition added : no padding for HP / Sign.in and Sign.up pages :  -->
+
   <% if params[:action] == "home" %>
     <div>
-  <% elsif %>
-  <% params[:action] == "login_signup" %>
-  <% elsif %>
-  <% params[:action] == "home_search" %>
-  <% elsif %>
-  <% params[:action] == "home_create" %>
+    <div class="container-hp">
+    <%= yield %>
+    </div>
+  <% elsif params[:action] == "login_signup" %>
+    <div class="container-hp">
+    <%= yield %>
+    </div>
+    <div>
+  <% elsif params[:action] == "home_search" %>
+    <div class="container-hp">
+    <%= yield %>
+    </div>
+  <div>
+  <% elsif params[:action] == "home_create" %>
+    <div class="container-hp">
+    <%= yield %>
+    </div>
+  <div>
   <% else %>
     <div style="margin-top: 116px">
+    <div class="container">
+    <%= yield %>
+    </div>
   <% end %>
-      <div class="container">
-        <%= yield %>
-      </div>
+
+
     </div>
 
     <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_API_KEY']}" %>

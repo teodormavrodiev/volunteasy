@@ -1,32 +1,120 @@
-<div class="form">
 
-  <%- if devise_mapping.omniauthable? %>
+
+<div class="form-signup">
+
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="close-form">
+            <%= link_to root_path do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+        </div>
+
+      <div class="row">
+        <div class="col-xs-offset-1 col-xs-10">
+
+            <div class="banner-content">
+              <%= image_tag("volunteasy-logo.png", class: 'logo-home') %>
+              <div class="title"> <h2>Volunteasy</h2>
+              </div>
+            </div>
+        </div>
+      </div>
+
+<!--       <div class="row"> -->
+        <div class="sign-up-content">
+        <div class="col-xs-12">
+        <div class="sign-for-free">
+          <h3>Hey, welcome back.</h3>
+          <p>Sign into your account here.</p>
+        </div>
+        </div>
+        <div class="col-xs-12">
+        <div class="row">
+        <div class="fb_or_form">
+          <div class="input-group facebook-connect">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-facebook-square" aria-hidden="true"></i>
+            </span>
+            <%- if devise_mapping.omniauthable? %>
     <%- resource_class.omniauth_providers.each do |provider| %>
-      <%= link_to "Log in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "actionBtn actionBtn--facebook" %><br />
+      <%= link_to "Log in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "form-control btn-fb btn-lg" %>
     <% end -%>
   <% end -%>
+          </div>
 
-  <div class="strike">
-      <span>Or</span>
-  </div>
 
-  <div class="simple-form-for">
-    <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-inputs">
-        <%= f.input :email, required: false, autofocus: true, label: false, placeholder: "email" %>
-        <%= f.input :password, required: false, label: false, placeholder: "password" %>
-        <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-      </div>
-      <div class="form-actions">
-        <%= f.button :submit, "Log in", class: "actionBtn actionBtn--volunteasy" %>
-      </div>
-    <% end %>
-    <br>
-    <br>
-    <%= render "devise/shared/links" %>
-    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+
+            </div>
+            <div class="strike">
+              <span>or</span>
+            </div>
+
+          <div class="fill-form">
+                <div class="simple-form-for">
+                  <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                   <%= f.error_notification %>
+
+                   <div class="form-inputs">
+
+
+                     <div class="input-group login-form">
+                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </span>
+                   <%= f.input :email, required: true, autofocus: true, placeholder:'Email address', label: false, input_html: { class: 'form-control btn-login' } %>
+                   </div>
+                   <div class="input-group login-form">
+                   <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                   <%= f.input :password, required: false, placeholder:'Password', label: false, input_html: { class: 'btn-login form-control' } %>
+                   </div>
+                   <div class="remember-me">
+                   <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+                  </div>
+                  </div>
+                  <div class="form-actions">
+                  <%= f.button :submit, "Log in", class: "form-control btn-free-account btn-lg" %>
+                  </div>
+                  <% end %>
+              </div>
+            </div>
+
+              <div class="forgotten-password">
+                <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
       <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
     <% end -%>
-  </div>
+              </div>
 
-</div>
+
+            <div class="already_account_div">
+            By creating this account, you agree to our Terms.
+            <%= link_to "Already have an account? Login.", new_user_session_path, class: "already_account" %>
+
+
+
+            </div>
+
+
+
+
+        </div>
+        </div>
+        </div>
+    <!--   </div> -->
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+        </div>
+      </div>
