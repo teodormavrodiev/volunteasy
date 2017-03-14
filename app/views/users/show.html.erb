@@ -1,91 +1,122 @@
-<div style="float: left;">
-  <br>
-  <% if @user.photo  %>
-  <%= cl_image_tag @user.photo.path, width: 50, height: 70, crop: :fill %>
-  <% end %>
-  <br>
-  <%= @user.address %>
-  <br>
-  <%= @user.email %>
-  <br>
-  <%= @user.phone %>
-  <br>
+<div class="row">
+ <div class="col-xs-2 col-xs-offset-10 margin-top-user-page">
+    <% if current_user == @user %>
+    <%= link_to edit_user_registration_path do %>
+      <div class="user-edit-button">
+          <i class="fa fa-pencil pencil" aria-hidden="true"></i>
+      </div>
+    <% end %>
+    <% end %>
+ </div>
 </div>
 
-<div style="float:right;">
-  <%= @user.first_name %>
-  <%= @user.last_name %>
-  <br>
-
-
-<h4>Number of missions attended : <%= @user.registrations_complete %></h4>
-
-
-<% if @user.badge == :newbie %>
-Volunteer newbie
-<% elsif @user.badge == :regular %>
-Fantastic volunteer
-<% elsif @user.badge == :advanced %>
-Volunteer ninja
-<% else %>
-Volunteer boss
-<% end %>
-
-<div>
-<%  if @past_events_managed.count != 0 && current_user.organization.present? %>
-
-  <!-- TODO : Only if i organized events in the past  -->
-  Works at <%= @user.organization %>
-
-<% end %>
-
+<div class="row">
+  <div class="col-xs-12">
+    <div class="user-basic-info">
+      <% if @user.photo  %>
+        <%= cl_image_tag @user.photo.path, class: "user-image" %>
+      <% end %>
+      <div class="text-center">
+        <h4 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h4>
+        <i class="fa fa-star" aria-hidden="true" ></i> <%= @past_events_managed.count %> Events Organized
+        <br>
+        <i class="fa fa-trophy" aria-hidden="true"></i> <%= @past_events_attended.count %> Events Attended
+        <br>
+        <br>
+        <% if @user.badge == :newbie %>
+          <i class="fa fa-id-badge" aria-hidden="true"></i> Volunteer newbie
+        <% elsif @user.badge == :regular %>
+          <i class="fa fa-id-badge" aria-hidden="true"></i> Fantastic volunteer
+        <% elsif @user.badge == :advanced %>
+          <i class="fa fa-id-badge" aria-hidden="true"></i> Volunteer ninja
+        <% else %>
+          <i class="fa fa-id-badge" aria-hidden="true"></i> Volunteer boss
+        <% end %>
+        <br>
+        <br>
+        <i class="fa fa-envelope-o" aria-hidden="true"></i> <%= @user.email %>
+        <br>
+        <br>
+        <% if @user.address %>
+          <i class="fa fa-location-arrow" aria-hidden="true"></i> <%= @user.address %>
+          <br>
+          <br>
+        <% end %>
+        <% if @user.phone %>
+          <i class="fa fa-phone" aria-hidden="true"></i> <%= @user.phone %>
+          <br>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
 
-  <!-- Change to Devise at some point -->
-  <% if current_user == @user %>
-    <%= link_to "Edit Profile", edit_user_registration_path  %>
-  <% end %>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="user-bio">
+    <h4> About me </h4>
+
+    <% if @user.bio %>
+      <%= @user.bio %>
+    <% else %>
+      <p> This person has not written a bio yet. </p>
+    <% end %>
+
+    </div>
+  </div>
 </div>
 
-<div style="clear:both;"></div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="user-organization">
+    <h4> My Organization </h4>
 
-<div class="text-center" style="padding-bottom: 100px;">
-Bio / I care about
-<%= @user.bio %>
+    <% if @user.organization_bio %>
+      <%= @user.organization_bio %>
+    <% else %>
+      <p> This person has not written about his/hers organization, or is not affiliated. </p>
+    <% end %>
+
+    </div>
+  </div>
 </div>
 
-<!-- TODO : Only if i organized events in the past  -->
-<div class="text-center" style="padding-bottom: 100px;">
-About my organization
-<%= @user.bio %> <!-- should be @user.org_bio -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="user-past-events">
+      <h4> Events Managed </h4>
+
+      <% if @past_events_managed.count > 0 %>
+        <% @past_events_managed.each_with_index do |event, index| %>
+          <%= render partial: "events/past_event_card", locals: {event: event, user: @user} %>
+        <% end %>
+        <hr>
+      <% else %>
+        <p> This person hasn't managed any events. </p>
+      <% end %>
+
+    </div>
+  </div>
 </div>
 
-<!--
-TODO : Optional, display reviews from the NGOs
- -->
-<!-- PAST EVENTS -->
+<div class="row">
+  <div class="col-xs-12">
+    <div class="user-past-events">
+      <h4> Events Attended </h4>
 
-<div class="past_events">
-<div style="margin-bottom: 200px;">
-<% if @past_events_managed.count > 0 %>
-  <h2> Events I have Managed in the Past</h2>
-  <% @past_events_managed.each_with_index do |event, index| %>
-    <%= render partial: "events/past_event_managed_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
-  <% end %>
-</div>
-<div style="margin-bottom: 200px;">
-<% if @past_events_attended.count > 0 %>
-  <h2> Events I have Attended in the Past</h2>
-  <% @past_events_attended.each_with_index do |event, index| %>
-    <%= render partial: "events/past_event_attending_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
-  <% end %>
-</div>
+      <% if @past_events_attended.count > 0 %>
+        <% @past_events_attended.each_with_index do |event, index| %>
+          <%= render partial: "events/past_event_card", locals: {event: event, user: @user} %>
+        <% end %>
+        <hr>
+      <% else %>
+        <p> This person hasn't attended any events. </p>
+      <% end %>
+
+    </div>
+  </div>
 </div>
 
-<div>
+<div style="margin-top: 50px;">
   More info? + / Footer
 </div>
