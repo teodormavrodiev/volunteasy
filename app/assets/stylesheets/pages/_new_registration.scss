@@ -49,6 +49,9 @@
 
 }
 
+.sign-for-free h3 {
+  font-size: 22px;
+}
 
 
 .login-form {
@@ -107,6 +110,14 @@
 }
 
 
+.devise-sessions-new {
+  .container {
+    margin:0;
+    padding:0px;
+  }
+}
+
+
 .form-signup .strike span {
     color:white;
     &:before {
@@ -121,7 +132,8 @@
 .already_account_div {
   font-size: 13px;
   color:white;
-  padding: 15px;
+      padding-top: 15px;
+    padding-bottom: 19px;
   }
 .already_account {
   font-size: 13px;
@@ -129,3 +141,14 @@
 }
 
 
+.remember-me {
+  text-align:left;
+  color:white;
+}
+
+.forgotten-password{
+  padding: 7px;
+ a {
+  color:white;
+}
+}
