@@ -44,7 +44,7 @@
 
             </div>
             <div class="strike">
-              <span>Or</span>
+              <span>or</span>
             </div>
 
           <div class="fill-form">
@@ -53,14 +53,30 @@
                    <%= f.error_notification %>
 
                    <div class="form-inputs">
-                   <%= f.input :first_name, required: true, autofocus: true %>
-                     <%= f.input :last_name, required: true, autofocus: true %>
-                   <%= f.input :email, required: true, autofocus: true %>
-                   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+                   <div class="input-group login-form">
+                   <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                   <%= f.input :first_name, required: true, autofocus: true, placeholder:'First name', label: false,  input_html: { class: 'form-control btn-lg btn-login' } %>
+                   </div>
+                   <div class="input-group login-form">
+                   <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i>
+                    </span>
+                     <%= f.input :last_name, required: true, autofocus: true, placeholder:'Last name', label: false, input_html: { class: 'form-control btn-login' } %>
+                     </div>
+                     <div class="input-group login-form">
+                     <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i>
+                    </span>
+                   <%= f.input :email, required: true, autofocus: true, placeholder:'Email address', label: false, input_html: { class: 'form-control btn-login' } %>
+                   </div>
+                   <div class="input-group login-form">
+                   <span class="input-group-addon" id="basic-addon1"><i class="fa fa-lock" aria-hidden="true"></i>
+                    </span>
+                   <%= f.input :password, required: true, placeholder:'Password', label: false, input_html: { class: 'btn-login form-control' } %>
+                   </div>
 
                   </div>
                   <div class="form-actions">
-                  <%= f.button :submit, "Sign up", class: "actionBtn actionBtn--volunteasy" %>
+                  <%= f.button :submit, "Create a free account", class: "form-control btn-free-account btn-lg" %>
                   </div>
                   <% end %>
               </div>
@@ -69,7 +85,9 @@
               <br>
 
 
-            <div class="already_account">
+            <div class="already_account_div">
+            By creating this account, you agree to our Terms.
+            <%= link_to "Already have an account? Login.", new_user_session_path, class: "already_account" %>
 
 
 

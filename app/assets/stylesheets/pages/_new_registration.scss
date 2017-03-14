@@ -8,6 +8,11 @@
   }
 }
 
+.form-signup p {
+  padding: 5px;
+  margin-bottom: 19px;
+}
+
 .close-form .fa-times {
   color: white;
   margin-top:15px;
@@ -44,11 +49,48 @@
 
 }
 
+
+
+.login-form {
+  margin-bottom: 22px;
+  color:$light-green;
+  span {
+    border:0px white;
+    background-color:white;
+    i {
+      color: $light-green;
+    }
+  }
+}
+
+
+
 .btn-fb {
   text-align:center;
   background-color: $light-green;
   font-size: 16px;
   color: white;
+    border: 0px;
+    border-left:1px solid white;
+    text-decoration: none;
+
+}
+
+.btn-free-account {
+  text-align:center;
+  background-color: $light-green;
+  font-size: 16px;
+  color: white;
+    border: 0px;
+    text-decoration: none;
+}
+
+
+.btn-login {
+  background-color: white;
+  border-radius: 3px;
+  font-size: 16px;
+  color: $light-green;;
     border: 0px;
     border-left:1px solid white;
     text-decoration: none;
@@ -75,5 +117,15 @@
 }
 }
 
+
+.already_account_div {
+  font-size: 13px;
+  color:white;
+  padding: 15px;
+  }
+.already_account {
+  font-size: 13px;
+  color:white;
+}
 
 
