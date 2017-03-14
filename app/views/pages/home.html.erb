@@ -16,16 +16,11 @@
 
 
 
-
-
-
-
-
-
 <div class="container homepage homepage-hero-module">
 
   <div class="row">
     <div class="col-xs-12">
+
       <div class="row">
         <div class="col-xs-offset-1 col-xs-10">
 
@@ -39,19 +34,13 @@
                 Fighting the right fight starts with your fingertips
                 </h3>
 
-              <div class = "form-inline search-form">
-                <%= simple_form_for @event, url: search_path, html: { class: 'form-inline'}, method: :get do |f| %>
+              <div class = "simple-form form-inline search-form">
+                  <div class="form-group">
+                <%= button_to "Find an event", home_search_path, class: "btn go btn-block", method: :get  %>
+                </div>
+                <%= button_to "Create an event", home_create_path, class: "btn create btn-block", method: :get %>
 
-                <%= f.input :address, placeholder: "Your city...", label: false, input_html: {class: 'city', value: cookies[:address]} %>
-
-                <%= f.button :submit, value: "Go!", class: "btn go btn-block" %>
-
-                <% end %>
               </div>
-            </div>
-            <div class="col-xs-12">
-
-            <%= link_to "Create a mission", new_event_path, class: "btn create btn-block" %>
             </div>
             <div class="create-login form-inline">
                 <%= link_to "Log-in / Sign up", login_signup_path, class: 'login' %>
@@ -65,6 +54,17 @@
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
 </div>
 
 
