@@ -1,0 +1,58 @@
+<div class="past-event-card">
+  <div class="name-and-date">
+    <h4> <%= event.name %> on <%= event.start_time.strftime('%d/%m/%Y') %> </h4>
+  </div>
+  <div class="past-event-image">
+    <%= link_to event_path(event) do %>
+      <% if event.photos? %>
+        <%= cl_image_tag event.photos.first.path, crop: :fill %>
+      <% else %>
+        <%= image_tag("no-img.png") %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="past-event-information">
+    <p> <%= event.description %> </p>
+    <% if event.participants.include? @user %>
+      <p> <%= @user.first_name %> and <%= event.participants.count - 1 %> others went. </p>
+    <% else %>
+      <p> <%= @user.first_name %> and <%= event.participants.count %> others went. </p>
+    <% end %>
+    <% if event.participants.count > 3 %>
+      <% event.participants.first(3).each do |par| %>
+        <% if par.photo %>
+          <%= cl_image_tag par.photo.path, crop: :fill, class: "participant-img" %>
+        <% else %>
+          <%= image_tag("no-img.png", class: "participant-img") %>
+        <% end %>
+      <% end %>
+      + <%= event.participants.count - 3 %>
+    <% else %>
+      <% event.participants.each do |par| %>
+        <% if par.photo %>
+          <%= cl_image_tag par.photo.path, crop: :fill, class: "participant-img" %>
+        <% else %>
+          <%= image_tag("no-img.png", class: "participant-img") %>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+  <div style="clear: both;"></div>
+  <% if user == current_user && user.id == event.organizer.id %>
+    <div class="manager-options">
+        <%= link_to event_users_path(event) do %>
+          <i class="fa fa-check-square-o" aria-hidden="true"></i> Check attendance
+        <% end %>
+        <br>
+        <br>
+        <%= link_to edit_event_path(event) do %>
+          <i class="fa fa-camera-retro" aria-hidden="true"></i> Add photos to your event
+        <% end %>
+        <br>
+        <br>
+    </div>
+  <% end %>
+</div>
+
+
+
