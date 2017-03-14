@@ -36,29 +36,3 @@
   <% end %>
 </div>
 
-<!-- PAST EVENTS -->
-
-<div class="past_events">
-<div style="margin-bottom: 200px;">
-
-<% if @past_events_managed.count > 0 %>
-
-  <h2> Events I have Managed in the Past</h2>
-  <% @past_events_managed.each_with_index do |event, index| %>
-    <%= render partial: "events/past_event_managed_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
-  <% end %>
-</div>
-<div style="margin-bottom: 200px;">
-
-<% if @past_events_attended.count > 0 %>
-
-  <h2> Events I have Attended in the Past</h2>
-  <% @past_events_attended.each_with_index do |event, index| %>
-    <%= render partial: "events/past_event_attending_card", locals: {event: event} %>
-  <!-- plug in events card with proper styling here -->
-  <% end %>
-   <% end %>
-</div>
-</div>

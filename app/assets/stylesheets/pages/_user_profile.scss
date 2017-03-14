@@ -60,6 +60,15 @@
         border-radius: 50%;
       }
     }
+    .manager-options {
+      margin-top: 30px;
+      a {
+        text-decoration: none;
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
   }
 }
 

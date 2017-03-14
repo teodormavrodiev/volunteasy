@@ -36,18 +36,22 @@
         <% end %>
       <% end %>
     <% end %>
-    <% if user == current_user && user.id == event.organizer.id %>
-      <%= link_to event_users_path(event) do %>
-        Review them!
-      <% end %>
-      <br>
-      <br>
-      <%= link_to "Add photos to your event", edit_event_path(event) %>
-      <br>
-      <br>
-    <% end %>
   </div>
   <div style="clear: both;"></div>
+  <% if user == current_user && user.id == event.organizer.id %>
+    <div class="manager-options">
+        <%= link_to event_users_path(event) do %>
+          <i class="fa fa-check-square-o" aria-hidden="true"></i> Check attendance
+        <% end %>
+        <br>
+        <br>
+        <%= link_to edit_event_path(event) do %>
+          <i class="fa fa-camera-retro" aria-hidden="true"></i> Add photos to your event
+        <% end %>
+        <br>
+        <br>
+    </div>
+  <% end %>
 </div>
 
 
