@@ -112,6 +112,23 @@
   margin: 0 auto;
 }
 
+// CARD FOOTER ------------->
+.event-card-footer {
+  position: relative;
+  height: 60px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  margin-left: 14px;
+  // padding: 15px 15px 15px 15px;
+
+  // FOR EVENT CARD REMAINDER
+  a {
+    text-decoration: none !important;
+  }
+}
+
 .event-card-remainder {
   margin-left: 10px;
   border-radius: 4px;
@@ -127,20 +144,9 @@
   font-color: #A0A6AD;
 }
 
-// CARD FOOTER ------------->
-.event-card-footer {
-  position: relative;
-  height: 60px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  margin-left: 14px;
-  // padding: 15px 15px 15px 15px;
-
-  // FOR EVENT CARD REMAINDER
-  a {
-    text-decoration: none !important;
-  }
+.event-card-button {
+  position: absolute;
+  right: 24px;
 }
 
 // UNUSED ------------->
