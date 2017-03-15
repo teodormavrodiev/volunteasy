@@ -4,6 +4,7 @@
   <% main_photo = image_path('teamwork.jpg') %>
 <% end %>
 
+<%= link_to(event, class: "link-no-style") do %>
 <div class="event-card-container">
   <div class="event-card-image" style='background-image: linear-gradient(rgba(60,95,120,0.3), rgba(60,95,120,0.2)), url("<%= cl_image_path main_photo, height: 300, width: 600, crop: :fill, radius: 4; %>")'>
 
@@ -65,5 +66,4 @@
 </div>
 
 </div><!-- CLOSE EVENT CARD -->
-
-
+<% end %>
