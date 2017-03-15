@@ -34,9 +34,7 @@
 
           <div class="homepage-content">
             <div class="banner-content">
-              <%= image_tag("volunteasy-logo.png", class: 'logo-home') %>
-              <div class="title"> <h2>Volunteasy</h2>
-              </div>
+              <%= image_tag("Logo_green.png", class: 'logo-home') %>
 
               <h3 class="fat-title">
                 Fighting the right fight starts with your fingertips
@@ -44,9 +42,10 @@
 
               <div class = "simple-form form-inline search-form">
                   <div class="form-group">
-                <%= button_to "Log-in", new_user_session_path, class: "btn signin btn-block"  %>
+                <%= link_to "Log-in", new_user_session_path, class: "btn signin btn-block"  %>
                 </div>
-                <%= button_to "Sign up", new_user_registration_path, class: "btn signin btn-block"  %>
+
+                <%= link_to "Sign up", new_user_registration_path, class: "btn signin btn-block"  %>
 
               </div>
             </div>

@@ -27,7 +27,7 @@
 
           <div class="homepage-content">
             <div class="banner-content">
-              <%= image_tag("volunteasy-logo.png", class: 'logo-home') %>
+              <%= image_tag("Logo_green.png", class: 'logo-home') %>
               <div class="title"> <h2>Volunteasy</h2>
               </div>
 
@@ -44,7 +44,7 @@
             </div>
             <div class="col-xs-12">
 
-            <%= link_to "Create a mission", new_event_path, class: "btn create btn-block" %>
+            <%= link_to "Create a mission", cool_form_path(1), class: "btn create btn-block" %>
             </div>
             <div class="create-login form-inline">
                 <%= link_to "Already a member? Log-in", user_session_path, class: 'login' %>

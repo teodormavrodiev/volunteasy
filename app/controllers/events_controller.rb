@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:show, :search, :new, :create]
+  skip_before_action :authenticate_user!, only: [:show, :search, :new, :create, :cool_form]
 
 
   skip_after_action :verify_authorized, only: [:show, :search]
@@ -81,7 +81,7 @@ class EventsController < ApplicationController
       if @event.save
         redirect_to @event, notice: 'Event was successfully created.'
       else
-        render :new
+        redirect_to cool_form_path(1), notice: @event.errors.messages
       end
     else
       @event.organizer_id = 0
@@ -93,7 +93,7 @@ class EventsController < ApplicationController
         cookies[:participant] = "false"
         redirect_to new_user_session_path
       else
-        render :new
+        redirect_to cool_form_path(1), notice: @event.errors.messages
       end
     end
   end
@@ -112,7 +112,60 @@ class EventsController < ApplicationController
   end
 
 
+  def cool_form
+    number = params[:number]
+    case number
+    when "1"
+      @event = Event.new
+      authorize @event
+    when "2"
+      fill_cool_form
+    when "3"
+      fill_cool_form
+    end
+  end
+
+  def cool_form_edit
+    number = params[:number]
+    case number
+    when "1"
+      set_event
+    when "2"
+      fill_cool_edit_form
+    when "3"
+      set_event
+      begin
+        event_params
+        unless @event.update(event_params)
+          respond_to do |format|
+            flash.now[:error] = 'It did not work'
+            format.js {render inline: "location.reload();", notice: @event.errors.messages }
+          end
+        end
+      rescue ActionController::ParameterMissing
+      end
+    when "4"
+      fill_cool_edit_form
+      redirect_to @event, notice: 'Event was successfully updated.'
+    end
+  end
+
   private
+
+  def fill_cool_form
+    @event = Event.new(event_params)
+    authorize @event
+  end
+
+  def fill_cool_edit_form
+    set_event
+    unless @event.update(event_params)
+      respond_to do |format|
+        flash.now[:error] = 'It did not work'
+        format.js {render inline: "location.reload();", notice: @event.errors.messages }
+      end
+    end
+  end
 
   def set_event
     @event = Event.find(params[:id])

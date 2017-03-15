@@ -6,7 +6,7 @@
 }
 
 #navbar-top {
-  background: $bg-nav;
+  background: $green;;
   height: 50px;
   display: flex;
   padding: 0px 15px 0px 15px;
@@ -30,6 +30,7 @@
 
 .fixed-categories {
   position: fixed;
+  z-index: 99;
   top: 81px;
   padding-top: 6px;
   padding-bottom: 6px;
