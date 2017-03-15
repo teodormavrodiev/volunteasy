@@ -12,9 +12,9 @@
 
 
 <div class="user-basic-info">
-  <% if @user.photo  %>
-  <%= cl_image_tag @user.photo.path, class: "user-image" %>
-  <% end %>
+
+  <img src="<%= avatar_for_user(current_user) %>" alt="" class="user-image">
+
   <div class="text-center">
     <h4 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h4>
     <i class="fa fa-star" aria-hidden="true" ></i> <%= @past_events_managed.count %> Events Organized
