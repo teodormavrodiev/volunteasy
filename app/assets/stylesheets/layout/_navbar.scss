@@ -31,12 +31,15 @@
 .fixed-categories {
   position: fixed;
   z-index: 99;
-  top: 81px;
+  top: 50px;
   padding-top: 6px;
   padding-bottom: 6px;
   background: #F3F3F3;
   left: 0;
   right: 0;
+  border-bottom: 1px solid #E7E7E7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
 }
 
 /* Optional class to fix the navbar on top */
