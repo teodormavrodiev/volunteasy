@@ -249,7 +249,7 @@
 
 .past-event-container {
   position: relative;
-  height: 115px;
+  // height: 115px;
   max-width: 600px;
   background: #fff;
   border-radius: 0px;
@@ -258,9 +258,9 @@
   margin: 0 auto;
   border-bottom: 1px solid #E7E7E7;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  padding: 0 0 10px 0;
   h3 {
     margin: 0px;
-    padding: 0px;
   }
 
 }
@@ -314,6 +314,7 @@
 
 .past-event-caption {
   margin-top: 0px;
+  margin-right: 50px;
 }
 
 .past-event-separator {
@@ -370,7 +371,6 @@
   padding: 0 5px;
   text-align: center;
   vertical-align: middle;
-  width: 80px;
 
   line-height: 20px;
   font-size: 8px;

@@ -43,7 +43,9 @@ class EventsController < ApplicationController
 
   def show
     @event_is_past = @event.end_time < DateTime.now ? true : false
-    @organizer_is_user = @event.organizer_id == current_user.id ? true : false
+    if current_user
+      @organizer_is_user = @event.organizer_id == current_user.id ? true : false
+    end
     @spots_left = @event.capacity - @event.participants.count
     @spots_left = 0 if @spots_left < 0
     @tags_list = @event.tags
