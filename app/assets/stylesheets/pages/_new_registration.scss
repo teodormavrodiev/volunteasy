@@ -109,6 +109,13 @@
   }
 }
 
+.devise_registrations-edit {
+  .container {
+    margin:0;
+    padding:0px;
+  }
+}
+
 
 .devise-sessions-new {
   .container {
@@ -132,7 +139,7 @@
 .already_account_div {
   font-size: 13px;
   color:white;
-      padding-top: 15px;
+      padding-top: 20px;
     padding-bottom: 19px;
   }
 .already_account {
@@ -152,3 +159,4 @@
   color:white;
 }
 }
+
