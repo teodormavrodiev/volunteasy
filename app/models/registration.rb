@@ -11,6 +11,8 @@ class Registration < ApplicationRecord
 
   after_create :send_sms
 
+  scope :not_attended, -> { where(status: 0) }
+
   @@REMINDER_TIME = 120.minutes # minutes before appointment
 
   # Notify our appointment attendee 2 hours before the appointment time

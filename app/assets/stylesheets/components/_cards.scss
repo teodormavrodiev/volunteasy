@@ -27,6 +27,7 @@
 .event-card-image {
   height: 172px;
   overflow: hidden;
+  border-radius: 4px
 }
 
 // CARD TAB ------------->
@@ -230,11 +231,150 @@
   color: #A7A398;
 }
 
+.link-no-style {
+  text-decoration: none;
+  a {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
+}
 
+.events-managed {
+  // div :last-of-type {
+  //   border-radius: 0 4px 0 4px;
+  // }
+}
 
+.past-event-container {
+  position: relative;
+  height: 115px;
+  max-width: 600px;
+  background: #fff;
+  border-radius: 0px;
+  background-color: #fff;
+  color:#A0A6AD;
+  margin: 0 10px;
+  border-bottom: 1px solid #E7E7E7;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  h3 {
+    margin: 0px;
+    padding: 0px;
+  }
 
+}
 
+.past-event-badge-attended {
+  margin-left: 10px;
+  border-radius: 4px 0px 0px 4px;
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  height: 20px;
+  width: 60px;
+  position: absolute;
+  right: 0px;
+  top: 13px;
+  background-color: #39CD90;
 
+  line-height: 20px;
+  font-size: 8px;
+  font-family: "Avenir";
+  font-weight: 700px;
+  color: #FFF;
+}
 
+.past-event-badge-managed {
+  margin-left: 10px;
+  border-radius: 4px 0px 0px 4px;
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  height: 20px;
+  width: 60px;
+  position: absolute;
+  right: 0px;
+  top: 13px;
+  background-color: #BBBEF7;
 
+  line-height: 20px;
+  font-size: 8px;
+  font-family: "Avenir";
+  font-weight: 700px;
+  color: #FFF;
+}
 
+.past-event-data {
+  text-align: center;
+  position: relative;
+  text-align: left;
+  padding: 15px 15px 15px 15px;
+}
+
+.past-event-caption {
+  margin-top: 0px;
+}
+
+.past-event-separator {
+  // position: absolute;
+  height: 1px;
+  background: #E2E2E2;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.past-event-footer {
+  position: relative;
+  height: 30px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  // justify-content: space-between;
+  margin-left: 14px;
+  // padding: 15px 15px 15px 15px;
+
+  // FOR EVENT CARD REMAINDER
+  a {
+    text-decoration: none !important;
+  }
+}
+
+.past-event-button-group {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.past-event-remainder {
+  margin-left: 10px;
+  border-radius: 4px 0px 0px 4px;
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #F5F5F5;
+  height: 20px;
+  line-height: 20px;
+  font-size: 8px;
+  font-family: "Avenir";
+  font-weight: 700px;
+  font-color: #A0A6AD;
+}
+
+.past-event-button {
+  margin-left: 0;
+  background: #fff;
+  border: 1px solid #FEA178;
+  height: 20px;
+  border-radius: 0px 4px 4px 0px;
+  padding: 0 5px;
+  text-align: center;
+  vertical-align: middle;
+  width: 80px;
+
+  line-height: 20px;
+  font-size: 8px;
+  font-family: "Avenir";
+  font-weight: 700px;
+  color: #FEA178;
+}

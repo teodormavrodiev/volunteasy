@@ -83,25 +83,26 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <div class="user-past-events">
       <h4> Events Managed </h4>
 
-      <% if @past_events_managed.count > 0 %>
-        <% @past_events_managed.each_with_index do |event, index| %>
-          <%= render partial: "events/past_event_card", locals: {event: event, user: @user} %>
-        <hr>
-        <% end %>
-      <% else %>
-        <p> This person hasn't managed any events. </p>
-      <% end %>
+      <div class="events-managed">
 
-    </div>
+        <% if @past_events_managed.count > 0 %>
+          <% @past_events_managed.each_with_index do |event, index| %>
+            <%= render partial: "events/past_event_card", locals: {event: event, user: @user} %>
+          <hr>
+          <% end %>
+        <% else %>
+          <p> This person hasn't managed any events. </p>
+        <% end %>
+      </div>
+
+
   </div>
 </div>
 
 <div class="row">
   <div class="col-xs-12">
-    <div class="user-past-events">
       <h4> Events Attended </h4>
 
       <% if @past_events_attended.count > 0 %>
@@ -113,7 +114,6 @@
         <p> This person hasn't attended any events. </p>
       <% end %>
 
-    </div>
   </div>
 </div>
 
