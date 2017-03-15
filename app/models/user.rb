@@ -45,6 +45,12 @@ class User < ApplicationRecord
     self.registrations.where(status: :complete).count
   end
 
+  def has_photo?
+    return false unless self.photo
+    return true
+    #self.photo.path.present?
+  end
+
   def badge
     if registrations_complete == 0
       :newbie
