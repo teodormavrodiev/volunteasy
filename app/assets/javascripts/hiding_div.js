@@ -14,7 +14,7 @@ $(document).ready(function(){
 
     if (currentPosition > 10 && !forcingToHideNavbar) {
       // navbar.css({"opacity":"0.2","transition":"0.5s"});
-      navbar.css({"margin-top": -(navbar.height() / 2),"transition": timing});
+      navbar.css({"margin-top": -(navbar.height() / 2) - 33,"transition": timing});
     } else {
       // navbar.css({"opacity":"1","transition":"0.5s"});
       navbar.css({"margin-top":"0px","transition": timing});

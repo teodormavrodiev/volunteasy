@@ -1,9 +1,10 @@
 .user-basic-info {
+  margin-bottom: 20px;
   margin: 0 auto;
   position: relative;
   background-color: #fff;
   max-width: 600px;
-  height: 300px;
+  // height: 300px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   color:#A0A6AD;
@@ -37,50 +38,25 @@
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
-  margin-top: 20px;
+  margin-bottom: 20px;
 
   position: relative;
   background-color: #fff;
   max-width: 600px;
-  height: 300px;
+  // height: 300px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   color:#A0A6AD;
 }
-.margin-top-user-page {
-  margin-top: 50px;
-}
 
 .user-past-events {
-  .past-event-card {
-    margin-top: 35px;
-    .past-event-image {
-      float: left;
-      width: 33%;
-      img {
-        width: 100%;
-      }
-    }
-    .past-event-information {
-      float: left;
-      width: 64%;
-      margin-left: 3%;
-      .participant-img {
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-      }
-    }
-    .manager-options {
-      margin-top: 30px;
-      a {
-        text-decoration: none;
-        &:hover {
-          text-decoration: underline;
-        }
-      }
-    }
-  }
+  border-radius: 4px 4px 0px 0px;
+  margin-bottom: 0px;
+  border-bottom: 1px solid #E7E7E7;
+}
+
+.margin-top-user-page {
+  margin-top: 50px;
 }
 
 
