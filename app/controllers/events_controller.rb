@@ -133,7 +133,17 @@ class EventsController < ApplicationController
     when "2"
       fill_cool_edit_form
     when "3"
-      fill_cool_edit_form
+      set_event
+      begin
+        event_params
+        unless @event.update(event_params)
+          respond_to do |format|
+            flash.now[:error] = 'It did not work'
+            format.js {render inline: "location.reload();" }
+          end
+        end
+      rescue ActionController::ParameterMissing
+      end
     when "4"
       fill_cool_edit_form
       redirect_to @event, notice: 'Event was successfully updated.'

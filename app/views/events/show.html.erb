@@ -132,7 +132,7 @@
       <%= link_to "Can't go anymore?", event_registration_path(@event, @registration), method: :delete %>
       <% elsif @event.organizer == current_user %>
       <%= link_to 'Cancel event?', event_path(@event), method: :delete %>
-      <%= link_to 'Edit', edit_event_path(@event) %>
+      <%= link_to 'Edit', cool_form_edit_path(@event.id, 1) %>
       <% else  %>
       <%= link_to 'Are you going?', event_registrations_path(@event), method: :post %>
       <% end %>
