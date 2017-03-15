@@ -33,6 +33,7 @@ $orange: #E67E22;
 $green: #0edc84;
 $gray: #000000;
 $light-green: lighten($green, 20%);
+$purple: #BBBEF7;
 
 // Green
 $bg-dark: #1E7141;
@@ -48,4 +49,6 @@ $text-link-hover: #373737;
 
 // // Blue
 // $bg: #0F388F;
-$blue-button: #4A90E2;
+$blue-button: #6989F9;
+$light-blue: lighten($blue-button, 15%);
+
