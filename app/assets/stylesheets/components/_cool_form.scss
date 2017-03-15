@@ -1,0 +1,44 @@
+.hidden-fields {
+  display:none;
+}
+
+.form-create {
+  .form-signup {
+  background-color:$blue-button;
+  .form-inputs {
+    color: $light-blue;
+  }
+  }
+}
+
+
+.numberCircle {
+    border-radius: 50%;
+    margin-left: 15px;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    font-weight: bold;
+    background-color:$light-blue;
+    border: 2px solid white;
+    color: white;
+    text-align: center;
+}
+
+
+.numberCircle-others {
+    border-radius: 50%;
+    margin-left: 15px;
+    width: 45px;
+    height: 45px;
+    padding: 10px;
+    font-weight: bold;
+    background-color:$blue-button;
+    border: 2px solid $light-blue;
+    color: $light-blue;
+    text-align: center;
+}
+
+.numbers-form {
+  display:inline-block;
+}

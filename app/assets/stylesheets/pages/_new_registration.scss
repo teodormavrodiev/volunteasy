@@ -67,6 +67,19 @@
 }
 
 
+.form-create .login-form {
+  margin-bottom: 22px;
+  color: $light-blue;
+  span {
+    border:0px white;
+    background-color:white;
+    i {
+      color: $light-blue;
+    }
+  }
+}
+
+
 
 .btn-fb {
   text-align:center;
