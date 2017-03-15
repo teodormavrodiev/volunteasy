@@ -19,7 +19,7 @@
         <div class="sign-up-content">
         <div class="col-xs-12">
         <div class="sign-for-free">
-          <h3>Create a mission, yeah!</h3>
+          <h3>Create a mission!</h3>
           <p>Find passionate people around you</p>
         </div>
         </div>
@@ -29,8 +29,9 @@
 
           <div class="fill-form">
 
-<div class="numbers-form col-xs-12">
+<div class=" col-xs-12">
 <div class="row">
+<div class="numbers-form">
 <div class="numberCircle col-xs-4">1</div>
 <div class="numberCircle-others col-xs-4">2</div>
 <div class="numberCircle-others col-xs-4">3</div>
@@ -55,26 +56,38 @@
             </span>
         <%= f.input :organization, placeholder: "My organization", :label => false, input_html: { value: params[:organization] || event.organization, class: 'form-control btn-lg btn-login' }  %>
         </div>
-        <div class="form-inputs">
-        <div class="input-group login-form">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
-          </span>
-         <%= f.date_field :start_time, :label => false, input_html: { value: params[:start_time] || event.start_time, class: 'form-control btn-lg btn-login' }  %>
+        <div class="row">
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
+           </span>
+            <%= f.date_field :start_time, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login blue-time'  %>
+           </div>
+            </div>
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            </span>
+             <%= f.time_field :start_time, :label => false, value: @event.start_time.strftime('%H:%M'), class: 'form-control btn-lg btn-login'  %>
+        <%#= f.time_field :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
+            </div>
+            </div>
         </div>
-        <div class="input-group login-form">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o" aria-hidden="true"></i>
-        </span>
-        <%= f.time_field :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
-        </div>
-        <div class="input-group login-form">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
-        </span>
-        <%= f.date_field :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
-        </div>
-        <div class="input-group login-form">
-        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o" aria-hidden="true"></i>
-        </span>
-        <%= f.time_field :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
+        <div class="row">
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
+            </span>
+            <%= f.date_field :end_time, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login'  %>
+            </div>
+            </div>
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <span class="input-group-addon" id="basic-addon1"><i class="fa fa-clock-o" aria-hidden="true"></i>
+            </span>
+            <%= f.time_field :end_time, :label => false, value: @event.start_time.strftime('%H:%M'), class: 'form-control btn-lg btn-login'  %>
+            </div>
+            </div>
         </div>
 
         <div class="input-group login-form">
@@ -106,9 +119,9 @@
       </div>
 
 
-      </div>
+
       <div class="form-actions">
-        <%= f.button :submit, value: "Next step", class: "form-control btn-free-account btn-lg" %>
+        <%= f.button :submit, value: "Next step", data: {disable_with: "Loading..."}, class: "form-control btn-lg btn-next-step" %>
       </div>
     <% end %>
 
