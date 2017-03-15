@@ -30,6 +30,9 @@ Rails.application.routes.draw do
   get '/home_create/', to: 'pages#home_create', as: 'home_create'
   get '/home_search/', to: 'pages#home_search', as: 'home_search'
 
+  get '/new/:number', to: "events#cool_form", as: 'cool_form'
+  get '/events/:id/edit/:number', to: "events#cool_form_edit", as: 'cool_form_edit'
+
 
 end
 

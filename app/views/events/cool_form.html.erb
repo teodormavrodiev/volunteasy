@@ -1,0 +1,7 @@
+<% if params[:number] == "1" %>
+  <%= render "form_partial_1", locals: {event: @event} %>
+<% elsif params[:number] == "2" %>
+  <%= render "form_partial_2", locals: {event: @event} %>
+<% elsif params[:number] == "3" %>
+  <%= render "form_partial_3", locals: {event: @event} %>
+<% end %>
