@@ -16,87 +16,87 @@
 
 
 <%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline' do |f| %>
-  <div class="event-search-box">
-    <div class="col-xs-12 col-sm-4">
-      <%= f.input :address, input_html: { value: @address }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
-    </div>
-    <div class="row">
-    <div class="col-xs-12 col-sm-4 categories-filter">
-    <div class="col-xs-8">
-    <div class="button-categories btn-search btn btn-default"><i class="fa fa-filter" aria-hidden="true"></i> Categories</div>
-    <div class="categories">
-    <%= f.input :tags, :label => false, checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
-    </div>
-    </div>
-    <div class="col-xs-4">
-      <%= f.submit  "Go!", :class => 'btn btn-search go btn-default'%>
-    </div>
-    </div>
+<div class="event-search-box">
+  <div class="col-xs-12 col-sm-4">
+    <%= f.input :address, input_html: { value: @address }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
+  </div>
+  <div class="row">
+  <div class="col-xs-12 col-sm-12 categories-filter">
+      <div class="col-xs-8">
+        <div class="button-categories btn-search btn btn-default"><i class="fa fa-filter" aria-hidden="true"></i> Categories</div>
+        <div class="categories">
+          <%= f.input :tags, :label => false, checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <%= f.submit  "Go!", :class => 'btn btn-search go btn-default'%>
+      </div>
     </div>
   </div>
+</div>
 <% end %>
 
 
 <div class="container">
-<div class="results">
-  <div class="row">
+  <div class="results">
+    <div class="row">
 
 
-    <% if @events.empty? %>
-    NO RESULT !
-    <% else %>
+      <% if @events.empty? %>
+      NO RESULT !
+      <% else %>
 
 
-    <% if @events.today.any? %>
+      <% if @events.today.any? %>
 
       <h2>Today</h2>
 
       <% @events.today.each do |event| %>
-        <%= render event %>
+      <%= render event %>
       <% end %>
 
-    <% end %>
+      <% end %>
 
-    <% if @events.tomorrow.any? %>
+      <% if @events.tomorrow.any? %>
 
       <h2>Tomorrow</h2>
 
       <% @events.tomorrow.each do |event| %>
-        <%= render event %>
+      <%= render event %>
       <% end %>
 
-    <% end %>
+      <% end %>
 
 
-    <% if @events.this_week.any? %>
+      <% if @events.this_week.any? %>
       <h2>This week</h2>
 
       <% @events.this_week.each do |event| %>
-        <%= render event %>
+      <%= render event %>
       <% end %>
-    <% end %>
+      <% end %>
 
-    <% if @events.next_week.any? %>
+      <% if @events.next_week.any? %>
       <h2>Next week</h2>
 
       <% @events.next_week.each do |event| %>
-        <%= render event %>
+      <%= render event %>
       <% end %>
-    <% end %>
+      <% end %>
 
 
-    <% if @events.later.any? %>
+      <% if @events.later.any? %>
       <h2>Later</h2>
 
       <% @events.later.each do |event| %>
-        <%= render event %>
+      <%= render event %>
       <% end %>
-    <% end %>
+      <% end %>
 
 
-    <% end %>
+      <% end %>
 
-  </div>
+    </div>
   </div>
 </div>
 
