@@ -10,10 +10,11 @@ a.selected {
 }
 
 .categories {
-  background-color:#FFFFFF;
+  background-color:white;
+  color: #5E5E5E;
   border:1px solid #999999;
   cursor:default;
-  color: #979797;
+  color: $text-link;
   display:none;
   margin-top: 15px;
   position:absolute;
@@ -21,10 +22,14 @@ a.selected {
   // width:394px;
   z-index:50;
   padding: 10px 10px 10px;
+ span {
+  color: #5E5E5E;
+ }
 }
 
 .categories label {
   display: block;
+  margin-top: 20px;
   margin-bottom: 3px;
   padding-left: 15px;
   text-indent: -15px;
@@ -55,6 +60,7 @@ a.selected {
 
 .button-categories {
   color: #979797;
+  text-align: left;
 }
 
 .results h2 {
@@ -67,3 +73,8 @@ a.selected {
 .city {
   padding-left: 27px;
 }
+
+
+
+
+
