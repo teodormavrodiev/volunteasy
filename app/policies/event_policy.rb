@@ -26,6 +26,14 @@ class EventPolicy < ApplicationPolicy
     user_is_organizer_or_admin?
   end
 
+  def cool_form?
+    true
+  end
+
+  def cool_form_edit?
+    user_is_organizer_or_admin?
+  end
+
   private
 
   def user_is_organizer_or_admin?
