@@ -390,6 +390,20 @@ pet2 = Event.new({
   ]
   })
 
+old1 = Event.new({
+  name: "The Very Best Greatest Most Awesome Event Ever In the Whole Wide Universe",
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("10:00 29/03/2015", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("14:00 29/03/2015", "%H:%M %d/%m/%Y"),
+  address: "St. Croix Hospice, El Carmel, Barcelona",
+  capacity: 15,
+  description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
+  tags: ["Seniors", "Community"],
+  photo_urls: [
+    "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+  ]
+  })
+
 pet2.save
 homeless1.save
 homeless0.save
@@ -409,6 +423,8 @@ bike.save
 puppy_feeding2.save
 bike2.save
 women.save
+old1.save
+
 registration_one = Registration.new({
   participant_id: joe.id,
   event_id: nursing_home.id
@@ -453,4 +469,20 @@ registration_five.save
 registration_six.save
 registration_seven.save
 registration_eight.save
+
+reg10 = Registration.new({
+  participant_id: jimmy.id,
+  event_id: old1.id,
+  }).save
+reg11 = Registration.new({
+  participant_id: joe.id,
+  event_id: old1.id,
+  }).save
+reg12 = Registration.new({
+  participant_id: julia.id,
+  event_id: old1.id,
+  }).save
+
+
+
 puts "///////////////////"

@@ -53,9 +53,6 @@
           <%= link_to "Join now", event_registrations_path(@event), method: :post %>
         <% end %>
         </p>
-        <p>
-        <%= link_to "Invite a friend", '' %>
-        </p>
       </div>
 
       <h3> Event details </h3>
@@ -64,7 +61,7 @@
 
       <p>
         <strong>Organized By:</strong>
-        <%= link_to "#{@event.organizer.first_name}", @event.organizer %>
+        <%= link_to @event.organizer.first_name, @event.organizer %>
       </p>
 
       <!-- Event description -->

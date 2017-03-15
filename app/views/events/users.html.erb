@@ -2,20 +2,18 @@
   <div class="row">
     <div class="col-xs-12">
 
-
       <div class="list">
         <% if @event.organizer == current_user %>
-        Participants to your event
+        <h2>Participants to your event</h2>
         <% else %>
-        List of participants
+        <h2>List of participants</h2>
         <% end %>
       </div>
-
 
       <% @event.registrations.each do |reg| %>
 
       <%= link_to user_path(reg.participant) do %>
-      <div class="photo_participant">
+      <div class="attendance-card-container">
         <% if reg.participant.photo  %>
         <%= cl_image_tag reg.participant.photo.path, width: 50, height: 70, crop: :fill %>
         <% else %>
@@ -28,13 +26,13 @@
 
         <!-- If current user is organizer and if event is past :  -->
         <% if policy(reg).update? %>
-<!--         If hasnt been updated yet:  -->
+        <!-- If hasnt been updated yet:  -->
               <% if reg.missed? %>
               <%= link_to "Attended?", event_registration_path(@event, reg), method: :put %>
               <% else %>
               Checked as attended :)
               <% end %>
-        <!--   TODO : redirect to same page with notice "thank you for your review" -->
+        <!-- TODO : redirect to same page with notice "thank you for your review" -->
         <% end %>
       </div>
       <% end %>
