@@ -90,7 +90,6 @@
         <% if @past_events_managed.count > 0 %>
           <% @past_events_managed.each_with_index do |event, index| %>
             <%= render partial: "events/past_event_card", locals: {event: event, user: @user} %>
-          <hr>
           <% end %>
         <% else %>
           <p> This person hasn't managed any events. </p>
@@ -108,15 +107,10 @@
       <% if @past_events_attended.count > 0 %>
         <% @past_events_attended.each_with_index do |event, index| %>
           <%= render partial: "events/past_event_card", locals: {event: event, user: @user} %>
-        <hr>
         <% end %>
       <% else %>
         <p> This person hasn't attended any events. </p>
       <% end %>
 
   </div>
-</div>
-
-<div style="margin-top: 50px;">
-  More info? + / Footer
 </div>

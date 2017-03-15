@@ -1,8 +1,8 @@
 <% content_for :full_page do %>
 
 <div class="form-signup">
-
     <div class="col-xs-12">
+    <div style="margin-bottom: 200px;">
         <div class="close-form">
             <%= link_to root_path do %>
             <i class="fa fa-times" aria-hidden="true"></i>
@@ -13,26 +13,23 @@
         <div class="edit-video">
           <h3>Hey, edit your profile :)</h3>
         </div>
-
+    </div>
     </div>
 
   <div class="simple-form-for">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-        <div class="edit-photo">
-        <% if @user.photo  %>
-        <%= cl_image_tag @user.photo.path, crop: :fill, height:100, width:100, class: "avatar-very-large" %>
-      <% end %>
-
-       <div class="cloudinary-button-div">
-      <button type="button" class="btn btn-default btn-circle btn-xl cloudinary-button"><i class="fa fa-camera" aria-hidden="true"></i></button>
-       </div>
+      <div class="edit-photo">
+        <div class="cloudinary-button-div">
+        <button type="button" class="btn btn-default btn-circle btn-xl cloudinary-button"><i class="fa fa-camera" aria-hidden="true"></i></button>
+         </div>
         <div class="input-group login-form input-attachinary hidden-attachinary-button">
-
-        <%= f.input :photo, as: :attachinary, input_html: { class: "already_account" } %>
-          </div>
+          <%= f.input :photo, as: :attachinary, input_html: { class: "already_account" } %>
         </div>
+
+        <div class="clearfix"></div>
+      </div>
 
       <div class="form-inputs">
       <div class="input-group login-form">
@@ -63,12 +60,12 @@
     <% end %>
 
 
-<div class="already_account_div">
- <div class="strike">
+  <div class="already_account_div">
+   <div class="strike">
       <span>Unhappy?</span>
     </div>
-            <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "already_account" %>
-</div>
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "already_account" %>
+  </div>
 
 
 

@@ -1,4 +1,11 @@
 class DeviseRegistrationsController < Devise::RegistrationsController
+  before_action :set_photo, only: [:edit]
+
+  def set_photo
+    unless resource.has_photo?
+      resource.photo_url = 'http://www.oldpotterybarn.co.uk/wp-content/uploads/2015/06/default-medium.png'
+    end
+  end
 
   def after_update_path_for(resource)
     user_path(resource)
