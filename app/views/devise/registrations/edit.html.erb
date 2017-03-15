@@ -1,15 +1,4 @@
-
-
-
-
-
-
-
-
-
-
-
-
+<% content_for :full_page do %>
 
 <div class="form-signup">
 
@@ -24,18 +13,26 @@
         <div class="edit-video">
           <h3>Hey, edit your profile :)</h3>
         </div>
-        <% if @user.photo  %>
-        <%= cl_image_tag @user.photo.path, class: "avatar-very-large" %>
-      <% end %>
 
-
-
-
-            </div>
+    </div>
 
   <div class="simple-form-for">
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
+
+        <div class="edit-photo">
+        <% if @user.photo  %>
+        <%= cl_image_tag @user.photo.path, crop: :fill, height:100, width:100, class: "avatar-very-large" %>
+      <% end %>
+
+       <div class="cloudinary-button-div">
+      <button type="button" class="btn btn-default btn-circle btn-xl cloudinary-button"><i class="fa fa-camera" aria-hidden="true"></i></button>
+       </div>
+        <div class="input-group login-form input-attachinary hidden-attachinary-button">
+
+        <%= f.input :photo, as: :attachinary, input_html: { class: "already_account" } %>
+          </div>
+        </div>
 
       <div class="form-inputs">
       <div class="input-group login-form">
@@ -51,18 +48,13 @@
         <%= f.input :email, required: true, autofocus: true, placeholder:@current_user.email, label: false, input_html: { class: 'form-control btn-login' } %>
         </div>
         <div class="input-group login-form">
-      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-user" aria-hidden="true"></i></span>
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-home" aria-hidden="true"></i></span>
       <%= f.input :organization, autofocus: true, placeholder: "Your organization...", label: false,  input_html: { class: 'form-control btn-lg btn-login' }  %>
         </div>
         <div class="input-group login-form input-bio">
-      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-envelope-o" aria-hidden="true"></i></span>
+      <span class="input-group-addon" id="basic-addon1"><i class="fa fa-bullhorn" aria-hidden="true"></i></span>
         <%= f.input :bio, autofocus: true, placeholder: "Please write something about you", label: false,  input_html: { class: 'form-control btn-lg btn-login' } %>
         </div>
-        <div class="input-group login-form input-bio">
-      <span class="input-group-addon" id="basic-addon1"></span>
-
-        <%= f.input :photo, as: :attachinary, input_html: { class: "already_account" } %>
-      </div>
       </div>
 
       <div class="form-actions">
@@ -87,4 +79,5 @@
 
 
 </div>
+<% end %>
 

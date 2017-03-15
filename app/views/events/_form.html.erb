@@ -6,8 +6,10 @@
       <div class="form-inputs">
         <%= f.input :name, placeholder: "Event Name", input_html: { value: params[:name] || event.name } %>
         <%= f.input :organization, placeholder: "My organization", input_html: { value: params[:organization] || event.organization }  %>
-        <%= f.input :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
-        <%= f.input :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
+        <%= f.date_field :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
+        <%= f.time_field :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
+        <%= f.date_field :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
+        <%= f.time_field :end_time, input_html: { value: params[:end_time] || event.end_time }  %>
         <%= f.input :description, placeholder: "What kind of help do you need?", input_html: { value: params[:description] || event.description } %>
         <%= f.input :address, placeholder: "Street, City, ZIP", input_html: { value: @address || params[:address] || event.address}  %>
         <%= f.input :capacity, input_html: { value: params[:capacity] || event.capacity}  %>

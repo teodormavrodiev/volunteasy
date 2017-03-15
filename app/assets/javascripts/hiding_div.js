@@ -63,21 +63,23 @@ $(document).ready(function(){
 
 
 
-$('#iconified').on('keyup', function() {
-    var input = $(this);
-    if(input.val().length === 0) {
-        input.addClass('empty');
-    } else {
-        input.removeClass('empty');
-    }
+  $('#iconified').on('keyup', function() {
+      var input = $(this);
+      if(input.val().length === 0) {
+          input.addClass('empty');
+      } else {
+          input.removeClass('empty');
+      }
+  });
+
+
+  // Styling attachinary button on edit my profile page
+
+
+  $( ".cloudinary-button" ).on("click",function() {
+    $(".input-attachinary a").trigger( "click" );
+    $( "#user_photo" ).trigger( "click" );
+  });
+
 });
-
-
-});
-
-
-
-
-
-
 
