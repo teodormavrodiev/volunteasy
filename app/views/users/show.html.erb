@@ -10,8 +10,7 @@
  </div>
 </div>
 
-<div class="row">
-  <div class="col-xs-12">
+
     <div class="user-basic-info">
       <% if @user.photo  %>
         <%= cl_image_tag @user.photo.path, class: "user-image" %>
@@ -48,11 +47,9 @@
         <% end %>
       </div>
     </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12">
+
+
     <div class="user-bio">
     <h4> About me </h4>
 
@@ -63,11 +60,9 @@
     <% end %>
 
     </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12">
+
+
     <div class="user-organization">
     <h4> My Organization </h4>
 
@@ -78,11 +73,9 @@
     <% end %>
 
     </div>
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12">
+
+
       <h4> Events Managed </h4>
 
       <div class="events-managed">
@@ -98,11 +91,8 @@
       </div>
 
 
-  </div>
-</div>
 
-<div class="row">
-  <div class="col-xs-12">
+
       <h4> Events Attended </h4>
 
       <% if @past_events_attended.count > 0 %>
@@ -114,8 +104,7 @@
         <p> This person hasn't attended any events. </p>
       <% end %>
 
-  </div>
-</div>
+
 
 <div style="margin-top: 50px;">
   More info? + / Footer
