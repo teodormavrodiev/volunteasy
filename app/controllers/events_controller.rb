@@ -81,7 +81,7 @@ class EventsController < ApplicationController
       if @event.save
         redirect_to @event, notice: 'Event was successfully created.'
       else
-        render :new
+        redirect_to cool_form_path(1), notice: @event.errors.messages
       end
     else
       @event.organizer_id = 0
@@ -93,7 +93,7 @@ class EventsController < ApplicationController
         cookies[:participant] = "false"
         redirect_to new_user_session_path
       else
-        render :new
+        redirect_to cool_form_path(1), notice: @event.errors.messages
       end
     end
   end
@@ -139,7 +139,7 @@ class EventsController < ApplicationController
         unless @event.update(event_params)
           respond_to do |format|
             flash.now[:error] = 'It did not work'
-            format.js {render inline: "location.reload();" }
+            format.js {render inline: "location.reload();", notice: @event.errors.messages }
           end
         end
       rescue ActionController::ParameterMissing
@@ -162,7 +162,7 @@ class EventsController < ApplicationController
     unless @event.update(event_params)
       respond_to do |format|
         flash.now[:error] = 'It did not work'
-        format.js {render inline: "location.reload();" }
+        format.js {render inline: "location.reload();", notice: @event.errors.messages }
       end
     end
   end

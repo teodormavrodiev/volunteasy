@@ -1,11 +1,19 @@
 <% if notice %>
-  <div class="alert alert-info alert-dismissible" role="alert">
+  <div class="alert alert-info alert-dismissible" role="alert" style="z-index: 99;position: absolute; width: 100%;">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-    <%= notice %>
+    <% if notice.is_a?(Hash) %>
+      <% notice.each do |key, messages| %>
+        <% messages.each do |message| %>
+            <div> <%= key %>: <%= message %> </div>
+        <% end %>
+      <% end %>
+    <% else %>
+      <%= notice %>
+    <% end %>
   </div>
 <% end %>
 <% if alert %>
-  <div class="alert alert-warning alert-dismissible" role="alert">
+  <div class="alert alert-warning alert-dismissible" role="alert" style="z-index: 0;position: absolute; width: 100%;">
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= alert %>
   </div>
