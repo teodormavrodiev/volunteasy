@@ -8,7 +8,7 @@
   <div class="row">
     <div class="col-xs-12">
         <div class="close-form">
-            <%= link_to root_path do %>
+            <%= link_to search_path do %>
             <i class="fa fa-times" aria-hidden="true"></i>
             <% end %>
         </div>
@@ -58,7 +58,7 @@
         <div class="row">
             <div class="col-xs-6">
             <div class="input-group login-form">
-            <%= f.date_field :start_time, :label => false, as: :hidden, value: @event.start_time.strftime('%Y-%m-%d'), as: :hidden,  class: 'form-control btn-lg btn-login blue-time'  %>
+            <%= f.date_field :start_day, :label => false, as: :hidden, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login blue-time'  %>
            </div>
             </div>
             <div class="col-xs-6">
@@ -71,12 +71,12 @@
         <div class="row">
             <div class="col-xs-6">
             <div class="input-group login-form">
-            <%= f.date_field :end_time, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), as: :hidden, class: 'form-control btn-lg btn-login'  %>
+            <%= f.date_field :end_day, :label => false, as: :hidden, value: @event.end_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login'  %>
             </div>
             </div>
             <div class="col-xs-6">
             <div class="input-group login-form">
-            <%= f.time_field :end_time, :label => false, value: @event.start_time.strftime('%H:%M'), as: :hidden, class: 'form-control btn-lg btn-login'  %>
+            <%= f.time_field :end_time, as: :hidden,  :label => false, value: @event.end_time.strftime('%H:%M'), class: 'form-control btn-lg btn-login'  %>
             </div>
             </div>
         </div>

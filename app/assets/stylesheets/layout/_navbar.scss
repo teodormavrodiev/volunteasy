@@ -19,11 +19,11 @@
 #navbar-bottom {
   z-index: 99;
   position: relative;
-  height: 66px;
+  // height: 66px;
   margin: 0;
   background: #FFFFFF;
   display: flex;
-  padding: 0px 15px 0px 15px;
+  // padding: 0px 15px 0px 15px;
   align-items: center;
   justify-content: space-between;
 }
@@ -83,6 +83,14 @@
   flex: 0 1 auto;
   cursor: pointer;
   padding: 0 20px;
+  // padding: 10px;
+  // flex: 0 1 33.33%;
+}
+
+.navbar-wagon-item-bottom {
+  padding: 10px;
+  flex: 0 1 33.33%;
+  cursor: pointer;
 }
 
 .no-padding {
@@ -204,4 +212,5 @@
 }
 .active-icon {
   color: $green;
+  border-bottom: 2px solid $green;
 }
