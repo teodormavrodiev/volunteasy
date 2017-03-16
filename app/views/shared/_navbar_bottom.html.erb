@@ -5,8 +5,13 @@
 
   <!-- Search -->
     <%= link_to events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
-    <span class="nav-icon fa fa-search"></span><br>
-      <span class="nav-button-text">Search</span>
+      <% if current_page?(controller: 'events', action: 'search') %>
+        <span class="nav-icon fa fa-search active-icon"></span><br>
+        <span class="nav-button-text active-icon">Search</span>
+      <% else %>
+        <span class="nav-icon fa fa-search"></span><br>
+        <span class="nav-button-text">Search</span>
+      <% end %>
     <% end %>
 
   <!-- Add Event -->
@@ -16,8 +21,13 @@
     <% end %>
   <!-- My Events -->
     <%= link_to user_events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
-    <span class="nav-icon fa fa-calendar-check-o"></span><br>
-      <span class="nav-button-text">My Events</span>
+      <% if current_page?(controller: 'events', action: 'my_events') %>
+        <span class="nav-icon fa fa-calendar-check-o active-icon"></span><br>
+        <span class="nav-button-text active-icon">My Events</span>
+      <% else %>
+        <span class="nav-icon fa fa-calendar-check-o"></span><br>
+        <span class="nav-button-text">My Events</span>
+      <% end %>
     <% end %>
 
 </div>
