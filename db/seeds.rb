@@ -42,7 +42,8 @@ jackie = User.new({
   last_name: "Kenny",
   organization: "nationalbreastcancer.org, Language Integration for Syrian Refugee Children",
   phone: "0908076532",
-  photo_url: "https://www.biography.com/.image/c_fit,cs_srgb,dpr_1.0,q_80,w_620/MTE5NTU2MzE2MzM0NTU2Njgz/jacqueline-kennedy-onassis-9428644-2-raw.jpg"
+  bio: "I'm a famous tandem cycling lover who loves mechanics. I love Barcelona and want to make a difference in my community.",
+  photo_url: "http://www.thefamouspeople.com/profiles/images/jackie-kennedy-21.jpg",
   })
 jeanjacques = User.new({
   email: "jeanjakie@gmail.com",
@@ -378,6 +379,22 @@ fresh = Event.new({
   ]
   })
 
+
+fresh3 = Event.new({
+  name: "Help Sort Fresh Produce to go out to hungry",
+  organizer_id: james.id,
+  start_time: DateTime.strptime("18:00 01/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("21:00 01/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Carrer de Provença 120, 08029 Barcelona",
+  capacity: 15,
+  description: "Each summer the Food Bank of Barcelona receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
+  Responsabilities: Rinse produce (if needed), sort and bag/box produce.",
+  tags: ["Homeless", "Community"],
+  photo_urls: [
+    "http://res.cloudinary.com/demo/image/fetch/https://www.stanbridge.edu/img/show/reach/REACH_005--lg.jpg"
+  ]
+  })
+
 hospice3 = Event.new({
   name: "Animal Shelter Volunteers needed!",
   organizer_id: james.id,
@@ -455,6 +472,7 @@ old1 = Event.new({
   ]
   })
 
+fresh3.save
 pet2.save
 homeless1.save
 homeless0.save
@@ -590,7 +608,45 @@ registration_23 = Registration.new({
   event_id: nursing_home.id,
   })
 
+registration_24 = Registration.new({
+  participant_id: marina.id,
+  status: :complete,
+  event_id: fresh3.id,
+  })
 
+registration_25 = Registration.new({
+  participant_id: mariah.id,
+  status: :complete,
+  event_id: fresh3.id,
+  })
+
+registration_26 = Registration.new({
+  participant_id: joe.id,
+  status: :complete,
+  event_id: fresh3.id,
+  })
+
+registration_27 = Registration.new({
+  participant_id: johnny.id,
+  status: :complete,
+  event_id: fresh3.id,
+  })
+
+registration_28 = Registration.new({
+  participant_id: jackie.id,
+  status: :complete,
+  event_id: fresh3.id,
+  })
+
+
+
+
+
+registration_28.save
+registration_27.save
+registration_26.save
+registration_25.save
+registration_24.save
 registration_23.save
 registration_22.save
 registration_21.save
