@@ -61,7 +61,7 @@
             <div class="input-group login-form">
             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
            </span>
-            <%= f.date_field :start_time, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login blue-time'  %>
+            <%= f.date_field :start_day, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login blue-time'  %>
            </div>
             </div>
             <div class="col-xs-6">
@@ -78,7 +78,7 @@
             <div class="input-group login-form">
             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
             </span>
-            <%= f.date_field :end_time, :label => false, value: @event.end_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login'  %>
+            <%= f.date_field :end_day, :label => false, value: @event.end_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login'  %>
             </div>
             </div>
             <div class="col-xs-6">
@@ -103,10 +103,12 @@
         <div class="input-group login-form">
         <%= f.input :capacity, as: :hidden, :label => false, input_html: { value: params[:capacity] || event.capacity}  %>
         </div>
+
         <div class="input-group login-form">
 
         <%= f.input :tags, label: "This event is related to...", input_html: { value: params[:tags] || event.tags, class: 'form-control btn-lg btn-login'  }, :label => false, include_blank: false, as: :check_boxes, as: :hidden, collection: Event::TAGS, class: 'check_boxes_submit' %>
         </div>
+
         <div class="input-group login-form">
 
         <%= f.input :photos, as: :attachinary, :label => false, as: :hidden, input_html: { value: params[:photos] || event.photos }  %>
