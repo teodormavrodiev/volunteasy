@@ -9,6 +9,10 @@
   <div class="event-card-image" style='background-image: linear-gradient(rgba(60,95,120,0.3), rgba(60,95,120,0.2)), url("<%= cl_image_path main_photo, height: 300, width: 600, crop: :fill, radius: 4; %>")'>
   </div>
 
+  <div class="event-badge-managed">
+      MANAGING
+    </div>
+
   <div class="event-card-tab">
       <h3><%= (event.end_time - DateTime.now).to_i/60/60/24 %> days</h3>
       <p>left</p>
@@ -65,10 +69,9 @@
       + <%= event.participants.count - @counter %> ARE GOING
     </div>
 
-    <div class="event-card-button">
-      <%= link_to "Post photos", cool_form_edit_path(event.id, 3), class: "btn btn-primary" %>
+    <div class="share-event-button-managing js-share" data-href="https://volunteasy.herokuapp.com<%= event_path(event) %>" data-content="Checkout this amazing event">
+      <i class='fa fa-share-square-o'></i>
     </div>
-
 
 </div>
 
