@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TODO</title>
+    <title>Volunteasy</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,7 +28,6 @@
 
     <% else %>
 
-
             <!-- Navbar -->
             <%= render 'shared/navbar' %>
             <%= render 'shared/flashes' %>
@@ -37,7 +36,6 @@
         <!-- Condition added : no padding for HP / Sign.in and Sign.up pages :  -->
 
           <% if params[:action] == "home" %>
-            <div>
             <div class="container-hp">
             <%= yield %>
             </div>
@@ -45,26 +43,21 @@
             <div class="container-hp">
             <%= yield %>
             </div>
-            <div>
           <% elsif params[:action] == "home_search" %>
             <div class="container-hp">
             <%= yield %>
             </div>
-          <div>
           <% elsif params[:action] == "home_create" %>
             <div class="container-hp">
             <%= yield %>
             </div>
-          <div>
           <% else %>
             <div style="margin-top: 116px">
-            <div class="container">
-            <%= yield %>
+              <div class="container">
+              <%= yield %>
+              </div>
             </div>
           <% end %>
-
-
-            </div>
     <% end %>
 
 

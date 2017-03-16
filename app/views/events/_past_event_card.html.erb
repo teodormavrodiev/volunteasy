@@ -21,15 +21,15 @@
   </div>
 
   <!-- CARD BADGE -->
-  <% if current_user == event.organizer %>
+  <% if @user == event.organizer %>
 
-    <div class="past-event-badge-managed">
+    <div class="event-badge-managed">
       MANAGED
     </div>
 
   <% else %>
 
-    <div class="past-event-badge-attended">
+    <div class="event-badge-attended">
       ATTENDED
     </div>
 

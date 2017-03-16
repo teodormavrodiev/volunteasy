@@ -10,6 +10,10 @@
 
   </div>
 
+  <div class="event-badge-attended">
+      ATTENDING
+  </div>
+
   <div class="event-card-tab">
       <h3><%= pluralize((event.end_time - DateTime.now).to_i/60/60/24, 'day', 'days') %></h3>
       <p>left</p>
@@ -40,15 +44,10 @@
     </div>
   </div>
 
-
-
   <div class="event-card-separator"></div>
-
-
 
 <!-- CARD FOOTER -->
 <div class="event-card-footer">
-
     <%= link_to event_users_path(event) do %>
         <% @counter = 0 %>
         <% event.participants.last(5).each do |par| %>
@@ -62,6 +61,12 @@
     <div class="event-card-remainder">
       + <%= event.participants.count - @counter %> ARE GOING
     </div>
+
+    <div class="share-event-button-default js-share" data-href="https://volunteasy.co<%= event_path(event) %>" data-content="Checkout this amazing event">
+      <i class='fa fa-share-square-o'></i>
+    </div>
+
+
 </div>
 
 </div><!-- CLOSE EVENT CARD -->

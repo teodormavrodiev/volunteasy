@@ -1,16 +1,19 @@
 <div class="center-middle-of-page">
 <div style="margin-top: 20px; margin-bottom: 30px; text-align: center">
-  <div class="text-center">
-      <h5>EVENTS I'M MANAGING</h5>
-  </div>
+<!--   <div class="text-center">
+      <h2>Events I'm Managing</h2>
+  </div> -->
+
   <% if @current_events_managed.count == 0 %>
+
     <div class="watermark">
       <i class="fa fa-frown-o" aria-hidden="true"></i>
+      <div class="watermark-text">
+        <h2>You're not managing any events yet!</h2>
+        <h3><%= link_to "Create one now", cool_form_path(1) %></h3>
+      </div>
     </div>
-    <div class="watermark-text">
-        You're not managing any events yet!
-      <%= link_to "Create one now", cool_form_path(1) %>
-    </div>
+
   <% else %>
     <% @current_events_managed.each_with_index do |event, index| %>
       <%= render partial: "events/current_event_managed_card", locals: {event: event} %>
@@ -19,19 +22,24 @@
   <% end %>
 </div>
 
-<div class="text-center">
-  <div class="text-center">
-      <h5>EVENTS I'M ATTENDING</h5>
-  </div>
+<!--   <div class="text-center">
+      <h2>Events I'm Attending</h2>
+  </div> -->
+
   <% if @current_events_attended.count == 0 %>
-    <i class="fa fa-frown-o fa-4x" aria-hidden="true"></i>
-    You're not attending any events yet!
-    <%= link_to "Find the perfect opportunity", search_path %>
+
+    <div class="watermark">
+      <i class="fa fa-frown-o" aria-hidden="true"></i>
+      <div class="watermark-text">
+        <h2>You're not attending any events yet!</h2>
+        <h3><%= link_to "Find the perfect opportunity", search_path %></h3>
+      </div>
+    </div>
+
   <% else %>
     <% @current_events_attended.each_with_index do |event, index| %>
       <%= render partial: "events/current_event_attending_card", locals: {event: event} %>
     <!-- plug in events card with proper styling here -->
     <% end %>
   <% end %>
-</div>
 </div>

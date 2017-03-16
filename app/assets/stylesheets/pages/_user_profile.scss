@@ -1,55 +1,26 @@
-.user-basic-info {
-  margin: 0 auto;
-  margin-top: 60px;
-  margin-bottom: 20px;
-  padding-top: 70px;
-  text-align: center;
-  position: relative;
-  background-color: #fff;
-  max-width: 600px;
-  // height: 300px;
-  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
-  border-radius: 4px;
-  color:#A0A6AD;
-}
-
-.user-image {
+.user-profile-image {
   width: 120px;
   height: 120px;
-  border: white 3px solid;
   position: absolute;
   top: -60px;
-  left: 50%;
-  margin-left: 60px;
+  right: 50%;
+  transform: translateX(60px);
 }
 
 .user-edit-button {
+  position: absolute;
+  right: 0px;
+  top: -50px;
   text-align: center;
-  vertical-align: center;
+  vertical-align: middle;
   margin: 0 auto;
   background-color: #fff;
-  width: 40px;
+  width: 63px;
   height: 40px;
+  line-height: 40px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   color:#A0A6AD;
-  .pencil {
-    // margin-top: 27%;
-  }
-}
-
-.badge-status {
-    display: inline-block;
-    text-align: center;
-    border-radius: 10px;
-    background-color: $purple;
-    position:relative;
-    /* justify-content: center; */
-    color: white;
-    height: 28px;
-    width: 104px;
-    left: 241px;
-    top: -33px;
 }
 
 .user-bio,.user-organization,.user-past-events, .user-basic-info {
@@ -68,45 +39,64 @@
   color:$gray;
 }
 
+.user-basic-info {
+  margin-top: 70px;
+  padding-top: 60px;
+  text-align: center;
+  font-size: 14px;
+}
+
 .user-past-events {
   border-radius: 4px 4px 0px 0px;
   margin-bottom: 0px;
-  border-bottom: 1px solid #F5F5F5;;
+  border-bottom: 1px solid #F5F5F5;
 }
 
-.margin-top-user-page {
-  margin-top: 28px;
+.star-orange {
+  color: $orange;
 }
 
-
-.orange-star {
-color: $orange;
-}
-
-.purple-trophy {
+.trophy-purple {
   color: $purple;
 }
 
-.trophy-button {
-  border: 1px solid white;
-    position: absolute;
-    z-index: 999;
-    top: 103px;
-    left: 205px;
-    color: #39CD90;
-    width: 45px;
-    height: 45px;
-    text-align: center;
-    padding: 6px 0;
-    font-size: 19px;
-    line-height: 1.42;
-    border-radius: 51px;
-    background-color: white;
+.trophy-badge {
+  border: 3px solid white;
+  position: absolute;
+  left: 50%;
+  top: 18px;
+  transform: translateX(19px);
+  z-index: 999;
+  background-color: $purple;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding-top: 6px;
+  padding-left: 1px;
+  border-radius: 50%;
+  font-size: 18px;
 }
 
-.img-trophy {
-  margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
+.trophy-badge-title {
+  border-radius: 4px;
+  position: absolute;
+  left: 50%;
+  top: 28px;
+  transform: translateX(65px);
+  z-index: 999;
 
+  border-radius: 4px;
+  padding: 0 10px;
+  text-align: center;
+  vertical-align: middle;
+  height: 20px;
+  // width: 60px;
+  background-color: $light-purple;
+
+  line-height: 22px;
+  font-size: 8px;
+  font-family: "Avenir";
+  font-weight: 700px;
+  color: $purple;
+}

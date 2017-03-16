@@ -23,9 +23,10 @@ class Event < ApplicationRecord
   after_update :send_update_email, if: :start_time_changed? || :finish_time_changed?
   after_update :update_registrations, if: :start_time_changed? || :finish_time_changed?
 
-  scope :today, -> { where('start_time BETWEEN ? AND ?', Time.current.beginning_of_day, Time.current.end_of_day).order(start_time: :asc) }
-  scope :tomorrow, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.beginning_of_day, Date.tomorrow.end_of_day).order(start_time: :asc) }
-  scope :this_week, -> { where('start_time BETWEEN ? AND ?', 2.days.from_now.beginning_of_day, Date.today.end_of_week.to_datetime).order(start_time: :asc) }
+
+  scope :today, -> { where('start_time BETWEEN ? AND ?', Time.now, Time.current.end_of_day).order(start_time: :asc) }
+  scope :tomorrow, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.beginning_of_day, Date.current.end_of_day).order(start_time: :asc) }
+  scope :this_week, -> { where('start_time BETWEEN ? AND ?', 2.days.from_now, Date.today.end_of_week.to_time).order(start_time: :asc) }
   scope :next_week, -> { where('start_time BETWEEN ? AND ?', Date.today.end_of_week.to_time, Date.today.end_of_week.to_time + 6.days).order(start_time: :asc) }
   scope :later, -> { where('start_time > ?', Date.today.end_of_week.to_time + 6.days).order(start_time: :asc) }
   scope :including_tags, ->(tags_list) { where("tags @> ?", "{#{tags_list.join(",")}}") }

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<div class="center-middle-of-page">
+<!-- <div class="center-middle-of-page"> -->
   <%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline' do |f| %>
   <div class="event-search-box">
     <div class="col-xs-12 col-sm-4">
@@ -22,54 +22,80 @@
   <% end %>
 
 
-  <div class="container">
     <div class="results">
-      <div class="row">
 
 
         <% if @events.empty? %>
-        NO RESULT !
+          <h2>Sorry :( No results</h2>
+          <h3>Select some more categories and try again!</h3>
         <% else %>
 
-
+<!-- TODAY //////////////////////////////////////////////////////// -->
         <% if @events.today.any? %>
-        <h2>Today</h2>
-        <% @events.today.each do |event| %>
-        <%= render event %>
-        <% end %>
+
+            <div class="events-block">
+              <h2>Today</h2>
+            </div>
+
+            <% @events.today.each do |event| %>
+            <%= render event %>
+            <% end %>
+
 
         <% end %>
+
+<!-- TOMORROW //////////////////////////////////////////////////////// -->
 
         <% if @events.tomorrow.any? %>
+          <div class="events-block">
+            <h2>Tomorrow</h2>
+          </div>
+            <% @events.tomorrow.each do |event| %>
+            <%= render event %>
+            <% end %>
 
-        <h2>Tomorrow</h2>
-
-        <% @events.tomorrow.each do |event| %>
-        <%= render event %>
         <% end %>
 
-        <% end %>
-
+<!-- THIS WEEK //////////////////////////////////////////////////////// -->
 
         <% if @events.this_week.any? %>
-        <h2>This week</h2>
 
-        <% @events.this_week.each do |event| %>
-        <%= render event %>
+          <div class="events-block">
+            <h2>This week</h2>
+          </div>
+
+            <% @events.this_week.each do |event| %>
+            <%= render event %>
+            <% end %>
+
+
         <% end %>
-        <% end %>
+
+<!-- NEXT WEEK //////////////////////////////////////////////////////// -->
+
 
         <% if @events.next_week.any? %>
-        <h2>Next week</h2>
+
+          <div class="events-block">
+            <h2>Next week</h2>
+          </div>
 
         <% @events.next_week.each do |event| %>
         <%= render event %>
         <% end %>
+
         <% end %>
 
 
+<!-- LATER //////////////////////////////////////////////////////// -->
+
+
         <% if @events.later.any? %>
-        <h2>Later</h2>
+
+
+        <div class="events-block">
+          <h2>Later</h2>
+        </div>
 
         <% @events.later.each do |event| %>
         <%= render event %>
@@ -79,10 +105,8 @@
 
         <% end %>
 
-      </div>
     </div>
-  </div>
-</div>
+<!-- </div> -->
 
 
 

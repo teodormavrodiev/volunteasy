@@ -43,7 +43,7 @@
         <h3> Who is coming? </h3>
       <% end %>
       <div class="participants">
-        <% @participants.each do |par| %>
+        <% @participants.first(5).each do |par| %>
           <div class="participant">
           <% if par.photo %>
             <%= link_to user_path(par) do %>
@@ -57,8 +57,11 @@
           <p> <%= par.first_name %> </p>
           </div>
         <% end %>
-      </div>
 
+      </div>
+      <%= link_to "see all", event_users_path(@event)  %>
+      <br>
+      <br>
       <!-- Spots left in the event -->
 
       <div class="spots-left">
@@ -102,7 +105,7 @@
     <br>
     <br>
 
-    <div class="fb-share-button" data-href="<%= event_url %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="">Share</a></div>
+    <div class="fb-share-button" data-href="<%= event_url(@event) %>" data-layout="button_count" data-size="large" data-mobile-iframe="true"><a class="fb-xfbml-parse-ignore" target="_blank" href="">Share</a></div>
 
     <br>
 

@@ -1,35 +1,37 @@
-      <div class="attendance-header">
-        <% if @event.organizer == current_user %>
-        <h2>Event Participants</h2>
-          <h3>Review participants' attendance by marking the boxes below.</h3>
-        <% else %>
-        <h2>Event Participants</h2>
-          <h3>Below are the participants for this event.</h3>
-        <% end %>
-      </div>
-
-      <% @event.registrations.each do |reg| %>
-
-      <%= link_to user_path(reg.participant) do %>
-      <div class="attendance-card-container">
-        <% if reg.participant.photo %>
-        <%= cl_image_tag reg.participant.photo.path, width: 50, height: 50, crop: :fill, class: 'avatar-large attendance-avatar' %>
-        <% else %>
-        <%= image_tag('arnold.jpg', width: 50, height: 70, crop: :fill, class: 'avatar-large attendance-avatar') %>
-        <% end %>
-      <% end %>
-        <div class="attendance-name">
-          <%=  reg.participant.first_name %>
+      <div class="center-middle-of-page">
+        <div class="attendance-header">
+          <% if @event.organizer == current_user %>
+          <h2>Event Participants</h2>
+            <h3>Review participants' attendance by marking the boxes below.</h3>
+          <% else %>
+          <h2>Event Participants</h2>
+            <h3>Below are the participants for this event.</h3>
+          <% end %>
         </div>
-        <!-- If current user is organizer and if event is past :  -->
-        <% if policy(reg).update? %>
-        <!-- If hasnt been updated yet:  -->
-              <% if reg.incomplete? %>
-              <%= link_to "NOT ATTENDED", event_registration_path(@event, reg), method: :put, class: "attendance-button-false" %>
-              <% else %>
-              <%= link_to "ATTENDED", event_registration_path(@event, reg), method: :put, class: "attendance-button-true" %>
-              <% end %>
-        <!-- TODO : redirect to same page with notice "thank you for your review" -->
+
+        <% @event.registrations.each do |reg| %>
+
+        <%= link_to user_path(reg.participant) do %>
+        <div class="attendance-card-container">
+          <% if reg.participant.photo %>
+          <%= cl_image_tag reg.participant.photo.path, width: 50, height: 50, crop: :fill, class: 'avatar-large attendance-avatar' %>
+          <% else %>
+          <%= image_tag('no-img.png', width: 50, height: 70, crop: :fill, class: 'avatar-large attendance-avatar') %>
+          <% end %>
+        <% end %>
+          <div class="attendance-name">
+            <%=  reg.participant.first_name %>
+          </div>
+          <!-- If current user is organizer and if event is past :  -->
+          <% if policy(reg).update? %>
+          <!-- If hasnt been updated yet:  -->
+                <% if reg.incomplete? %>
+                <%= link_to "NOT ATTENDED", event_registration_path(@event, reg), method: :put, class: "attendance-button-false" %>
+                <% else %>
+                <%= link_to "ATTENDED", event_registration_path(@event, reg), method: :put, class: "attendance-button-true" %>
+                <% end %>
+          <!-- TODO : redirect to same page with notice "thank you for your review" -->
+          <% end %>
+        </div>
         <% end %>
       </div>
-      <% end %>

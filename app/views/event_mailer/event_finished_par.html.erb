@@ -3,11 +3,6 @@
 Thank you for helping out! Your participation at <%= @event.name %> helped forge a better community!
 We hope you've had a good time.
 <br>
-<% unless @par.events_as_participant.empty? %>
-<h4> Your Next Event </h4>
-<!-- Show details of the event -->
-<%= @par.events_as_participant.where("start_time > ?" DateTime.now).ord(start_time: :asc).first %>
-<br>
-<% else %>
+
 <%= link_to "Find another event", search_url  %>
 
