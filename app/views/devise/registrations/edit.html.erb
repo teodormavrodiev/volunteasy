@@ -1,5 +1,7 @@
 <% content_for :full_page do %>
 
+<%= render 'shared/flashes' %>
+
 <div class="form-signup">
     <div class="col-xs-12">
     <div style="margin-bottom: 200px;">
@@ -20,7 +22,7 @@
     <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= f.error_notification %>
 
-      <div class="edit-photo">
+      <div class="edit-photo center-photo">
         <div class="cloudinary-button-div">
         <button type="button" class="btn btn-default btn-circle btn-xl cloudinary-button"><i class="fa fa-camera" aria-hidden="true"></i></button>
          </div>
