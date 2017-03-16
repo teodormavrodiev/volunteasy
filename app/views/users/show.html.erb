@@ -23,7 +23,7 @@
          </div>
         <div class="">
 
-        <%= cl_image_tag current_user.photo.path, height: '100', width: '100', class: "img-trophy avatar-very-large" %>
+        <%= cl_image_tag avatar_for_user(current_user), height: '100', width: '100', class: "img-trophy avatar-very-large" %>
 
         </div>
         <div class="badge-status">
