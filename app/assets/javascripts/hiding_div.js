@@ -80,24 +80,16 @@ $(document).ready(function(){
       }
   });
 
-
   // Styling attachinary button on edit my profile page
-
-
   $( ".cloudinary-button" ).on("click",function() {
     $(".input-attachinary a").trigger( "click" );
     $( "#user_photo" ).trigger( "click" );
   });
 
-
-
   $( "#inputFile" ).on("click",function() {
     $(".input-attachinary a").trigger( "click" );
     $( "#user_photo" ).trigger( "click" );
   });
-
-
-
 
 });
 

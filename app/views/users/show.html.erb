@@ -1,52 +1,34 @@
+<div class="user-basic-info">
 
-<div class="edit-profile-button">
-  <div class="container">
-    <% if current_user == @user %>
+  <% if current_user == @user %>
     <%= link_to edit_user_registration_path do %>
-    <div class="col-xs-2 col-xs-offset-10 margin-top-user-page">
+
       <div class="user-edit-button">
         <i class="fa fa-pencil pencil" aria-hidden="true"></i>
       </div>
-    </div>
     <% end %>
-    <% end %>
-  </div>
-</div>
+  <% end %>
 
+  <%= cl_image_tag avatar_for_user(@user), height: '120', width: '120', class: "user-profile-image avatar-user-profile" %>
 
+  <div class="trophy-badge"><i class="fa fa-trophy" aria-hidden="true"></i></div>
 
-
-
-<div class="edit-photo">
-  <div class="cloudinary-button-div">
-    <button type="button" class="btn btn-default btn-circle btn-xl trophy-button cloudinary-button"><i class="fa fa-trophy purple-trophy" aria-hidden="true"></i></button>
-  </div>
-  <div class="">
-
-    <%= cl_image_tag avatar_for_user(@user), height: '100', width: '100', class: "img-trophy avatar-very-large" %>
-
-  </div>
-  <div class="badge-status">
-
+  <div class="trophy-badge-title">
     <% if @user.badge == :newbie %>
-    Newbie
+    VOLUNTEER ROOKIE
     <% elsif @user.badge == :regular %>
-    Ninja
+    VOLUNTEER NINJA
     <% elsif @user.badge == :advanced %>
-    Confirmed
+    EXPERT VOLUNTEER
     <% else %>
-    Expert
+    VOLUNTEER GURU
     <% end %>
-
   </div>
-</div>
 
-<div class="user-basic-info">
-  <div class="text-center">
-    <h4 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h4>
-    <i class="fa fa-star orange-star" aria-hidden="true" ></i> <%= @past_events_managed.count %> Events Organized
+    <h2 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h2>
+    <i class="fa fa-star star-orange" aria-hidden="true" ></i> <%= @past_events_managed.count %> Events Organized
     <br>
-    <i class="fa fa-trophy purple-trophy" aria-hidden="true"></i> <%= @past_events_attended.count %> Events Attended
+    <i class="fa fa-trophy trophy-purple" aria-hidden="true"></i> <%= @past_events_attended.count %> Events Attended
 
 
 
@@ -65,7 +47,6 @@
     <i class="fa fa-phone" aria-hidden="true"></i> <%= @user.phone %>
     <br>
     <% end %>
-  </div>
 </div>
 
 
