@@ -265,7 +265,7 @@
 
 }
 
-.past-event-badge-attended {
+.event-badge-attended {
   margin-left: 10px;
   border-radius: 4px 0px 0px 4px;
   padding: 0 10px;
@@ -285,7 +285,7 @@
   color: #FFF;
 }
 
-.past-event-badge-managed {
+.event-badge-managed {
   margin-left: 10px;
   border-radius: 4px 0px 0px 4px;
   padding: 0 10px;
@@ -377,4 +377,42 @@
   font-family: "Avenir";
   font-weight: 700px;
   color: #FEA178;
+}
+
+.share-event-button-default {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #8AE8C0;
+  height: 26px;
+  width: 26px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-left: 3px;
+  font-size: 12px;
+  line-height: 12px;
+  position: absolute;
+  right: 24px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
+}
+
+.share-event-button-managing {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: #BBBEF7;
+  height: 26px;
+  width: 26px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+  padding-top: 8px;
+  padding-left: 3px;
+  font-size: 12px;
+  line-height: 12px;
+  position: absolute;
+  right: 24px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+
 }

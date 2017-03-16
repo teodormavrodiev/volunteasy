@@ -63,6 +63,10 @@
     <div class="event-card-remainder">
       + <%= event.participants.count - @counter %> ARE GOING
     </div>
+
+    <div class="share-event-button-default js-share" data-href="https://volunteasy.herokuapp.com<%= event_path(event) %>" data-content="Checkout this amazing event">
+      <i class='fa fa-share-square-o'></i>
+    </div>
 </div>
 
 </div><!-- CLOSE EVENT CARD -->

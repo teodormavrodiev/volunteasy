@@ -13,6 +13,7 @@
 //= require init_attachinary.js
 //= require cover_homepage.js
 //= require hiding_div.js
+//= require share.js
 
 
 //= require_tree ./channels
