@@ -57,7 +57,7 @@
     </div>
     <!-- CARD REVIEW BUTTON -->
 
-
+<% if current_user == event.organizer %>
     <% if event.registrations.not_attended.any? %>
       <%= link_to event_users_path(event), class: "past-event-button" do %>
         <i class="fa fa-star-o"></i> REVIEW ATTENDANCE
@@ -67,6 +67,7 @@
         <i class="fa fa-star"></i> REVIEWED
       <% end %>
     <% end %>
+  <% end %>
   </div>
 </div>
 

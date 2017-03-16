@@ -5,6 +5,14 @@ $(document).ready(function(){
   });
 
 
+  // Same on create my event page : sliding categories
+
+   $(".btn-add-event-categories").on('click', function(){
+     $(".categories").slideToggle();
+      });
+
+
+
   var navbar = $('.events-search #navbar-bottom');
   var timing = "0.3s";
 
@@ -80,6 +88,16 @@ $(document).ready(function(){
     $(".input-attachinary a").trigger( "click" );
     $( "#user_photo" ).trigger( "click" );
   });
+
+
+
+  $( "#inputFile" ).on("click",function() {
+    $(".input-attachinary a").trigger( "click" );
+    $( "#user_photo" ).trigger( "click" );
+  });
+
+
+
 
 });
 

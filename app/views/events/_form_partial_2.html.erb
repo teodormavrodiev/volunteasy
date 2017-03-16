@@ -1,26 +1,137 @@
-<div class="form">
-  <div class="simple-form-for">
+<% content_for :full_page do %>
+
+<div class="form-create">
+<div class="form-signup">
+
+  <div class="row">
+    <div class="col-xs-12">
+        <div class="close-form">
+            <%= link_to root_path do %>
+            <i class="fa fa-times" aria-hidden="true"></i>
+            <% end %>
+        </div>
+
+
+      </div>
+
+<!--       <div class="row"> -->
+        <div class="sign-up-content">
+        <div class="col-xs-12">
+        <div class="sign-for-free">
+          <h3>Create a mission!</h3>
+          <p>Find passionate people around you</p>
+        </div>
+        </div>
+        <div class="col-xs-12">
+        <div class="row">
+
+
+          <div class="fill-form">
+
+<div class=" col-xs-12">
+<div class="row">
+<div class="numbers-form">
+<%= link_to "1", cool_form_path(1), class: "numberCircle-others col-xs-4" %>
+<div class="numberCircle col-xs-4">2</div>
+<div class="numberCircle-others col-xs-4">3</div>
+</div>
+</div>
+
+
+
+
+<div class="simple-form-for">
     <%= simple_form_for(@event, url: cool_form_path(3), method: :get) do |f| %>
       <%= f.error_notification %>
       <% event = @event %>
-      <div class="form-inputs">
-        <%= f.input :name, placeholder: "Event Name", input_html: { value: params[:name] || event.name}, as: :hidden  %>
-        <%= f.input :organization, placeholder: "My organization", as: :hidden, input_html: { value: params[:organization] || event.organization }  %>
-        <%= f.input :start_time, input_html: { value: params[event[:start_time]] || event.start_time}, as: :hidden %>
-        <%= f.input :end_time, input_html: { value: params[:end_time] || event.end_time }, as: :hidden %>
-        <%= f.input :address, placeholder: "Street, City, ZIP", input_html: { value: @address || params[:address] || event.address}, as: :hidden  %>
-        <%= f.input :description, placeholder: "What kind of help do you need?", input_html: { value: params[:description] || event.description } %>
-        <%= f.input :capacity, input_html: { value: params[:capacity] || event.capacity}  %>
-        <%= f.input :tags, label: "This event is related to...", input_html: { value: params[:tags] || event.tags }, include_blank: false, as: :check_boxes, as: :hidden, collection: Event::TAGS, class: 'check_boxes_submit' %>
-        <%= f.input :photos, as: :attachinary, as: :hidden, input_html: { value: params[:photos] || event.photos }  %>
+            <div class="form-inputs">
+            <div class="input-group login-form">
+
+            <%= f.input :name, placeholder: "Event Name",:label => false, as: :hidden, input_html: { value: params[:name] || event.name,   class: 'form-control btn-lg btn-login' } %>
+            </div>
+            <div class="input-group login-form">
+        <%= f.input :organization, placeholder: "My organization", :label => false, as: :hidden, input_html: { value: params[:organization] || event.organization, class: 'form-control btn-lg btn-login' }  %>
+        </div>
+        <div style="display: none;">
+        <div class="row">
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <%= f.date_field :start_time, :label => false, as: :hidden, value: @event.start_time.strftime('%Y-%m-%d'), as: :hidden,  class: 'form-control btn-lg btn-login blue-time'  %>
+           </div>
+            </div>
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+             <%= f.time_field :start_time, :label => false, as: :hidden, value: @event.start_time.strftime('%H:%M'), class: 'form-control btn-lg btn-login'  %>
+        <%#= f.time_field :start_time, input_html: { value: params[:start_time] || event.start_time}  %>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <%= f.date_field :end_time, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), as: :hidden, class: 'form-control btn-lg btn-login'  %>
+            </div>
+            </div>
+            <div class="col-xs-6">
+            <div class="input-group login-form">
+            <%= f.time_field :end_time, :label => false, value: @event.start_time.strftime('%H:%M'), as: :hidden, class: 'form-control btn-lg btn-login'  %>
+            </div>
+            </div>
+        </div>
+        </div>
+
+        <div class="input-group login-form">
+        <%= f.input :address, placeholder: "Street, City, ZIP", :label => false, as: :hidden, input_html: { value: @address || params[:address] || event.address, class: 'form-control btn-lg btn-login' }  %>
+        </div>
+
+        <div class="input-group login-form">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-align-left" aria-hidden="true"></i>
+            </span>
+        <%= f.input :description, :label => false, placeholder: "What kind of help do you need?", input_html: { value: params[:description] || event.description, class: 'form-control btn-lg btn-login'  } %>
+        </div>
+        <div class="input-group login-form">
+        <span class="input-group-addon" id="basic-addon1"><i class="fa fa-users" aria-hidden="true"></i>
+            </span>
+        <%= f.input :capacity, placeholder: "People required", :label => false, input_html: { value: params[:capacity] || event.capacity}  %>
+        </div>
+        <div class="input-group login-form">
+
+
+        <%= f.input :tags, label: "This event is related to...", input_html: { value: params[:tags] || event.tags, class: 'form-control btn-lg btn-login'  }, :label => false, include_blank: false, as: :check_boxes, as: :hidden, collection: Event::TAGS, class: 'check_boxes_submit' %>
+        </div>
+        <div class="input-group login-form">
+
+        <%= f.input :photos, as: :attachinary, :label => false, as: :hidden, input_html: { value: params[:photos] || event.photos }  %>
+        </div>
+
+        <div class="input-group login-form">
+
+        <%= f.input :source_event_id, as: :hidden, :label => false, input_html: { value: params[:source_event_id], class: 'form-control btn-lg btn-login'  }  %>
+
       </div>
 
+
+
       <div class="form-actions">
-        <%= f.button :submit, class: "actionBtn actionBtn--volunteasy" %>
+        <%= f.button :submit, value: "Next step", data: {disable_with: "Loading..."}, class: "form-control btn-lg btn-next-step" %>
       </div>
     <% end %>
-    <br>
-    <br>
-    <%= link_to 'Back', events_path %>
+
   </div>
+
+      </div>
+        </div>
+        </div>
+    <!--   </div> -->
+
+            </div>
+
+        </div>
+      </div>
+
 </div>
+
+</div>
+</div>
+
+<% end %>

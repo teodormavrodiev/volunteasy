@@ -119,6 +119,9 @@ class EventsController < ApplicationController
     case number
     when "1"
       @event = Event.new
+      @event.start_time = 2.days.from_now
+      @event.end_time = 2.days.from_now
+
       authorize @event
     when "2"
       fill_cool_form

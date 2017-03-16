@@ -66,6 +66,14 @@
   }
 }
 
+#event_start_time {
+  color: $light-blue;
+}
+
+#event_end_time {
+  color: $light-blue;
+}
+
 
 .form-create .login-form {
   margin-bottom: 22px;
@@ -76,7 +84,17 @@
     i {
       color: $light-blue;
     }
+
   }
+}
+
+.btn-next-step {
+  text-align:center;
+  background-color: $light-blue;
+  font-size: 16px;
+  color: white;
+    border: 0px;
+    text-decoration: none;
 }
 
 
