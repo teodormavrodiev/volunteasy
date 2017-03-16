@@ -6,17 +6,36 @@
       <%= f.input :address, input_html: { value: @address }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
     </div>
     <div class="row">
+
+
     <div class="col-xs-12 col-sm-12 categories-filter">
         <div class="col-xs-8">
           <div class="button-categories btn-search btn btn-default"><i class="fa fa-filter" aria-hidden="true"></i> Categories</div>
           <div class="categories">
-            <%= f.input :tags, :label => false, checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %>
+<!--             <%= f.input :tags, :label => false, checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit' %> -->
+            <div class="form-group check_boxes required event_tags">
+              <input type="hidden" name="event[tags][]" value="">
+              <div class="row">
+                <% Event::TAGS.each_with_index do |tag, i| %>
+                  <div class="col-xs-5 col-xs-offset-1">
+                    <span class="checkbox">
+                      <label for="<%= "event_tags_#{tag.parameterize}" %>">
+                        <input value="<%= tag %>" class="check_boxes required" type="checkbox" name="event[tags][]" id="<%= "event_tags_#{tag.parameterize}" %>">
+                        <%= tag %>
+                      </label>
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
           </div>
         </div>
         <div class="col-xs-4">
           <%= f.submit  "Go!", :class => 'btn btn-search go btn-default'%>
         </div>
       </div>
+
+
     </div>
   </div>
   <% end %>
