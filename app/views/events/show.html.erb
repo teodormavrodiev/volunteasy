@@ -5,11 +5,11 @@
 
       <% @event.photos.each_with_index do |photo, index| %>
         <% if index == 0 %>
-          <a rel="gallery-1" href="<%= cl_image_path photo.path %>" class="swipebox" title="cool event">
+          <a rel="gallery-1" href="<%= cl_image_path photo.path %>" class="swipebox" title="<%= @event.name %>">
             <img src="<%= cl_image_path photo.path %>" alt="image" style="width: 100%; max-height: 300px; border-radius: 4px;">
           </a>
         <% else %>
-          <a rel="gallery-1" href="<%= cl_image_path photo.path %>" class="swipebox hidden">
+          <a rel="gallery-1" href="<%= cl_image_path photo.path %>" class="swipebox hidden" title="<%= @event.name %>">
             <img src="<%= cl_image_path photo.path %>" alt="image" style="width: 100px; max-height: 300px; border-radius: 4px;">
           </a>
         <% end %>
