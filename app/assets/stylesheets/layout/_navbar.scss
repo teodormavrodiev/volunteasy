@@ -159,7 +159,9 @@
 
 /* Navbar dropdown menu */
 .navbar-wagon-dropdown-menu {
-  margin-top: -56px;
+  position: absolute;
+  right: 23px;
+  top: 55px;
   margin-right: 20px;
   box-shadow: 1px 1px 4px #E6E6E6;
   border-color: #E6E6E6;
@@ -169,8 +171,8 @@
 
 #caret {
   position: relative;
-  left: -5px;
-  top: -5px;
+  left: -6px;
+  top: 3px;
 }
 
 .navbar-wagon-dropdown-menu li {
