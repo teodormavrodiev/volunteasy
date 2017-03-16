@@ -120,6 +120,7 @@ class EventsController < ApplicationController
     when "1"
       @event = Event.new
       @event.start_time = 2.days.from_now
+      @event.end_time = 2.days.from_now
 
       authorize @event
     when "2"
