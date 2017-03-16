@@ -32,7 +32,8 @@ Rails.application.configure do
   #config.action_mailer.perform_caching = false
   # Action mailer delivery_method for local development testing
   #config.action_mailer.delivery_method = :letter_opener
-  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.action_mailer.default_url_options = { host: 'volunteasy.co'}
 
 
   config.action_mailer.delivery_method   = :postmark
