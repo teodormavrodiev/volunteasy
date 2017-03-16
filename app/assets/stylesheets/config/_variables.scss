@@ -4,7 +4,7 @@
 // Google fonts
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:400,300,700|Raleway:400,100,300,700,500");
 $base-font: "Avenir", "Open Sans", "Helvetica", "sans-serif";
-$header-font: "Montserrat", "Open Sans", "Helvetica", "sans-serif";
+$header-font: "Avenir", "Montserrat", "Open Sans", "Helvetica", "sans-serif";
 
 // Local fonts (uncomment following lines)
 // @font-face {
@@ -29,16 +29,17 @@ $brand-color: #D23333;
 $red: #EE5F5B;
 $blue: #469AE0;
 $yellow: #FDB631;
-$orange: #E67E22;
-$green: #0edc84;
-$gray: #000000;
-$light-green: lighten($green, 20%);
+$orange: #FEA178;
+$green: #39CD90;
+$gray: #A0A6AD;
+$light-green: #8AE8C0;
 $purple: #BBBEF7;
+$background: #F5F5F5;
 
 // Green
 $bg-dark: #1E7141;
 $bg-green: #1E9454;
-$bg-nav: #44D062;
+$bg-nav: #39CD90;
 $bg: #F3F3F3;
 $input: #42D580;
 $input-white: white;
