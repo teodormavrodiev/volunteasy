@@ -42,7 +42,7 @@ class Event < ApplicationRecord
   private
 
   def send_update_email
-    EventMailer.update(self.id).deliver_now
+    EventMailer.update(self.id).deliver_later
   end
 
   def update_registrations
