@@ -16,16 +16,16 @@ a.selected {
   border:1px solid #999999;
   cursor:default;
   color: $text-link;
-  display:none;
+  display: none;
   margin-top: 15px;
-  position:absolute;
-  text-align:left;
+  position: absolute;
+  text-align: left;
   // width:394px;
   z-index:50;
   padding: 10px 10px 10px;
- span {
-  color: #5E5E5E;
- }
+  span {
+    color: #5E5E5E;
+  }
 }
 
 .categories label {
@@ -47,11 +47,11 @@ a.selected {
   width: 100%;
   color: #979797;
   background-color: #FFFFFF;
-  }
+}
 .go {
-    background-color: $button-green;
-    color: white;
-  }
+  background-color: $button-green;
+  color: white;
+}
 .create {
   background-color: $blue-button;
   color: white;
@@ -64,15 +64,25 @@ a.selected {
   text-align: left;
 }
 
-.results h2 {
-  text-align:center;
+.results {
+  margin: 0 auto;
 }
 
 .city {
   padding-left: 27px;
 }
 
-
-
-
-
+.events-block {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: $green;
+  border: 5px solid #fff;
+  border-radius: 10px;
+  border-radius: 10px;
+  text-align: center;
+  h2 {
+    color: #fff;
+    font-size: 22px;
+  }
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
