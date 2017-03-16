@@ -33,7 +33,7 @@ Rails.application.configure do
   # Action mailer delivery_method for local development testing
   #config.action_mailer.delivery_method = :letter_opener
 
-  config.action_mailer.default_url_options = { host: 'volunteasy.co'}
+  config.action_mailer.default_url_options = { host: 'volunteasy'}
 
 
   config.action_mailer.delivery_method   = :postmark
