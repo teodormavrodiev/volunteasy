@@ -1,4 +1,7 @@
 .watermark {
+  border-radius: 4px;
+  max-width: 600px;
+  background-color: #fff;
   text-align: center;
   font-size: 100px;
   color: rgba(229, 222, 199, 0.45);
@@ -7,6 +10,9 @@
 }
 
 .watermark-small {
+  border-radius: 4px;
+  max-width: 600px;
+  background-color: #fff;
   text-align: center;
   font-size: 200px;
   color: rgba(229, 222, 199, 0.45);
