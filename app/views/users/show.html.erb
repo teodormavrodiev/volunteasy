@@ -1,5 +1,5 @@
-<div class="row">
- <div class="col-xs-2 col-xs-offset-10 margin-top-user-page">
+
+<div class="edit-profile-button">
   <% if current_user == @user %>
   <%= link_to edit_user_registration_path do %>
   <div class="user-edit-button">
@@ -8,15 +8,14 @@
   <% end %>
   <% end %>
 </div>
-</div>
 
 
 <div class="user-basic-info">
 
-  <img src="<%= avatar_for_user(current_user) %>" alt="" class="user-image">
+  <img src="<%= avatar_for_user(@user) %>" alt="" class="avatar-very-large user-image">
 
   <div class="text-center">
-    <h4 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h4>
+    <h2 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h2>
     <i class="fa fa-star" aria-hidden="true" ></i> <%= @past_events_managed.count %> Events Organized
     <br>
     <i class="fa fa-trophy" aria-hidden="true"></i> <%= @past_events_attended.count %> Events Attended
@@ -52,13 +51,11 @@
 
 <div class="user-bio">
   <h2>About</h2>
-
   <% if @user.bio %>
   <%= @user.bio %>
   <% else %>
-  <p> This person has not written a bio yet. </p>
+  <p> This person has not written a bio yet.</p>
   <% end %>
-
 </div>
 
 
