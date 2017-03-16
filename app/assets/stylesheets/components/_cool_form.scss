@@ -5,9 +5,13 @@
 .form-create {
   .form-signup {
   background-color:$blue-button;
+  height: 100vh;
   .form-inputs {
     color: $light-blue;
   }
+  }
+  #event_name, #event_organization, #event_address {
+    color: $light-blue;
   }
 }
 
@@ -101,5 +105,7 @@ text-align: left;
     }
   }
 }
+
+
 
 
