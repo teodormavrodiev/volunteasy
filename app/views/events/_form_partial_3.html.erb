@@ -96,18 +96,35 @@
         </div>
         </div>
 
-       <div class="input-group login-form">
-        <span class="input-group-addon btn-add-event-categories" id="basic-addon1"><i class="fa fa-filter" aria-hidden="true"></i>
-            </span>
-        <div class="categories">
-          <%= f.input :tags, :label => false, checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit', input_html: { value: params[:tags] || event.tags, class: 'form-control btn-lg btn-login'  } %>
+        <div class="login-form">
+          <span class="input-group-addon btn-add-event-categories" id="basic-addon1">
+            <i class="fa fa-filter" aria-hidden="true"></i>
+          </span>
+          <div class="categories">
+    <!--       <%= f.input :tags, :label => false, checked: (params[:event][:tags] if params[:event]), include_blank: false, as: :check_boxes, collection: Event::TAGS, class: 'check_boxes_submit', input_html: { value: params[:tags] || event.tags } %>
+ -->
+            <div class="form-group check_boxes required event_tags">
+              <input type="hidden" name="event[tags][]" value="">
+              <div class="row">
+                <% Event::TAGS.each_with_index do |tag, i| %>
+                  <div class="col-xs-6">
+                    <span class="checkbox">
+                      <label for="<%= "event_tags_#{tag.parameterize}" %>">
+                        <input value="<%= tag %>" class="check_boxes required" type="checkbox" name="event[tags][]" id="<%= "event_tags_#{tag.parameterize}" %>">
+                        <%= tag %>
+                      </label>
+                    </span>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+          </div>
         </div>
 
 
 
 
 
-        </div>
         <div class="input-group login-form hidden-fields">
 
         <%= f.input :photos, as: :attachinary, :label => false, class: 'form-control-file text-success font-weight-bold', input_html: { value: params[:photos] || event.photos }  %>
