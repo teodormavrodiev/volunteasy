@@ -32,7 +32,11 @@ class RegistrationsController < ApplicationController
 
   # Only for changing status of registration to "attended" or vice versa
   def update
-    @registration.complete!
+    if @registration.incomplete?
+      @registration.complete!
+    elsif @registration.complete?
+      @registration.incomplete!
+    end
     redirect_to event_users_path(@event), notice: 'Thanks!'
   end
 
