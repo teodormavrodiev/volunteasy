@@ -127,23 +127,11 @@
 
 
 
-        <div class="input-group login-form hidden-fields">
+        <div class="input-group login-form image-field">
 
         <%= f.input :photos, as: :attachinary, :label => false, class: 'form-control-file text-success font-weight-bold', input_html: { value: params[:photos] || event.photos }  %>
         </div>
 
-
-
-
-
-<div class="row m-b-1">
-    <div class="col-sm-6 offset-sm-3">
-      <div class="form-group inputDnD">
-        <label class="sr-only" for="inputFile">Select a picture</label>
-        <input type="file" class="form-control-file text-success font-weight-bold" id="inputFile" accept="image/*"  data-title="Select a picture">
-      </div>
-    </div>
-  </div>
 
         <div class="input-group login-form">
 
