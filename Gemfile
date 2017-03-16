@@ -14,6 +14,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-underscore'
 end
 
+gem 'postmark-rails', '>= 0.10.0'
+
 gem 'sass-rails'
 gem 'jquery-rails'
 gem 'uglifier'
