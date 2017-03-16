@@ -25,6 +25,8 @@ gem 'geocoder'
 
 gem 'pundit'
 
+gem 'swipebox'
+
 gem 'omniauth-facebook'
 
 # Photo implementation

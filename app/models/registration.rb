@@ -1,7 +1,7 @@
 require 'twilio-ruby'
 
 class Registration < ApplicationRecord
-  enum status: [ :missed, :complete]
+  enum status: [ :incomplete, :complete]
   belongs_to :participant, class_name: 'User', foreign_key: 'participant_id'
   belongs_to :event
 

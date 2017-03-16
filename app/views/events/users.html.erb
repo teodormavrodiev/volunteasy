@@ -1,12 +1,10 @@
-<div class="container" style="margin-top: 300px">
-  <div class="row">
-    <div class="col-xs-12">
-
-      <div class="list">
+      <div class="attendance-header">
         <% if @event.organizer == current_user %>
-        <h2>Participants to your event</h2>
+        <h2>Event Participants</h2>
+          <h3>Review participants' attendance by marking the boxes below.</h3>
         <% else %>
-        <h2>List of participants</h2>
+        <h2>Event Participants</h2>
+          <h3>Below are the participants for this event.</h3>
         <% end %>
       </div>
 
@@ -14,32 +12,24 @@
 
       <%= link_to user_path(reg.participant) do %>
       <div class="attendance-card-container">
-        <% if reg.participant.photo  %>
-        <%= cl_image_tag reg.participant.photo.path, width: 50, height: 70, crop: :fill %>
+        <% if reg.participant.photo %>
+        <%= cl_image_tag reg.participant.photo.path, width: 50, height: 50, crop: :fill, class: 'avatar-large attendance-avatar' %>
         <% else %>
-
-        <%= image_tag('arnold.jpg', width: 50, height: 70, crop: :fill) %>
+        <%= image_tag('arnold.jpg', width: 50, height: 70, crop: :fill, class: 'avatar-large attendance-avatar') %>
         <% end %>
-        <% end %>
-
-        <%=  reg.participant.first_name %>
-
+      <% end %>
+        <div class="attendance-name">
+          <%=  reg.participant.first_name %>
+        </div>
         <!-- If current user is organizer and if event is past :  -->
         <% if policy(reg).update? %>
         <!-- If hasnt been updated yet:  -->
-              <% if reg.missed? %>
-              <%= link_to "Attended?", event_registration_path(@event, reg), method: :put %>
+              <% if reg.incomplete? %>
+              <%= link_to "NOT ATTENDED", event_registration_path(@event, reg), method: :put, class: "attendance-button-false" %>
               <% else %>
-              Checked as attended :)
+              <%= link_to "ATTENDED", event_registration_path(@event, reg), method: :put, class: "attendance-button-true" %>
               <% end %>
         <!-- TODO : redirect to same page with notice "thank you for your review" -->
         <% end %>
       </div>
       <% end %>
-
-    </div>
-  </div>
-
-
-
-

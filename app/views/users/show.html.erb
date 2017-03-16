@@ -1,16 +1,16 @@
-<div class="container">
 
-
-  <% if current_user == @user %>
-  <%= link_to edit_user_registration_path do %>
-  <div class="col-xs-2 col-xs-offset-10 margin-top-user-page">
-  <div class="user-edit-button">
-    <i class="fa fa-pencil pencil" aria-hidden="true"></i>
+<div class="edit-profile-button">
+  <div class="container">
+    <% if current_user == @user %>
+    <%= link_to edit_user_registration_path do %>
+    <div class="col-xs-2 col-xs-offset-10 margin-top-user-page">
+      <div class="user-edit-button">
+        <i class="fa fa-pencil pencil" aria-hidden="true"></i>
+      </div>
+    </div>
+    <% end %>
+    <% end %>
   </div>
-  </div>
-  <% end %>
-  <% end %>
-
 </div>
 
 
@@ -18,18 +18,18 @@
 
 
 <div class="edit-photo">
-        <div class="cloudinary-button-div">
-        <button type="button" class="btn btn-default btn-circle btn-xl trophy-button cloudinary-button"><i class="fa fa-trophy purple-trophy" aria-hidden="true"></i></button>
-         </div>
-        <div class="">
+  <div class="cloudinary-button-div">
+    <button type="button" class="btn btn-default btn-circle btn-xl trophy-button cloudinary-button"><i class="fa fa-trophy purple-trophy" aria-hidden="true"></i></button>
+  </div>
+  <div class="">
 
-        <%= cl_image_tag avatar_for_user(current_user), height: '100', width: '100', class: "img-trophy avatar-very-large" %>
+    <%= cl_image_tag avatar_for_user(@user), height: '100', width: '100', class: "img-trophy avatar-very-large" %>
 
-        </div>
-        <div class="badge-status">
+  </div>
+  <div class="badge-status">
 
     <% if @user.badge == :newbie %>
-     Newbie
+    Newbie
     <% elsif @user.badge == :regular %>
     Ninja
     <% elsif @user.badge == :advanced %>
@@ -38,21 +38,10 @@
     Expert
     <% end %>
 
-        </div>
-
-
+  </div>
 </div>
 
-
-
-<!-- <div>
-  <img src="<%= avatar_for_user(current_user) %>" alt="" class="avatar-very-large">
-</div> -->
-
 <div class="user-basic-info">
-
-
-
   <div class="text-center">
     <h4 class="user-name"><%= @user.first_name %> <%= @user.last_name %></h4>
     <i class="fa fa-star orange-star" aria-hidden="true" ></i> <%= @past_events_managed.count %> Events Organized
@@ -83,22 +72,20 @@
 
 <div class="user-bio">
   <h2>About</h2>
-
   <% if @user.bio %>
   <%= @user.bio %>
   <% else %>
-  <p> This person has not written a bio yet. </p>
+  <p> This person has not written a bio yet.</p>
   <% end %>
-
 </div>
 
 
 
 <div class="user-organization">
   <% if @user == current_user %>
-    <h2>My Organization</h2>
-    <% else %>
-    <h2>Organization</h2>
+  <h2>My Organization</h2>
+  <% else %>
+  <h2>Organization</h2>
   <% end %>
 
   <% if @user.organization %>
@@ -115,9 +102,9 @@
 
 <div class="user-past-events">
   <% if @user == current_user %>
-    <h2>My Past Events</h2>
-    <% else %>
-    <h2><%= @user.first_name %>'s Past Events</h2>
+  <h2>My Past Events</h2>
+  <% else %>
+  <h2><%= @user.first_name %>'s Past Events</h2>
   <% end %>
 </div>
 
