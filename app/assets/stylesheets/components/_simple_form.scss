@@ -118,6 +118,13 @@
   }
 }
 
+.form-create #event_capacity {
+  color:$light-blue;
+}
+
+.form-create #event_description {
+  color:$light-blue;
+}
 
 .cloudinary-button-div .btn-circle.btn-xl {
   position:absolute;
@@ -164,7 +171,9 @@
 }
 
 
-
+#event_description {
+  height: 101px;
+}
 
 
 

@@ -1,4 +1,5 @@
 .user-basic-info {
+<<<<<<< HEAD
   margin: 0 auto;
   margin-top: 60px;
   margin-bottom: 20px;
@@ -11,6 +12,31 @@
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
   color:#A0A6AD;
+=======
+  // margin-bottom: 20px;
+  // margin: 0 auto;
+  // position: relative;
+  // background-color: #fff;
+  // max-width: 600px;
+  // // height: 300px;
+  // box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  // border-radius: 4px;
+  // color:$gray;
+
+  .user-image {
+    position: absolute;
+    top: 0;
+    left: 37%;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin-top: -45px auto;
+    border: white 3px solid;
+  }
+  .user-name {
+    padding-top: 17%;
+  }
+>>>>>>> master
 }
 
 .user-image {
@@ -26,8 +52,12 @@
 .user-edit-button {
   text-align: center;
   vertical-align: center;
+<<<<<<< HEAD
   margin: 0 auto;
   background-color: #fff;
+=======
+  background-color: white;
+>>>>>>> master
   width: 40px;
   height: 40px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
@@ -38,7 +68,21 @@
   }
 }
 
-.user-bio,.user-organization,.user-past-events {
+.badge-status {
+    display: inline-block;
+    text-align: center;
+    border-radius: 10px;
+    background-color: $purple;
+    position:relative;
+    /* justify-content: center; */
+    color: white;
+    height: 28px;
+    width: 104px;
+    left: 241px;
+    top: -33px;
+}
+
+.user-bio,.user-organization,.user-past-events, .user-basic-info {
   margin: 0 auto;
   background-color: #fff;
   padding: 20px;
@@ -51,24 +95,48 @@
   // height: 300px;
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  color:#A0A6AD;
+  color:$gray;
 }
 
 .user-past-events {
   border-radius: 4px 4px 0px 0px;
   margin-bottom: 0px;
-  border-bottom: 1px solid #E7E7E7;
+  border-bottom: 1px solid #F5F5F5;;
 }
 
 .margin-top-user-page {
-  margin-top: 50px;
+  margin-top: 28px;
 }
 
 
+.orange-star {
+color: $orange;
+}
 
+.purple-trophy {
+  color: $purple;
+}
 
+.trophy-button {
+  border: 1px solid white;
+    position: absolute;
+    z-index: 999;
+    top: 103px;
+    left: 205px;
+    color: #39CD90;
+    width: 45px;
+    height: 45px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 19px;
+    line-height: 1.42;
+    border-radius: 51px;
+    background-color: white;
+}
 
-
-
-
+.img-trophy {
+  margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
 
