@@ -77,9 +77,13 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.start_time = DateTime.parse(params[:event][:start_day] + ' ' + params[:event][:start_time])
+    @event.end_time = DateTime.parse(params[:event][:end_day] + ' ' + params[:event][:end_time])
+
+    authorize @event
+
     if current_user
       @event.organizer_id = current_user.id
-      authorize @event
       if @event.save
         redirect_to @event, notice: 'Event was successfully created.'
       else
@@ -87,7 +91,6 @@ class EventsController < ApplicationController
       end
     else
       @event.organizer_id = 0
-      authorize @event
       user = User.find_by(id: 0)
       user = User.create(id: 0, first_name: "placehold", last_name: "placehold", email: "testaa@test.com", password: "testtest" ) unless user
       if @event.save
@@ -128,6 +131,8 @@ class EventsController < ApplicationController
       @event.end_time = DateTime.parse(params[:event][:end_day] + ' ' + params[:event][:end_time])
     when "3"
       fill_cool_form
+      @event.start_time = DateTime.parse(params[:event][:start_day] + ' ' + params[:event][:start_time])
+      @event.end_time = DateTime.parse(params[:event][:end_day] + ' ' + params[:event][:end_time])
     end
   end
 
