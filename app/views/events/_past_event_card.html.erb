@@ -42,7 +42,7 @@
 
   <%= link_to event_users_path(event) do %>
       <% @counter = 0 %>
-      <% event.participants.last(5).each do |par| %>
+      <% event.participants.first(3).each do |par| %>
       <% if par.photo %>
         <% @counter = @counter + 1 %>
         <%= cl_image_tag par.photo.path, class: "avatar-mini" %>
