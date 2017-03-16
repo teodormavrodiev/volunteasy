@@ -10,7 +10,10 @@
     color: $light-blue;
   }
   }
-  #event_name, #event_organization, #event_address {
+  #event_name, #event_organization, #event_address, #event_start_day, #event_end_day {
+    color: $light-blue;
+  }
+  span {
     color: $light-blue;
   }
 }
@@ -106,6 +109,8 @@ text-align: left;
   }
 }
 
-
+span .checkbox {
+  background-color: $light-blue;
+}
 
 

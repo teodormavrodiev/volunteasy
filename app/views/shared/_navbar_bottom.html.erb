@@ -4,27 +4,34 @@
 <div class="navbar-wagon-bottom">
 
   <!-- Search -->
-    <%= link_to events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
-      <% if current_page?(controller: 'events', action: 'search') %>
-        <span class="nav-icon fa fa-search active-icon"></span><br>
-        <span class="nav-button-text active-icon">Search</span>
+
+<% if current_page?(controller: 'events', action: 'search') %>
+    <%= link_to events_path, class: "nav-button nav-button-text navbar-wagon-item-bottom navbar-wagon-link active-icon" do %>
+        <span class="nav-icon fa fa-search"></span><br>
+        <span class="nav-button-text">Search</span>
+        <% end %>
       <% else %>
+      <%= link_to events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
         <span class="nav-icon fa fa-search"></span><br>
         <span class="nav-button-text">Search</span>
       <% end %>
     <% end %>
 
+
   <!-- Add Event -->
-    <%= link_to cool_form_path(1), class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
+    <%= link_to cool_form_path(1), class: "nav-button nav-button-text navbar-wagon-item-bottom navbar-wagon-link" do %>
     <span class="nav-icon fa fa-plus-circle"></span><br>
       <span class="nav-button-text">Add Event</span>
     <% end %>
+
   <!-- My Events -->
-    <%= link_to user_events_path, class: "nav-button nav-button-text navbar-wagon-item navbar-wagon-link" do %>
       <% if current_page?(controller: 'events', action: 'my_events') %>
-        <span class="nav-icon fa fa-calendar-check-o active-icon"></span><br>
-        <span class="nav-button-text active-icon">My Events</span>
+          <%= link_to user_events_path, class: "nav-button nav-button-text navbar-wagon-item-bottom navbar-wagon-link active-icon" do %>
+          <span class="nav-icon fa fa-calendar-check-o"></span><br>
+          <span class="nav-button-text">My Events</span>
+      <% end %>
       <% else %>
+        <%= link_to user_events_path, class: "nav-button nav-button-text navbar-wagon-item-bottom navbar-wagon-link" do %>
         <span class="nav-icon fa fa-calendar-check-o"></span><br>
         <span class="nav-button-text">My Events</span>
       <% end %>
