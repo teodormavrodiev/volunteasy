@@ -49,12 +49,12 @@
                 <div class="icon-compass">
                 <i class="fa fa-compass my-compass" aria-hidden="true"></i>
 
-                <%= f.input :address, placeholder: 'Your city', label: false, input_html: {class: 'city', value: cookies[:address]} %>
+                <%= f.input :address, placeholder: 'Your city', label: false, input_html: {class: 'city home-margin-bottom', value: cookies[:address]} %>
 
-                </div>
+
 
                 <%= f.button :submit, value: "Go!", class: "btn go btn-block signin", data: {disable_with: "Searching..."} %>
-
+                </div>
                 <% end %>
 
 
