@@ -15,7 +15,7 @@ ruben = User.new({
   password_confirmation: "rosebud",
   first_name: "Ruben",
   last_name: "Frommanresa",
-  organization: "helporphanpuppies",
+  organization: "Help Orphan Puppies",
   phone: "0909090909",
   photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAhQAAAAJDFlZjZmZmYwLWQ5ZTgtNDc1ZS1iNzM1LWJmZmQ3Mjc5OWE2Yw.jpg"
   })
@@ -33,7 +33,7 @@ jeanjacques = User.new({
   email: "jeanjakie@gmail.com",
   password: "rosebud",
   password_confirmation: "rosebud",
-  organization: "saveourbeach",
+  organization: "Save Our Beach",
   first_name: "Jean-Jacques",
   last_name: "Rousseau",
   phone: "09080787632",

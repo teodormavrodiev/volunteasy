@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'teodor.mavrodiev@volunteasy.com'
+  default from: 'contact@volunteasy.co'
 
   layout 'mailer'
 end

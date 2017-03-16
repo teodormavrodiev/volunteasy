@@ -28,12 +28,16 @@ Rails.application.configure do
   end
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
-
-  config.action_mailer.perform_caching = false
+  #config.action_mailer.raise_delivery_errors = false
+  #config.action_mailer.perform_caching = false
   # Action mailer delivery_method for local development testing
-  config.action_mailer.delivery_method = :letter_opener
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  #config.action_mailer.delivery_method = :letter_opener
+  #config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+
+  config.action_mailer.delivery_method   = :postmark
+  config.action_mailer.postmark_settings = { :api_token => '10f662bf-7f4d-4fe7-a5cd-91d57c95a99f' }
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
