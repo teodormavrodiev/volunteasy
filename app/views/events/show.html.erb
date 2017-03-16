@@ -1,7 +1,25 @@
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-xs-12 col-md-6 col-md-offset-3">
     <div class="event-show-card">
       <h2 class='text-center'> <%= @event.name %> </h2>
+
+      <% @event.photos.each_with_index do |photo, index| %>
+        <% if index == 0 %>
+          <a rel="gallery-1" href="<%= cl_image_path photo.path %>" class="swipebox" title="cool event">
+            <img src="<%= cl_image_path photo.path %>" alt="image" style="width: 100%; max-height: 300px; border-radius: 4px;">
+          </a>
+        <% else %>
+          <a rel="gallery-1" href="<%= cl_image_path photo.path %>" class="swipebox hidden">
+            <img src="<%= cl_image_path photo.path %>" alt="image" style="width: 100px; max-height: 300px; border-radius: 4px;">
+          </a>
+        <% end %>
+      <% end %>
+      <% if @event.photos.empty? && current_user == @event.organizer %>
+        <%= link_to "Events with photos fare better, add some photos now?", cool_form_edit_path(@event.id, 3) %>
+      <% end %>
+      <% if @event.photos.count > 1 %>
+          <p class="text-center">image 1 of <%= @event.photos.count %></p>
+      <% end %>
 
       <!-- Time of event -->
 
@@ -118,6 +136,15 @@
             } else if (markers.length == 1) {
               handler.getMap().setZoom(14);
             }
+          });
+          $( '.swipebox' ).swipebox({
+            useCSS : true, // false will force the use of jQuery for animations
+            useSVG : true, // false to force the use of png for buttons
+            initialIndexOnArray : 0, // which image index to init when a array is passed
+            hideCloseButtonOnMobile : false, // true will hide the close button on mobile devices
+            removeBarsOnMobile : true, // false will show top bar on mobile devices
+            hideBarsDelay : 3000, // delay before hiding bars on desktop
+            loopAtEnd: false // true will return to the first image after the last image is reached
           });
         });
       <% end %>

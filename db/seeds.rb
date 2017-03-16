@@ -167,8 +167,8 @@ teaching_refugees_spanish = Event.new({
   description: "No specific skills required, just a desire to help and a friendly smile",
   tags: ["Education", "Crisis Support"],
   photo_urls: [
-    "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
-  ]
+    "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf",
+  "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"]
   })
 
 teaching_refugees_english = Event.new({
