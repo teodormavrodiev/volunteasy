@@ -160,19 +160,17 @@
       <% if @event.participants.include? current_user %>
       <div class="footer going">
       <% @registration = current_user.registrations.find_by(event_id: @event.id) %>
-      Yay! You're going!
+      <i class="fa fa-check" aria-hidden="true"></i>        You're going!
       </div>
-      <div class="footer not-going">
       <%= link_to "Can't go anymore?", event_registration_path(@event, @registration), method: :delete %>
-      </div>
-      <div class="footer cancel-event">
       <% elsif @event.organizer == current_user %>
-      <%= link_to 'Cancel event?', event_path(@event), method: :delete %>
-      <%= link_to 'Edit', cool_form_edit_path(@event.id, 1) %>
+      <div class="footer cancel-event">
+      <%= link_to '<i class="fa fa-trash" aria-hidden="true"></i>  Cancel'.html_safe, event_path(@event), method: :delete %>
+      <%= link_to '<i class="fa fa-pencil" aria-hidden="true"></i>  Edit'.html_safe, cool_form_edit_path(@event.id, 1), class: 'cancel-event-edit' %>
       </div>
       <% else  %>
       <div class="footer question-going">
-      <%= link_to 'Are you going?', event_registrations_path(@event), method: :post, class: 'notice-going' %>
+      <%= link_to 'I WANT TO JOIN', event_registrations_path(@event), method: :post, class: 'notice-going' %>
       </div>
       <% end %>
 
