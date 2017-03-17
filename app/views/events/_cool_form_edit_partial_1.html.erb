@@ -64,7 +64,7 @@
             <div class="input-group login-form">
             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
            </span>
-            <%= f.date_field :start_time, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login blue-time'  %>
+            <%= f.date_field :start_day, :label => false, value: @event.start_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login blue-time'  %>
            </div>
             </div>
             <div class="col-xs-6">
@@ -81,7 +81,7 @@
             <div class="input-group login-form">
             <span class="input-group-addon" id="basic-addon1"><i class="fa fa-calendar" aria-hidden="true"></i>
             </span>
-            <%= f.date_field :end_time, :label => false, value: @event.end_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login'  %>
+            <%= f.date_field :end_day, :label => false, value: @event.end_time.strftime('%Y-%m-%d'), class: 'form-control btn-lg btn-login'  %>
             </div>
             </div>
             <div class="col-xs-6">

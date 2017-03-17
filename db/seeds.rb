@@ -305,14 +305,14 @@ business = Event.new({
 
 
 bike = Event.new({
-  name: "Volunteers needed at the BCN Ride Event!",
+  name: "Volunteers needed - Ride Event - Raise money for cancer",
   organizer_id: jackie.id,
   start_time: DateTime.strptime("15:00 18/03/2017", "%H:%M %d/%m/%Y"),
   end_time: DateTime.strptime("20:00 18/03/2017", "%H:%M %d/%m/%Y"),
   address: "Rambla del Raval, Barcelona",
   capacity: 15,
   description: "Raise money for breast cancer research! Volunteer at this exciting one day bike ride and raise money for for The Hepatitis C Trust! Volunteers are needed to help with things like set-up, check-in, food service, cheering, tear down and rest stops.",
-  tags: ["Sports", "Health"],
+  tags: ["Sports", "Community", "Health"],
   photo_urls: [
     "http://res.cloudinary.com/demo/image/fetch/https://farm6.staticflickr.com/5545/14306218244_892c83fe49.jpg"
   ]
@@ -379,9 +379,24 @@ fresh = Event.new({
   ]
   })
 
+fresh15 = Event.new({
+  name: "Help Sort Fresh Produce to go out to hungry",
+  organizer_id: jeanjacques.id,
+  start_time: DateTime.strptime("21:00 18/03/2017", "%H:%M %d/%m/%Y"),
+  end_time: DateTime.strptime("22:00 18/03/2017", "%H:%M %d/%m/%Y"),
+  address: "Carrer de Provença 120, 08029 Barcelona",
+  capacity: 15,
+  description: "Each summer the Food Bank of Barcelona receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
+  Responsabilities: Rinse produce (if needed), sort and bag/box produce.",
+  tags: ["Homeless", "Community"],
+  photo_urls: [
+    "http://res.cloudinary.com/demo/image/fetch/https://www.stanbridge.edu/img/show/reach/REACH_005--lg.jpg"
+  ]
+  })
+
 
 fresh3 = Event.new({
-  name: "Help Sort Fresh Produce to go out to hungry",
+  name: "Help Sort Fresh Produce Food Bank Barcelona",
   organizer_id: james.id,
   start_time: DateTime.strptime("18:00 01/03/2017", "%H:%M %d/%m/%Y"),
   end_time: DateTime.strptime("21:00 01/03/2017", "%H:%M %d/%m/%Y"),
@@ -493,6 +508,8 @@ puppy_feeding2.save
 bike2.save
 women.save
 old1.save
+
+
 
 registration_one = Registration.new({
   participant_id: joe.id,
@@ -641,6 +658,70 @@ registration_28 = Registration.new({
 
 
 
+
+
+registration_100 = Registration.new({
+  participant_id: james.id,
+  status: :complete,
+  event_id: bike.id,
+  })
+
+registration_101 = Registration.new({
+  participant_id: james.id,
+  status: :complete,
+  event_id: hospice.id,
+  })
+
+
+registration_102 = Registration.new({
+  participant_id: james.id,
+  status: :complete,
+  event_id: women.id,
+  })
+
+
+
+registration_103 = Registration.new({
+  participant_id: james.id,
+  status: :complete,
+  event_id: puppy_feeding2.id,
+  })
+
+
+registration_104 = Registration.new({
+  participant_id: james.id,
+  status: :complete,
+  event_id: beach_cleaning.id,
+  })
+
+registration_105 = Registration.new({
+  participant_id: james.id,
+  status: :complete,
+  event_id: plant_trees.id,
+  })
+
+
+registration_106 = Registration.new({
+  participant_id: '37',
+  status: :complete,
+  event_id: plant_trees.id,
+  })
+
+
+
+
+reg_29 = Registration.new
+
+
+
+
+registration_100.save
+registration_101.save
+registration_102.save
+registration_103.save
+registration_104.save
+registration_105.save
+registration_106.save
 
 registration_28.save
 registration_27.save
