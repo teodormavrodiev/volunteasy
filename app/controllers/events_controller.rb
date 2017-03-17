@@ -143,8 +143,12 @@ class EventsController < ApplicationController
       set_event
     when "2"
       fill_cool_edit_form
+      @event.start_time = DateTime.parse(params[:event][:start_day] + ' ' + params[:event][:start_time])
+      @event.end_time = DateTime.parse(params[:event][:end_day] + ' ' + params[:event][:end_time])
     when "3"
       set_event
+      @event.start_time = DateTime.parse(params[:event][:start_day] + ' ' + params[:event][:start_time])
+      @event.end_time = DateTime.parse(params[:event][:end_day] + ' ' + params[:event][:end_time])
       begin
         event_params
         unless @event.update(event_params)
