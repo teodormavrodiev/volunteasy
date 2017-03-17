@@ -70,6 +70,8 @@ a.selected {
 
 .results {
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .city {
@@ -77,8 +79,8 @@ a.selected {
 }
 
 .events-block {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 45px;
+  margin-bottom: 45px;
   padding-bottom: 10px;
   background-color: $green;
   border: 3px solid #fff;

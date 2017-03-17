@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 <!-- <div class="center-middle-of-page"> -->
   <%= simple_form_for @event, :url => search_path, :method => :get, class: 'form-inline' do |f| %>
-  <div class="event-search-box">
-    <div class="col-xs-12 col-sm-4">
+  <div class="event-search-box results">
+    <div class="col-xs-12 ">
       <%= f.input :address, input_html: { value: @address }, label_html: { class: 'sr-only' }, placeholder: session[:search_results] || 'Location' %>
     </div>
     <div class="row">
