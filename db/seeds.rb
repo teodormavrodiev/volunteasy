@@ -701,13 +701,6 @@ registration_105 = Registration.new({
   })
 
 
-registration_106 = Registration.new({
-  participant_id: '37',
-  status: :complete,
-  event_id: plant_trees.id,
-  })
-
-
 
 
 reg_29 = Registration.new
@@ -721,7 +714,6 @@ registration_102.save
 registration_103.save
 registration_104.save
 registration_105.save
-registration_106.save
 
 registration_28.save
 registration_27.save
