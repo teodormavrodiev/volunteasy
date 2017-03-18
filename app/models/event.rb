@@ -26,8 +26,8 @@ class Event < ApplicationRecord
 
   scope :today, -> { where('start_time BETWEEN ? AND ?', Time.now, Date.tomorrow.beginning_of_day.to_time).order(start_time: :asc) }
   scope :tomorrow, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.beginning_of_day.to_time, Date.tomorrow.end_of_day.to_time).order(start_time: :asc) }
-  scope :this_week, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.end_of_day.to_time, Date.today.end_of_week.to_time).order(start_time: :asc) }
-  scope :next_week, -> { where('start_time BETWEEN ? AND ?', Date.today.end_of_week.to_time, Date.today.end_of_week.next_week.end_of_week.to_time).order(start_time: :asc) }
+  scope :this_week, -> { where('start_time BETWEEN ? AND ?', Date.tomorrow.end_of_day.to_time, Date.today.end_of_week.end_of_day.to_time).order(start_time: :asc) }
+  scope :next_week, -> { where('start_time BETWEEN ? AND ?', Date.today.end_of_week.end_of_day.to_time, Date.today.end_of_week.next_week.end_of_week.to_time).order(start_time: :asc) }
   scope :later, -> { where('start_time > ?', Date.today.end_of_week.next_week.end_of_week.to_time).order(start_time: :asc) }
   scope :including_tags, ->(tags_list) { where("tags @> ?", "{#{tags_list.join(",")}}") }
   scope :uncomplete, -> {where('capacity > ?', participants.count)}
