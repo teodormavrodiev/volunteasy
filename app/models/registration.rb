@@ -24,7 +24,7 @@ class Registration < ApplicationRecord
     reminder = "Hi #{self.participant.first_name}! This is a reminder to let you know that #{self.event.name} starts at #{time_str}. We hope you have a great time! - Team Volunteasy"
     message = @client.account.messages.create(
       from: @twilio_number,
-      to: '652720500',
+      to: '0035988891133344',
       body: reminder,
     )
     puts message.to
