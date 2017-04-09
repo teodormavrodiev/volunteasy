@@ -43,7 +43,7 @@
         <h3> Who is coming? </h3>
       <% end %>
       <div class="participants">
-        <% @participants.first(5).each do |par| %>
+        <% @participants.first(3).each do |par| %>
           <div class="participant">
           <% if par.photo %>
             <%= link_to user_path(par) do %>

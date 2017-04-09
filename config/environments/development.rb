@@ -60,4 +60,9 @@ Rails.application.configure do
   # Use an evented file watcher to asynchronously detect changes in source code,
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
+
+
+  # Initialize default meta tags.
+  # DEFAULT_META = YAML.load_file(Rails.root.join('config/meta.yml'))
+
 end

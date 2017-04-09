@@ -3,5 +3,4 @@ namespace :event do
   task send_mail_to_past_events: :environment do
     SendMailsForPastEventsJob.perform_now
   end
-
 end
