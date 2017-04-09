@@ -6,9 +6,17 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # organizer
+
+
+# DESTROY ALL SEEDS AND RESTART
+# ==============================================================================
 Registration.destroy_all
 Event.destroy_all
 User.destroy_all
+
+# USERS
+# ==============================================================================
+
 ruben = User.new({
   email: "ruben@gmail.com",
   password: "rosebud",
@@ -19,8 +27,6 @@ ruben = User.new({
   phone: "0909090909",
   photo_url: "https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAhQAAAAJDFlZjZmZmYwLWQ5ZTgtNDc1ZS1iNzM1LWJmZmQ3Mjc5OWE2Yw.jpg"
   })
-
-
 johnny = User.new({
   email: "johnny@gmail.com",
   password: "rosebud",
@@ -31,9 +37,6 @@ johnny = User.new({
   phone: "0909090909",
   photo_url: "http://xewt12.com/wp-content/uploads/2016/02/johnny-depp-dior-vogue-3jun15-pr_b.jpg"
   })
-
-
-
 jackie = User.new({
   email: "jackie-kennedy@kennedy.com",
   password: "rosebud",
@@ -55,8 +58,6 @@ jeanjacques = User.new({
   phone: "09080787632",
   photo_url: "http://www.sarahbeaucheminwriter.com/wp-content/uploads/2014/11/rousseau.jpg"
   })
-
-
 alex = User.new({
   email: "alex-el-rider@gmail.com",
   password: "rosebud",
@@ -70,8 +71,6 @@ alex = User.new({
   HolaBici Coalition has been working to make Barcelona a great place to ride a bike for over 25 years. By working with City Administrators, Educators, and Planners, we’re putting el Raval on track so that bicycling is safe, accessible, and enjoyable for everyone.",
   photo_url: "http://res.cloudinary.com/demo/image/fetch/http://cdn.mos.cyclingnews.com/2016/03/24/2/bettini_catalunya_4-300-80.jpg"
   })
-
-
 jane = User.new({
   email: "jane@gmail.com",
   password: "rosebud",
@@ -84,8 +83,6 @@ jane = User.new({
 The program I facilitate is called the 'Sandwich Run' which involves volunteers delivering nutritious bag lunches to homeless street people by walking well travelled routes in the downtown area of Toronto where street people live.",
   photo_url: "http://res.cloudinary.com/demo/image/fetch/https://s-media-cache-ak0.pinimg.com/originals/9f/71/12/9f71124b93343d50f68548af271a54db.jpg"
   })
-
-
 james = User.new({
   email: "james@gmail.com",
   password: "james@gmail.com",
@@ -98,7 +95,6 @@ james = User.new({
   photo_url: "https://avatars3.githubusercontent.com/u/5620278?v=3&s=400"
   })
 
-
 alex.save
 johnny.save
 ruben.save
@@ -110,10 +106,8 @@ puts ruben.attributes
 puts jeanjacques.attributes
 puts jackie.attributes
 
-
-
-
-# participant
+# PARTICIPANTS
+# ==============================================================================
 joe = User.new({
   email: "joel@gmail.com",
   password: "rosebud",
@@ -155,10 +149,6 @@ marina =  User.new({
   photo_url: "http://ramblingmandie.com/wp-content/uploads/2014/09/girl-volunteering.jpg"
   })
 
-
-
-
-
 mariah.save
 joe.save
 marina.save
@@ -167,11 +157,567 @@ jimmy.save
 puts joe.attributes
 puts julia.attributes
 puts jimmy.attributes
+
+
+# ==============================================================================
+# EVENTS (BATCH 1, prior to final presentation) (Continues to line 678)
+# This batch is being copied to line 680 and dates are being changed to be in
+# the future as of 9 April 2017.
+# So as not to weigh down the size of the seed file and destroy past events,
+# please comment out old seeds and begin a new batch, changing the dates to be
+# in the future.
+# ==============================================================================
+
+# puppy_feeding = Event.new({
+#   name: "Puppy feeding",
+#   organizer_id: james.id,
+#   start_time: DateTime.strptime("19:00 10/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 10/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Refugi, Carrer Nou de la Rambla, 175, 08004 Barcelona",
+#   capacity: 8,
+#   description: "Help us feeding puppies at Barcelona shelter!",
+#   tags: ["Animals"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
+#   ]
+#   })
+
+# puppy_feeding2 = Event.new({
+#   name: "Help us take care of an orphaned litter of puppies",
+#   organizer_id: ruben.id,
+#   start_time: DateTime.strptime("14:00 13/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("18:00 13/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Refugi, Carrer Nou de la Rambla, 175, 08004 Barcelona",
+#   capacity: 8,
+#   description: "Help us feeding puppies at Barcelona shelter!",
+#   tags: ["Animals"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://s3.amazonaws.com/assets.prod.vetstreet.com/36/57/b54c6efb461ba404656741ea0722/puppy-raisers-janet-keeler-fawn.jpg"
+#   ]
+#   })
+
+# teaching_refugees_spanish = Event.new({
+#   name: "Teach refugees spanish",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("19:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Centro del Estudio, Carrer de la Princesa, 08003 Barcelona",
+#   capacity: 8,
+#   description: "No specific skills required, just a desire to help and a friendly smile",
+#   tags: ["Education", "Crisis Support"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+#   ]
+#   })
+
+# teaching_refugees_spanish = Event.new({
+#   name: "Teach refugees spanish",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("19:00 17/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 17/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Centro del Estudio, Carrer de la Princesa, 08003 Barcelona",
+#   capacity: 8,
+#   description: "No specific skills required, just a desire to help and a friendly smile",
+#   tags: ["Education", "Crisis Support"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf",
+#   "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"]
+#   })
+
+# teaching_refugees_english = Event.new({
+#   name: "Teach refugees english",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("19:00 22/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 22/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Centro del Estudio, Carrer de la Princesa, 08003 Barcelona",
+#   capacity: 8,
+#   description: "No specific skills required, just a desire to help and a friendly smile",
+#   tags: ["Education", "Crisis Support"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://teachforall.org/sites/default/files/styles/news_network_learning_node_image/public/Storify%20news%20post.jpg?itok=sk0N5lWf"
+#   ]
+#   })
+# beach_cleaning = Event.new({
+#   name: "Let's clean the beach!",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("19:00 20/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 20/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Platja de la Barceloneta, 08003 Barcelone",
+#   capacity: 15,
+#   description: "Let's work together for a nicer beach :)",
+#   tags: ["Animals", "Environment"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://www.editorial.sg/wp-content/uploads/17THBEACH_116636f.jpg"
+#   ]
+#   })
+# nursing_home = Event.new({
+#   name: "Cup of tea at the Nursing Home",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("19:00 16/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 16/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Paradise Nursing Home, calle Sardenya, 08765 Barcelona",
+#   capacity: 5,
+#   description: "Come for a chat and share a meal with our residents",
+#   tags: ["Seniors", "People with disabilities"],
+#   photo_urls:[
+#     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+#   ]
+#   })
+# plant_trees = Event.new({
+#   name: "Help save local forest",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("19:00 08/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 08/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Selva de Montseny, 08766 Barcelona",
+#   capacity: 5,
+#   description: "We'll plant trees and discuss about local initiatives",
+#   tags: ["Environment"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://news.valenciacollege.edu/files/2012/03/Tree-Campus-for-Home-Page-1851.jpg"
+#   ]
+#   })
+# sewing = Event.new({
+#   name: "Activity volunteer - sewing",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("19:00 10/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 10/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "3 calle de la Flor, 08766 Barcelona",
+#   capacity: 14,
+#   description: "We partner with individuals ages 60+ to foster community connections and improve quality of life.",
+#   tags: ["Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://extension.wsu.edu/snohomish/wp-content/uploads/sites/7/2012/11/sewing-mentor-mentee-396x262.jpg"
+#   ]
+#   })
+# business = Event.new({
+#   name: "Share your knowledge with a small business owner",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("19:00 15/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 15/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "3 calle de Catalunya, 08766 Barcelona",
+#   capacity: 14,
+#   description: "Volunteer as a mentor on MicroMentor.org and make a meaningful connection with a business owner. ",
+#   tags: ["Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://cdn2.goabroad.com/images/a/top/liz-2015-gocambio-ireland-php-994-hd-1455593945.jpg"
+#   ]
+#   })
+
+
+# bike = Event.new({
+#   name: "Volunteers needed at the BCN Ride Event!",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("15:00 18/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("20:00 18/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Rambla del Raval, Barcelona",
+#   capacity: 15,
+#   description: "Raise money for breast cancer research! Volunteer at this exciting one day bike ride and raise money for for The Hepatitis C Trust! Volunteers are needed to help with things like set-up, check-in, food service, cheering, tear down and rest stops.",
+#   tags: ["Sports", "Health"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://farm6.staticflickr.com/5545/14306218244_892c83fe49.jpg"
+#   ]
+#   })
+
+
+# women = Event.new({
+#   name: "Go red for women's day",
+#   organizer_id: jackie.id,
+#   start_time: DateTime.strptime("10:00 08/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("15:00 08/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Passeig de Santa Madrona, s/n, 08038 Barcelona",
+#   capacity: 20,
+#   description: "Help the Spanish Heart Association Go Red For Women Event. The duties will vary from set up, greeting, silent auction help, decorating, etc.",
+#   tags: ["Women", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://www.gundersenhealth.org/app/files/public/5237/Boscobel-Go-RED-Staff-Pic.jpg"
+#   ]
+#   })
+
+# bike2 = Event.new({
+#   name: "Volunteer Sunday - Bici Centro Raval",
+#   organizer_id: alex.id,
+#   start_time: DateTime.strptime("10:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("14:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Carrer de la Lluna, 08001 Barcelona",
+#   capacity: 15,
+#   description: "Volunteer Sunday is the day when we just have volunteers working on bikes, helping us with tasks and hopefully learning something in the process. There’s no experience with bikes required - just a willingness to learn and help out.
+#   HolaBici is happy to provide Volunteer Opportunities throughout the year - and we love to meet new people that want to help! Bici Centro is always looking for volunteers, whatever your skill level with a bike may be. We're reaching out to Santa Barbara County through our advocacy and education programs, so whether you're showing someone how to fix a bike, ride it safely, or help park it, by volunteering you are making the Raval community stronger.",
+#   tags: ["Sports", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://d3n8a8pro7vhmx.cloudfront.net/sbbike/pages/32/attachments/original/1447200845/bicithumbsup.jpg"
+#   ]
+#   })
+
+
+
+# hospice = Event.new({
+#   name: "Bring Joy to Hospice Patients",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("10:00 18/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("14:00 18/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "St. Croix Hospice, El Carmel, Barcelona",
+#   capacity: 15,
+#   description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
+#   tags: ["Seniors", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+#   ]
+#   })
+
+# fresh = Event.new({
+#   name: "Help Sort Fresh Produce to go out to hungry",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("18:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Carrer de Provença 120, 08029 Barcelona",
+#   capacity: 15,
+#   description: "Each summer the Food Bank of Barcelona receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
+#   Responsabilities: Rinse produce (if needed), sort and bag/box produce.",
+#   tags: ["Homeless", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://www.stanbridge.edu/img/show/reach/REACH_005--lg.jpg"
+#   ]
+#   })
+
+
+# fresh3 = Event.new({
+#   name: "Help Sort Fresh Produce to go out to hungry",
+#   organizer_id: james.id,
+#   start_time: DateTime.strptime("18:00 01/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("21:00 01/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Carrer de Provença 120, 08029 Barcelona",
+#   capacity: 15,
+#   description: "Each summer the Food Bank of Barcelona receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
+#   Responsabilities: Rinse produce (if needed), sort and bag/box produce.",
+#   tags: ["Homeless", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://www.stanbridge.edu/img/show/reach/REACH_005--lg.jpg"
+#   ]
+#   })
+
+# hospice3 = Event.new({
+#   name: "Animal Shelter Volunteers needed!",
+#   organizer_id: james.id,
+#   start_time: DateTime.strptime("10:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("14:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "3 carrer de la Unio, Raval, Barcelona",
+#   capacity: 15,
+#   description: "Become an animal shelter volunteer and help to improve the quality of life for abandoned animals. We need extra staff to walk dogs on Sunday.",
+#   tags: ["Animals"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://www.catawbahumane.org/wp-content/uploads/2013/03/volunteer.jpg"
+#   ]
+#   })
+
+
+# homeless1 = Event.new({
+#   name: "Sandwiches, Socks or Bottled Water for the Homeless",
+#   organizer_id: jane.id,
+#   start_time: DateTime.strptime("20:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("22:00 19/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Parc de la Ciutadella, Barcelona",
+#   capacity: 15,
+#   description: "Hello All:
+# Please join me on this sandwich run.
+# We will be delivering nutritious bagged lunches to the homeless by walking well travelled routes in downtown Raval where street people live. You will be delivering the lunches with an experienced team leader, who will guide you every step of the way.",
+#   tags: ["Homeless", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://media.glassdoor.com/l/7b/68/71/41/sandwich-making-for-the-homeless.jpg"
+#   ]
+#   })
+
+
+# homeless0 = Event.new({
+#   name: "Sandwiches, Socks or Bottled Water for the Homeless",
+#   organizer_id: james.id,
+#   start_time: DateTime.strptime("20:00 12/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("22:00 12/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "Parc de la Ciutadella, Barcelona",
+#   capacity: 15,
+#   description: "Hello All:
+# Please join me on this sandwich run.
+# We will be delivering nutritious bagged lunches to the homeless by walking well travelled routes in downtown Raval where street people live. You will be delivering the lunches with an experienced team leader, who will guide you every step of the way.",
+#   tags: ["Homeless", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/https://media.glassdoor.com/l/7b/68/71/41/sandwich-making-for-the-homeless.jpg"
+#   ]
+#   })
+
+
+# pet2 = Event.new({
+#   name: "Bring Joy to Hospice Patients",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("10:00 29/03/2017", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("14:00 29/03/2017", "%H:%M %d/%m/%Y"),
+#   address: "St. Croix Hospice, El Carmel, Barcelona",
+#   capacity: 15,
+#   description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
+#   tags: ["Seniors", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+#   ]
+#   })
+
+# old1 = Event.new({
+#   name: "The Very Best Greatest Most Awesome Event Ever In the Whole Wide Universe",
+#   organizer_id: jeanjacques.id,
+#   start_time: DateTime.strptime("10:00 29/03/2015", "%H:%M %d/%m/%Y"),
+#   end_time: DateTime.strptime("14:00 29/03/2015", "%H:%M %d/%m/%Y"),
+#   address: "St. Croix Hospice, El Carmel, Barcelona",
+#   capacity: 15,
+#   description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
+#   tags: ["Seniors", "Community"],
+#   photo_urls: [
+#     "http://res.cloudinary.com/demo/image/fetch/http://teensgotcents.com/wp-content/uploads/2014/08/nursinghome1-1024x766.jpg"
+#   ]
+#   })
+
+# fresh3.save
+# pet2.save
+# homeless1.save
+# homeless0.save
+# fresh.save
+# homeless0.save
+# hospice.save
+# hospice3.save
+# puppy_feeding.save
+# teaching_refugees_english.save
+# teaching_refugees_spanish.save
+# beach_cleaning.save
+# nursing_home.save
+# plant_trees.save
+# sewing.save
+# business.save
+# bike.save
+# puppy_feeding2.save
+# bike2.save
+# women.save
+# old1.save
+
+# registration_one = Registration.new({
+#   participant_id: joe.id,
+#   event_id: bike.id
+#   })
+# registration_two = Registration.new({
+#   participant_id: joe.id,
+#   event_id: beach_cleaning.id
+#   })
+# registration_three = Registration.new({
+#   participant_id: julia.id,
+#   event_id: nursing_home.id
+#   })
+# registration_for = Registration.new({
+#   participant_id: julia.id,
+#   event_id: puppy_feeding.id
+#   })
+# registration_five = Registration.new({
+#   participant_id: jimmy.id,
+#   event_id: puppy_feeding.id
+#   })
+# registration_six = Registration.new({
+#   participant_id: jimmy.id,
+#   event_id: teaching_refugees_english.id
+#   })
+# registration_seven = Registration.new({
+#   participant_id: julia.id,
+#   event_id: teaching_refugees_english.id
+#   })
+# registration_eight = Registration.new({
+#   participant_id: jimmy.id,
+#   event_id: beach_cleaning.id
+#   })
+# registration_nine = Registration.new({
+#   participant_id: julia.id,
+#   event_id: plant_trees.id
+#   })
+# registration_nine = Registration.new({
+#   participant_id: julia.id,
+#   event_id: plant_trees.id
+#   })
+# registration_ten = Registration.new({
+#   participant_id: johnny.id,
+#   event_id: homeless1.id
+#   })
+
+# registration_twelve = Registration.new({
+#   participant_id: johnny.id,
+#   event_id: bike.id
+#   })
+
+# registration_eleven = Registration.new({
+#   participant_id: johnny.id,
+#   event_id: teaching_refugees_english.id
+#   })
+
+# registration_thirt = Registration.new({
+#   participant_id: julia.id,
+#   event_id: bike.id
+#   })
+
+# registration_forte = Registration.new({
+#   participant_id: jimmy.id,
+#   event_id: bike.id
+#   })
+
+
+# registration_15 = Registration.new({
+#   participant_id: jimmy.id,
+#   event_id: homeless0.id
+#   })
+
+# registration_16 = Registration.new({
+#   participant_id: johnny.id,
+#   event_id: homeless0.id
+#   })
+
+# registration_17 = Registration.new({
+#   participant_id: julia.id,
+#   event_id: homeless0.id
+#   })
+
+# registration_18 = Registration.new({
+#   participant_id: joe.id,
+#   event_id: homeless0.id
+#   })
+
+# registration_19 = Registration.new({
+#   participant_id: marina.id,
+#   event_id: homeless0.id
+#   })
+
+# registration_20 = Registration.new({
+#   participant_id: mariah.id,
+#   event_id: homeless0.id
+#   })
+
+# registration_22 = Registration.new({
+#   participant_id: marina.id,
+#   status: :complete,
+#   event_id: business.id,
+#   })
+
+# registration_21 = Registration.new({
+#   participant_id: marina.id,
+#   status: :complete,
+#   event_id: puppy_feeding.id,
+#   })
+
+# registration_23 = Registration.new({
+#   participant_id: marina.id,
+#   status: :complete,
+#   event_id: nursing_home.id,
+#   })
+
+# registration_24 = Registration.new({
+#   participant_id: marina.id,
+#   status: :complete,
+#   event_id: fresh3.id,
+#   })
+
+# registration_25 = Registration.new({
+#   participant_id: mariah.id,
+#   status: :complete,
+#   event_id: fresh3.id,
+#   })
+
+# registration_26 = Registration.new({
+#   participant_id: joe.id,
+#   status: :complete,
+#   event_id: fresh3.id,
+#   })
+
+# registration_27 = Registration.new({
+#   participant_id: johnny.id,
+#   status: :complete,
+#   event_id: fresh3.id,
+#   })
+
+# registration_28 = Registration.new({
+#   participant_id: jackie.id,
+#   status: :complete,
+#   event_id: fresh3.id,
+#   })
+
+# registration_28.save
+# registration_27.save
+# registration_26.save
+# registration_25.save
+# registration_24.save
+# registration_23.save
+# registration_22.save
+# registration_21.save
+# registration_20.save
+# registration_19.save
+# registration_18.save
+# registration_17.save
+# registration_16.save
+# registration_15.save
+# registration_forte.save
+# registration_ten.save
+# registration_nine.save
+# registration_eleven.save
+# registration_twelve.save
+# registration_thirt.save
+# registration_one.save
+# registration_two.save
+# registration_three.save
+# registration_for.save
+# registration_five.save
+# registration_six.save
+# registration_seven.save
+# registration_eight.save
+
+# reg10 = Registration.new({
+#   participant_id: jimmy.id,
+#   event_id: old1.id,
+#   }).save
+# reg11 = Registration.new({
+#   participant_id: joe.id,
+#   event_id: old1.id,
+#   }).save
+# reg12 = Registration.new({
+#   participant_id: mariah.id,
+#   event_id: bike.id,
+#   }).save
+
+# puts "///////////////////"
+# puts bike.attributes
+
+# ==============================================================================
+# EVENTS (BATCH 2, 9 April 2017) (Continues to line 1208)
+# So as not to weigh down the size of the seed file and destroy past events,
+# please comment out old seeds and begin a new batch after this one, changing
+# the dates to be in the future.
+# ==============================================================================
+
+require 'date'
+
+class Time
+  def to_datetime
+    # Convert seconds + microseconds into a fractional number of seconds
+    seconds = sec + Rational(usec, 10**6)
+
+    # Convert a UTC offset measured in minutes to one measured in a
+    # fraction of a day.
+    offset = Rational(utc_offset, 60 * 60 * 24)
+    DateTime.new(year, month, day, hour, min, seconds, offset)
+  end
+end
+
+weeks2_from_now_start = (Time.now + (2*7*24*60*60)).to_datetime
+weeks2_from_now_end = (Time.now + (2*7*24*60*60)).to_datetime
+weeks4_from_now_start = (Time.now + (4*7*24*60*60)).to_datetime
+weeks4_from_now_end = (Time.now + (4*7*24*60*60)).to_datetime
+weeks6_from_now_start = (Time.now + (6*7*24*60*60)).to_datetime
+weeks6_from_now_end = (Time.now + (6*7*24*60*60)).to_datetime
+weeks8_from_now_start = (Time.now + (8*7*24*60*60)).to_datetime
+weeks8_from_now_end = (Time.now + (8*7*24*60*60)).to_datetime
+
 puppy_feeding = Event.new({
   name: "Puppy feeding",
   organizer_id: james.id,
-  start_time: DateTime.strptime("19:00 10/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 10/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks2_from_now_start,
+  end_time: weeks2_from_now_end,
   address: "Refugi, Carrer Nou de la Rambla, 175, 08004 Barcelona",
   capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!",
@@ -181,12 +727,11 @@ puppy_feeding = Event.new({
   ]
   })
 
-
 puppy_feeding2 = Event.new({
   name: "Help us take care of an orphaned litter of puppies",
   organizer_id: ruben.id,
-  start_time: DateTime.strptime("14:00 13/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("18:00 13/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks4_from_now_start,
+  end_time: weeks4_from_now_end,
   address: "Refugi, Carrer Nou de la Rambla, 175, 08004 Barcelona",
   capacity: 8,
   description: "Help us feeding puppies at Barcelona shelter!",
@@ -199,8 +744,8 @@ puppy_feeding2 = Event.new({
 teaching_refugees_spanish = Event.new({
   name: "Teach refugees spanish",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 19/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks6_from_now_start,
+  end_time: weeks6_from_now_end,
   address: "Centro del Estudio, Carrer de la Princesa, 08003 Barcelona",
   capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile",
@@ -210,11 +755,11 @@ teaching_refugees_spanish = Event.new({
   ]
   })
 
-teaching_refugees_spanish = Event.new({
+teaching_refugees_spanish2 = Event.new({
   name: "Teach refugees spanish",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 17/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 17/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks8_from_now_start,
+  end_time: weeks8_from_now_end,
   address: "Centro del Estudio, Carrer de la Princesa, 08003 Barcelona",
   capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile",
@@ -227,8 +772,8 @@ teaching_refugees_spanish = Event.new({
 teaching_refugees_english = Event.new({
   name: "Teach refugees english",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 22/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 22/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks2_from_now_start,
+  end_time: weeks2_from_now_end,
   address: "Centro del Estudio, Carrer de la Princesa, 08003 Barcelona",
   capacity: 8,
   description: "No specific skills required, just a desire to help and a friendly smile",
@@ -240,8 +785,8 @@ teaching_refugees_english = Event.new({
 beach_cleaning = Event.new({
   name: "Let's clean the beach!",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("19:00 20/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 20/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks4_from_now_start,
+  end_time: weeks4_from_now_end,
   address: "Platja de la Barceloneta, 08003 Barcelone",
   capacity: 15,
   description: "Let's work together for a nicer beach :)",
@@ -253,8 +798,8 @@ beach_cleaning = Event.new({
 nursing_home = Event.new({
   name: "Cup of tea at the Nursing Home",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("19:00 16/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 16/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks6_from_now_start,
+  end_time: weeks6_from_now_end,
   address: "Paradise Nursing Home, calle Sardenya, 08765 Barcelona",
   capacity: 5,
   description: "Come for a chat and share a meal with our residents",
@@ -266,8 +811,8 @@ nursing_home = Event.new({
 plant_trees = Event.new({
   name: "Help save local forest",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("19:00 08/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 08/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks8_from_now_start,
+  end_time: weeks8_from_now_end,
   address: "Selva de Montseny, 08766 Barcelona",
   capacity: 5,
   description: "We'll plant trees and discuss about local initiatives",
@@ -279,8 +824,8 @@ plant_trees = Event.new({
 sewing = Event.new({
   name: "Activity volunteer - sewing",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 10/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 10/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks2_from_now_start,
+  end_time: weeks2_from_now_end,
   address: "3 calle de la Flor, 08766 Barcelona",
   capacity: 14,
   description: "We partner with individuals ages 60+ to foster community connections and improve quality of life.",
@@ -292,8 +837,8 @@ sewing = Event.new({
 business = Event.new({
   name: "Share your knowledge with a small business owner",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("19:00 15/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 15/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks4_from_now_start,
+  end_time: weeks4_from_now_end,
   address: "3 calle de Catalunya, 08766 Barcelona",
   capacity: 14,
   description: "Volunteer as a mentor on MicroMentor.org and make a meaningful connection with a business owner. ",
@@ -307,8 +852,8 @@ business = Event.new({
 bike = Event.new({
   name: "Volunteers needed at the BCN Ride Event!",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("15:00 18/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("20:00 18/03/2017", "%H:%M %d/%m/%Y"),
+  start_time: weeks6_from_now_start,
+  end_time: weeks6_from_now_end,
   address: "Rambla del Raval, Barcelona",
   capacity: 15,
   description: "Raise money for breast cancer research! Volunteer at this exciting one day bike ride and raise money for for The Hepatitis C Trust! Volunteers are needed to help with things like set-up, check-in, food service, cheering, tear down and rest stops.",
@@ -322,11 +867,11 @@ bike = Event.new({
 women = Event.new({
   name: "Go red for women's day",
   organizer_id: jackie.id,
-  start_time: DateTime.strptime("10:00 08/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("15:00 08/03/2017", "%H:%M %d/%m/%Y"),
-  address: "Passeig de Santa Madrona, s/n, 08038 Barcelona",
+  start_time: weeks8_from_now_start,
+  end_time: weeks8_from_now_end,
+  address: "3074 E 23rd Ave",
   capacity: 20,
-  description: "Help the Spanish Heart Association Go Red For Women Event. The duties will vary from set up, greeting, silent auction help, decorating, etc.",
+  description: "Help the US Heart Association Go Red For Women Event. The duties will vary from set up, greeting, silent auction help, decorating, etc.",
   tags: ["Women", "Community"],
   photo_urls: [
     "http://res.cloudinary.com/demo/image/fetch/http://www.gundersenhealth.org/app/files/public/5237/Boscobel-Go-RED-Staff-Pic.jpg"
@@ -334,11 +879,11 @@ women = Event.new({
   })
 
 bike2 = Event.new({
-  name: "Volunteer Sunday - Bici Centro Raval",
+  name: "Volunteer Sunday",
   organizer_id: alex.id,
-  start_time: DateTime.strptime("10:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("14:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  address: "Carrer de la Lluna, 08001 Barcelona",
+  start_time: weeks2_from_now_start,
+  end_time: weeks2_from_now_end,
+  address: "2801 N Downing St, Denver, CO 80205",
   capacity: 15,
   description: "Volunteer Sunday is the day when we just have volunteers working on bikes, helping us with tasks and hopefully learning something in the process. There’s no experience with bikes required - just a willingness to learn and help out.
   HolaBici is happy to provide Volunteer Opportunities throughout the year - and we love to meet new people that want to help! Bici Centro is always looking for volunteers, whatever your skill level with a bike may be. We're reaching out to Santa Barbara County through our advocacy and education programs, so whether you're showing someone how to fix a bike, ride it safely, or help park it, by volunteering you are making the Raval community stronger.",
@@ -348,14 +893,12 @@ bike2 = Event.new({
   ]
   })
 
-
-
 hospice = Event.new({
   name: "Bring Joy to Hospice Patients",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("10:00 18/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("14:00 18/03/2017", "%H:%M %d/%m/%Y"),
-  address: "St. Croix Hospice, El Carmel, Barcelona",
+  start_time: weeks4_from_now_start,
+  end_time: weeks4_from_now_end,
+  address: "1375 19th Ave, Denver, CO 80218",
   capacity: 15,
   description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
   tags: ["Seniors", "Community"],
@@ -367,11 +910,11 @@ hospice = Event.new({
 fresh = Event.new({
   name: "Help Sort Fresh Produce to go out to hungry",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("18:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  address: "Carrer de Provença 120, 08029 Barcelona",
+  start_time: weeks6_from_now_start,
+  end_time: weeks6_from_now_end,
+  address: "1801 N Williams St, Denver, CO 80218",
   capacity: 15,
-  description: "Each summer the Food Bank of Barcelona receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
+  description: "Each summer the Food Bank of Denver receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
   Responsabilities: Rinse produce (if needed), sort and bag/box produce.",
   tags: ["Homeless", "Community"],
   photo_urls: [
@@ -383,9 +926,9 @@ fresh = Event.new({
 fresh3 = Event.new({
   name: "Help Sort Fresh Produce to go out to hungry",
   organizer_id: james.id,
-  start_time: DateTime.strptime("18:00 01/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("21:00 01/03/2017", "%H:%M %d/%m/%Y"),
-  address: "Carrer de Provença 120, 08029 Barcelona",
+  start_time: weeks8_from_now_start,
+  end_time: weeks8_from_now_end,
+  address: "1801 N Williams St, Denver, CO 80218",
   capacity: 15,
   description: "Each summer the Food Bank of Barcelona receives thousands of pounds of fresh produce from the farm in Castelldefells, corporate gardens and from distributors. This produce needs to be sorted and bagged for easier access for our partner agencies.
   Responsabilities: Rinse produce (if needed), sort and bag/box produce.",
@@ -398,9 +941,9 @@ fresh3 = Event.new({
 hospice3 = Event.new({
   name: "Animal Shelter Volunteers needed!",
   organizer_id: james.id,
-  start_time: DateTime.strptime("10:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("14:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  address: "3 carrer de la Unio, Raval, Barcelona",
+  start_time: weeks2_from_now_start,
+  end_time: weeks2_from_now_end,
+  address: "1241 W Bayaud Ave, Denver, CO 80223",
   capacity: 15,
   description: "Become an animal shelter volunteer and help to improve the quality of life for abandoned animals. We need extra staff to walk dogs on Sunday.",
   tags: ["Animals"],
@@ -413,13 +956,13 @@ hospice3 = Event.new({
 homeless1 = Event.new({
   name: "Sandwiches, Socks or Bottled Water for the Homeless",
   organizer_id: jane.id,
-  start_time: DateTime.strptime("20:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("22:00 19/03/2017", "%H:%M %d/%m/%Y"),
-  address: "Parc de la Ciutadella, Barcelona",
+  start_time: weeks4_from_now_start,
+  end_time: weeks4_from_now_end,
+  address: "W 5th Ave & Lipan St, Denver, CO 80204",
   capacity: 15,
   description: "Hello All:
 Please join me on this sandwich run.
-We will be delivering nutritious bagged lunches to the homeless by walking well travelled routes in downtown Raval where street people live. You will be delivering the lunches with an experienced team leader, who will guide you every step of the way.",
+We will be delivering nutritious bagged lunches to the homeless by walking well travelled routes in downtown Denver where street people live. You will be delivering the lunches with an experienced team leader, who will guide you every step of the way.",
   tags: ["Homeless", "Community"],
   photo_urls: [
     "http://res.cloudinary.com/demo/image/fetch/https://media.glassdoor.com/l/7b/68/71/41/sandwich-making-for-the-homeless.jpg"
@@ -428,15 +971,13 @@ We will be delivering nutritious bagged lunches to the homeless by walking well 
 
 
 homeless0 = Event.new({
-  name: "Sandwiches, Socks or Bottled Water for the Homeless",
+  name: "Help Care for Injured Dogs",
   organizer_id: james.id,
-  start_time: DateTime.strptime("20:00 12/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("22:00 12/03/2017", "%H:%M %d/%m/%Y"),
-  address: "Parc de la Ciutadella, Barcelona",
+  start_time: weeks6_from_now_start,
+  end_time: weeks6_from_now_end,
+  address: "2080 S Quebec St, Denver, CO 80231",
   capacity: 15,
-  description: "Hello All:
-Please join me on this sandwich run.
-We will be delivering nutritious bagged lunches to the homeless by walking well travelled routes in downtown Raval where street people live. You will be delivering the lunches with an experienced team leader, who will guide you every step of the way.",
+  description: "We will be delivering medical care to dogs and cats.",
   tags: ["Homeless", "Community"],
   photo_urls: [
     "http://res.cloudinary.com/demo/image/fetch/https://media.glassdoor.com/l/7b/68/71/41/sandwich-making-for-the-homeless.jpg"
@@ -447,9 +988,9 @@ We will be delivering nutritious bagged lunches to the homeless by walking well 
 pet2 = Event.new({
   name: "Bring Joy to Hospice Patients",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("10:00 29/03/2017", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("14:00 29/03/2017", "%H:%M %d/%m/%Y"),
-  address: "St. Croix Hospice, El Carmel, Barcelona",
+  start_time: weeks8_from_now_start,
+  end_time: weeks8_from_now_end,
+  address: "1920 N High St, Denver, CO 80218",
   capacity: 15,
   description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
   tags: ["Seniors", "Community"],
@@ -459,11 +1000,11 @@ pet2 = Event.new({
   })
 
 old1 = Event.new({
-  name: "The Very Best Greatest Most Awesome Event Ever In the Whole Wide Universe",
+  name: "Care for Hospital Patients",
   organizer_id: jeanjacques.id,
-  start_time: DateTime.strptime("10:00 29/03/2015", "%H:%M %d/%m/%Y"),
-  end_time: DateTime.strptime("14:00 29/03/2015", "%H:%M %d/%m/%Y"),
-  address: "St. Croix Hospice, El Carmel, Barcelona",
+  start_time: weeks2_from_now_start,
+  end_time: weeks2_from_now_end,
+  address: "1375 19th Ave, Denver, CO 80218",
   capacity: 15,
   description: "St. Croix Hospice is seeking compassionate individuals to visit people affected by a life-limiting illness. We have several volunteer opportunities available: companionship, vigil, and pet therapy.",
   tags: ["Seniors", "Community"],
@@ -483,6 +1024,7 @@ hospice3.save
 puppy_feeding.save
 teaching_refugees_english.save
 teaching_refugees_spanish.save
+teaching_refugees_spanish2.save
 beach_cleaning.save
 nursing_home.save
 plant_trees.save
@@ -638,10 +1180,6 @@ registration_28 = Registration.new({
   event_id: fresh3.id,
   })
 
-
-
-
-
 registration_28.save
 registration_27.save
 registration_26.save
@@ -683,8 +1221,6 @@ reg12 = Registration.new({
   participant_id: mariah.id,
   event_id: bike.id,
   }).save
-
-
 
 puts "///////////////////"
 puts bike.attributes
